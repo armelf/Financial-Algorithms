@@ -1,0 +1,295 @@
+# NB. By return we mean the return obtained after keeping a long position during the whole next semester
+
+From 2009-06-30 to 2009-08-31
+
+Classifier performance
+ ====================
+Accuracy score:  1.00
+Precision score:  1.00
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 2
+Average return for stock predictions:  21.7 %
+Average market return in the same period:  16.0% 
+Compared to the index, our strategy earns  5.7 percentage points more
+
+From 2010-03-31 to 2010-03-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.67
+Precision score:  1.00
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 2
+Average return for stock predictions:  4.9 %
+Average market return in the same period: -2.0% 
+Compared to the index, our strategy earns  6.9 percentage points more
+
+From 2010-09-30 to 2010-11-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.75
+Precision score:  0.68
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 25
+Average return for stock predictions:  26.5 %
+Average market return in the same period:  15.8% 
+Compared to the index, our strategy earns  10.6 percentage points more
+
+From 2011-03-31 to 2011-03-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.68
+Precision score:  0.74
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 35
+Average return for stock predictions: -2.2 %
+Average market return in the same period: -13.2% 
+Compared to the index, our strategy earns  10.9 percentage points more
+
+From 2011-09-30 to 2011-09-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.44
+Precision score:  0.33
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 57
+Average return for stock predictions:  20.9 %
+Average market return in the same period:  24.4% 
+Compared to the index, our strategy earns -3.6 percentage points more
+
+From 2011-10-31 to 2012-02-29
+
+Classifier performance
+ ====================
+Accuracy score:  0.59
+Precision score:  0.55
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 11
+Average return for stock predictions:  9.3 %
+Average market return in the same period:  4.7% 
+Compared to the index, our strategy earns  4.7 percentage points more
+
+From 2012-07-31 to 2012-08-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.41
+Precision score:  0.50
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 8
+Average return for stock predictions:  13.8 %
+Average market return in the same period:  9.5% 
+Compared to the index, our strategy earns  4.4 percentage points more
+
+From 2012-12-31 to 2013-01-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.59
+Precision score:  0.57
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 42
+Average return for stock predictions:  22.9 %
+Average market return in the same period:  13.1% 
+Compared to the index, our strategy earns  9.7 percentage points more
+
+From 2013-05-31 to 2013-07-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.78
+Precision score:  0.71
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 7
+Average return for stock predictions:  14.8 %
+Average market return in the same period:  5.9% 
+Compared to the index, our strategy earns  8.9 percentage points more
+
+From 2013-12-31 to 2014-01-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.63
+Precision score:  0.69
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 39
+Average return for stock predictions:  17.0 %
+Average market return in the same period:  6.9% 
+Compared to the index, our strategy earns  10.0 percentage points more
+
+From 2014-06-30 to 2014-06-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.62
+Precision score:  0.71
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 31
+Average return for stock predictions:  13.1 %
+Average market return in the same period:  6.5% 
+Compared to the index, our strategy earns  6.6 percentage points more
+
+From 2014-12-31 to 2014-12-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.63
+Precision score:  0.53
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 77
+Average return for stock predictions:  4.2 %
+Average market return in the same period:  1.0% 
+Compared to the index, our strategy earns  3.3 percentage points more
+
+From 2015-06-30 to 2015-07-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.68
+Precision score:  0.66
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 44
+Average return for stock predictions:  8.7 %
+Average market return in the same period: -1.7% 
+Compared to the index, our strategy earns  10.4 percentage points more
+
+From 2015-12-31 to 2015-12-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.73
+Precision score:  0.75
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 89
+Average return for stock predictions:  13.1 %
+Average market return in the same period:  2.8% 
+Compared to the index, our strategy earns  10.3 percentage points more
+
+From 2016-06-30 to 2016-06-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.59
+Precision score:  0.44
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 85
+Average return for stock predictions:  12.1 %
+Average market return in the same period:  7.1% 
+Compared to the index, our strategy earns  4.9 percentage points more
+
+From 2016-09-30 to 2016-11-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.69
+Precision score:  0.56
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 45
+Average return for stock predictions:  14.5 %
+Average market return in the same period:  9.8% 
+Compared to the index, our strategy earns  4.7 percentage points more
+
+From 2017-03-31 to 2017-05-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.57
+Precision score:  0.68
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 22
+Average return for stock predictions:  15.7 %
+Average market return in the same period:  6.8% 
+Compared to the index, our strategy earns  8.8 percentage points more
+
+From 2017-06-30 to 2017-10-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.55
+Precision score:  0.73
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 22
+Average return for stock predictions:  22.7 %
+Average market return in the same period:  9.7% 
+Compared to the index, our strategy earns  13.1 percentage points more
+
+From 2018-02-28 to 2018-04-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.59
+Precision score:  0.61
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 18
+Average return for stock predictions:  4.9 %
+Average market return in the same period:  3.1% 
+Compared to the index, our strategy earns  1.7 percentage points more
+
+From 2018-08-31 to 2018-10-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.69
+Precision score:  0.60
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 15
+Average return for stock predictions:  13.6 %
+Average market return in the same period:  7.0% 
+Compared to the index, our strategy earns  6.7 percentage points more
+
+From 2018-12-31 to 2019-02-28
+
+Classifier performance
+ ====================
+Accuracy score:  0.61
+Precision score:  0.54
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 35
+Average return for stock predictions:  13.3 %
+Average market return in the same period:  11.6% 
+Compared to the index, our strategy earns  1.7 percentage points more
