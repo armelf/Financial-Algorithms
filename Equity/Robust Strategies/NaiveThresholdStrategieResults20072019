@@ -1,478 +1,243 @@
-NB. Every batch is composed of 20 test bundles of 4 weeks. 
-    We train on the 32 weeks before and test on the 4 nexts, and then we roll over.
-
-First batch:
-
 Start timerange 2007-03-12 to 2007-09-28
-Best threshold for timerange [2007-03-12,2007-09-28] is 0.2
+Best threshold for timerange [2007-03-12,2007-09-28] is 0.09
 
 For timerange [2007-03-12,2007-09-28]:
-Mean Accuracy train is 52.12307692307693 %
+Mean Accuracy train is 53.57753357753358 %
 Mean Precision train is 100.0 %
-Mean Recall train is 52.12307692307693 %
-Mean Accuracy test is 64.74358974358975 %
-Mean Precision test is 98.71794871794873 %
-Mean Recall test is 64.74358974358975 %
+Mean Recall train is 53.57753357753358 %
+Mean Accuracy test is 54.61538461538461 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 54.61538461538461 %
 
 
 In mode test for timerange [2007-03-12,2007-09-28]:
 
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
+AccuracyD is 17.647058823529413 %
+PrecisionD is 17.647058823529413 %
+RecallD is 100.0 %
 
-Sharpe Ratio is nan
-CAGR is 0.0
+Sharpe Ratio is 5.213792099740755
+CAGR is 2.5980536704687065
 
 End timerange 2007-03-12 to 2007-09-28
-
-Start timerange 2007-04-16 to 2007-11-02
-Best threshold for timerange [2007-04-16,2007-11-02] is 0.15
-
-For timerange [2007-04-16,2007-11-02]:
-Mean Accuracy train is 51.7948717948718 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.7948717948718 %
-Mean Accuracy test is 40.57692307692308 %
-Mean Precision test is 86.41025641025641 %
-Mean Recall test is 40.57692307692308 %
-
-
-In mode test for timerange [2007-04-16,2007-11-02]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2007-04-16 to 2007-11-02
 
 Start timerange 2007-05-21 to 2007-12-07
 Best threshold for timerange [2007-05-21,2007-12-07] is 0.15
 
 For timerange [2007-05-21,2007-12-07]:
-Mean Accuracy train is 48.83076923076924 %
+Mean Accuracy train is 49.93894993894994 %
 Mean Precision train is 100.0 %
-Mean Recall train is 48.83076923076924 %
-Mean Accuracy test is 58.58974358974359 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 58.58974358974359 %
+Mean Recall train is 49.93894993894994 %
+Mean Accuracy test is 50.80128205128205 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 50.80128205128205 %
 
 
 In mode test for timerange [2007-05-21,2007-12-07]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 16.666666666666664 %
+PrecisionD is 16.666666666666664 %
+RecallD is 100.0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.6396507339569277
+Sharpe Ratio is 2.4261338727856745
+CAGR is 0.7864277110741491
 
 End timerange 2007-05-21 to 2007-12-07
-
-Start timerange 2007-06-25 to 2008-01-11
-Best threshold for timerange [2007-06-25,2008-01-11] is 0.15
-
-For timerange [2007-06-25,2008-01-11]:
-Mean Accuracy train is 50.26666666666667 %
-Mean Precision train is 100.0 %
-Mean Recall train is 50.26666666666667 %
-Mean Accuracy test is 33.65384615384615 %
-Mean Precision test is 86.15384615384616 %
-Mean Recall test is 33.65384615384615 %
-
-
-In mode test for timerange [2007-06-25,2008-01-11]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -6.060199980966204
-CAGR is -0.4875173993095816
-
-End timerange 2007-06-25 to 2008-01-11
 
 Start timerange 2007-07-30 to 2008-02-15
 Best threshold for timerange [2007-07-30,2008-02-15] is 0.15
 
 For timerange [2007-07-30,2008-02-15]:
-Mean Accuracy train is 47.764102564102565 %
+Mean Accuracy train is 51.990231990232 %
 Mean Precision train is 100.0 %
-Mean Recall train is 47.764102564102565 %
-Mean Accuracy test is 49.1025641025641 %
-Mean Precision test is 94.87179487179486 %
-Mean Recall test is 49.1025641025641 %
+Mean Recall train is 51.990231990232 %
+Mean Accuracy test is 37.33974358974359 %
+Mean Precision test is 98.2051282051282 %
+Mean Recall test is 37.33974358974359 %
 
 
 In mode test for timerange [2007-07-30,2008-02-15]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 4.166666666666666 %
+PrecisionD is 4.166666666666666 %
+RecallD is 100.0 %
 
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.01495443590721457
+Sharpe Ratio is 1.5077448469652357
+CAGR is 0.3366525090127832
 
 End timerange 2007-07-30 to 2008-02-15
-
-Start timerange 2007-09-03 to 2008-03-21
-Best threshold for timerange [2007-09-03,2008-03-21] is 0.15
-
-For timerange [2007-09-03,2008-03-21]:
-Mean Accuracy train is 48.92307692307693 %
-Mean Precision train is 100.0 %
-Mean Recall train is 48.92307692307693 %
-Mean Accuracy test is 45.8974358974359 %
-Mean Precision test is 92.82051282051282 %
-Mean Recall test is 45.8974358974359 %
-
-
-In mode test for timerange [2007-09-03,2008-03-21]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -3.7131177721609103
-CAGR is -0.5603465547079626
-
-End timerange 2007-09-03 to 2008-03-21
 
 Start timerange 2007-10-08 to 2008-04-25
 Best threshold for timerange [2007-10-08,2008-04-25] is 0.15
 
 For timerange [2007-10-08,2008-04-25]:
-Mean Accuracy train is 46.21538461538462 %
+Mean Accuracy train is 43.21123321123321 %
 Mean Precision train is 100.0 %
-Mean Recall train is 46.21538461538462 %
-Mean Accuracy test is 58.52564102564103 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 58.52564102564103 %
+Mean Recall train is 43.21123321123321 %
+Mean Accuracy test is 60.256410256410255 %
+Mean Precision test is 100.0 %
+Mean Recall test is 60.256410256410255 %
 
 
 In mode test for timerange [2007-10-08,2008-04-25]:
 
-AccuracyD is 100.0 %
-PrecisionD is 100.0 %
+AccuracyD is 14.285714285714285 %
+PrecisionD is 14.285714285714285 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 5.55879692400305
+Sharpe Ratio is 3.7619578355895675
+CAGR is 2.0773810556866072
 
 End timerange 2007-10-08 to 2008-04-25
-
-Start timerange 2007-11-12 to 2008-05-30
-Best threshold for timerange [2007-11-12,2008-05-30] is 0.15
-
-For timerange [2007-11-12,2008-05-30]:
-Mean Accuracy train is 48.882051282051286 %
-Mean Precision train is 100.0 %
-Mean Recall train is 48.882051282051286 %
-Mean Accuracy test is 51.217948717948715 %
-Mean Precision test is 92.3076923076923 %
-Mean Recall test is 51.217948717948715 %
-
-
-In mode test for timerange [2007-11-12,2008-05-30]:
-
-AccuracyD is 100.0 %
-PrecisionD is 100.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.163331998932265
-CAGR is 6.3503468029023775
-
-End timerange 2007-11-12 to 2008-05-30
 
 Start timerange 2007-12-17 to 2008-07-04
 Best threshold for timerange [2007-12-17,2008-07-04] is 0.15
 
 For timerange [2007-12-17,2008-07-04]:
-Mean Accuracy train is 47.476923076923086 %
+Mean Accuracy train is 49.0964590964591 %
 Mean Precision train is 100.0 %
-Mean Recall train is 47.476923076923086 %
-Mean Accuracy test is 31.666666666666664 %
-Mean Precision test is 78.46153846153847 %
-Mean Recall test is 31.666666666666664 %
+Mean Recall train is 49.0964590964591 %
+Mean Accuracy test is 35.320512820512825 %
+Mean Precision test is 96.15384615384616 %
+Mean Recall test is 35.320512820512825 %
 
 
 In mode test for timerange [2007-12-17,2008-07-04]:
 
-AccuracyD is 5.88235294117647 %
-PrecisionD is 5.88235294117647 %
+AccuracyD is 8.0 %
+PrecisionD is 8.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -6.063174214586243
-CAGR is -0.887066928216223
+Sharpe Ratio is -2.36477925056509
+CAGR is -0.8799723066523446
 
 End timerange 2007-12-17 to 2008-07-04
-
-Start timerange 2008-01-21 to 2008-08-08
-Best threshold for timerange [2008-01-21,2008-08-08] is 0.2
-
-For timerange [2008-01-21,2008-08-08]:
-Mean Accuracy train is 47.83589743589744 %
-Mean Precision train is 100.0 %
-Mean Recall train is 47.83589743589744 %
-Mean Accuracy test is 63.46153846153846 %
-Mean Precision test is 95.38461538461539 %
-Mean Recall test is 63.46153846153846 %
-
-
-In mode test for timerange [2008-01-21,2008-08-08]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 6.550869584919268
-CAGR is 1.9190895691828018
-
-End timerange 2008-01-21 to 2008-08-08
 
 Start timerange 2008-02-25 to 2008-09-12
 Best threshold for timerange [2008-02-25,2008-09-12] is 0.15
 
 For timerange [2008-02-25,2008-09-12]:
-Mean Accuracy train is 48.420512820512826 %
+Mean Accuracy train is 47.54578754578754 %
 Mean Precision train is 100.0 %
-Mean Recall train is 48.420512820512826 %
-Mean Accuracy test is 54.230769230769226 %
-Mean Precision test is 94.1025641025641 %
-Mean Recall test is 54.230769230769226 %
+Mean Recall train is 47.54578754578754 %
+Mean Accuracy test is 53.62179487179487 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 53.62179487179487 %
 
 
 In mode test for timerange [2008-02-25,2008-09-12]:
 
-AccuracyD is 50.0 %
-PrecisionD is 50.0 %
+AccuracyD is 40.0 %
+PrecisionD is 40.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 6.838802743360653
-CAGR is 23.27207151382623
+Sharpe Ratio is 4.582453614016791
+CAGR is 6.154308219320214
 
 End timerange 2008-02-25 to 2008-09-12
-
-Start timerange 2008-03-31 to 2008-10-17
-Best threshold for timerange [2008-03-31,2008-10-17] is 0.15
-
-For timerange [2008-03-31,2008-10-17]:
-Mean Accuracy train is 47.282051282051285 %
-Mean Precision train is 100.0 %
-Mean Recall train is 47.282051282051285 %
-Mean Accuracy test is 15.384615384615385 %
-Mean Precision test is 53.07692307692308 %
-Mean Recall test is 15.384615384615385 %
-
-
-In mode test for timerange [2008-03-31,2008-10-17]:
-
-AccuracyD is 12.993039443155451 %
-PrecisionD is 12.993039443155451 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -3.498734001278443
-CAGR is -0.9363209541517159
-
-End timerange 2008-03-31 to 2008-10-17
 
 Start timerange 2008-05-05 to 2008-11-21
 Best threshold for timerange [2008-05-05,2008-11-21] is 0.15
 
 For timerange [2008-05-05,2008-11-21]:
-Mean Accuracy train is 40.74871794871795 %
+Mean Accuracy train is 44.09035409035408 %
 Mean Precision train is 100.0 %
-Mean Recall train is 40.74871794871795 %
-Mean Accuracy test is 37.88461538461539 %
-Mean Precision test is 92.3076923076923 %
-Mean Recall test is 37.88461538461539 %
+Mean Recall train is 44.09035409035408 %
+Mean Accuracy test is 30.544871794871796 %
+Mean Precision test is 98.2051282051282 %
+Mean Recall test is 30.544871794871796 %
 
 
 In mode test for timerange [2008-05-05,2008-11-21]:
 
-AccuracyD is 24.125874125874127 %
-PrecisionD is 24.125874125874127 %
+AccuracyD is 21.328671328671327 %
+PrecisionD is 21.328671328671327 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -1.3122960070611678
-CAGR is -0.8028511189943323
+Sharpe Ratio is 0.2273263089805428
+CAGR is 0.20008173441711885
 
 End timerange 2008-05-05 to 2008-11-21
-
-Start timerange 2008-06-09 to 2008-12-26
-Best threshold for timerange [2008-06-09,2008-12-26] is 0.15
-
-For timerange [2008-06-09,2008-12-26]:
-Mean Accuracy train is 39.57948717948718 %
-Mean Precision train is 100.0 %
-Mean Recall train is 39.57948717948718 %
-Mean Accuracy test is 57.75641025641025 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 57.75641025641025 %
-
-
-In mode test for timerange [2008-06-09,2008-12-26]:
-
-AccuracyD is 15.789473684210526 %
-PrecisionD is 15.789473684210526 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 3.6921872620108998
-CAGR is 2.606001496124555
-
-End timerange 2008-06-09 to 2008-12-26
 
 Start timerange 2008-07-14 to 2009-01-30
 Best threshold for timerange [2008-07-14,2009-01-30] is 0.15
 
 For timerange [2008-07-14,2009-01-30]:
-Mean Accuracy train is 44.73846153846154 %
+Mean Accuracy train is 42.22222222222222 %
 Mean Precision train is 100.0 %
-Mean Recall train is 44.73846153846154 %
-Mean Accuracy test is 40.57692307692308 %
-Mean Precision test is 91.02564102564102 %
-Mean Recall test is 40.57692307692308 %
+Mean Recall train is 42.22222222222222 %
+Mean Accuracy test is 49.26282051282052 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 49.26282051282052 %
 
 
 In mode test for timerange [2008-07-14,2009-01-30]:
 
-AccuracyD is 6.666666666666667 %
-PrecisionD is 6.666666666666667 %
+AccuracyD is 8.108108108108109 %
+PrecisionD is 8.108108108108109 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -3.5973112839097614
-CAGR is -0.5686461234233652
+Sharpe Ratio is -0.13023532088513612
+CAGR is -0.03507660119117062
 
 End timerange 2008-07-14 to 2009-01-30
-
-Start timerange 2008-08-18 to 2009-03-06
-Best threshold for timerange [2008-08-18,2009-03-06] is 0.0
-
-For timerange [2008-08-18,2009-03-06]:
-Mean Accuracy train is 42.00000000000001 %
-Mean Precision train is 100.0 %
-Mean Recall train is 42.00000000000001 %
-Mean Accuracy test is 27.884615384615387 %
-Mean Precision test is 77.17948717948718 %
-Mean Recall test is 27.884615384615387 %
-
-
-In mode test for timerange [2008-08-18,2009-03-06]:
-
-AccuracyD is 35.55555555555556 %
-PrecisionD is 35.55555555555556 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -0.5215694225912857
-CAGR is -0.21588551285265034
-
-End timerange 2008-08-18 to 2009-03-06
 
 Start timerange 2008-09-22 to 2009-04-10
 Best threshold for timerange [2008-09-22,2009-04-10] is 0.0
 
 For timerange [2008-09-22,2009-04-10]:
-Mean Accuracy train is 41.07692307692308 %
+Mean Accuracy train is 39.32844932844933 %
 Mean Precision train is 100.0 %
-Mean Recall train is 41.07692307692308 %
-Mean Accuracy test is 72.5 %
-Mean Precision test is 99.74358974358975 %
-Mean Recall test is 72.5 %
+Mean Recall train is 39.32844932844933 %
+Mean Accuracy test is 61.37820512820513 %
+Mean Precision test is 100.0 %
+Mean Recall test is 61.37820512820513 %
 
 
 In mode test for timerange [2008-09-22,2009-04-10]:
 
-AccuracyD is 69.31623931623932 %
-PrecisionD is 69.31623931623932 %
+AccuracyD is 65.86080586080585 %
+PrecisionD is 65.86080586080585 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.858732491545649
-CAGR is 0.4700226081874812
+Sharpe Ratio is 2.048452655623657
+CAGR is 0.7750491938409063
 
 End timerange 2008-09-22 to 2009-04-10
 
-Start timerange 2008-10-27 to 2009-05-15
-Best threshold for timerange [2008-10-27,2009-05-15] is 0.12
-
-For timerange [2008-10-27,2009-05-15]:
-Mean Accuracy train is 50.75897435897437 %
-Mean Precision train is 100.0 %
-Mean Recall train is 50.75897435897437 %
-Mean Accuracy test is 51.089743589743584 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 51.089743589743584 %
-
-
-In mode test for timerange [2008-10-27,2009-05-15]:
-
-AccuracyD is 27.536231884057973 %
-PrecisionD is 27.536231884057973 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 1.593190658709706
-CAGR is 1.5330349726469383
-
-End timerange 2008-10-27 to 2009-05-15
-
 Start timerange 2008-12-01 to 2009-06-19
-Best threshold for timerange [2008-12-01,2009-06-19] is 0.12
+Best threshold for timerange [2008-12-01,2009-06-19] is 0.09
 
 For timerange [2008-12-01,2009-06-19]:
-Mean Accuracy train is 53.14871794871795 %
+Mean Accuracy train is 54.517704517704516 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.14871794871795 %
-Mean Accuracy test is 48.333333333333336 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 48.333333333333336 %
+Mean Recall train is 54.517704517704516 %
+Mean Accuracy test is 47.1474358974359 %
+Mean Precision test is 100.0 %
+Mean Recall test is 47.1474358974359 %
 
 
 In mode test for timerange [2008-12-01,2009-06-19]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 23.711340206185564 %
+PrecisionD is 23.711340206185564 %
+RecallD is 100.0 %
 
-Sharpe Ratio is -12.150822123195487
-CAGR is -0.6497093967555252
+Sharpe Ratio is -1.4888725431520018
+CAGR is -0.39442408201060153
 
 End timerange 2008-12-01 to 2009-06-19
-
-Start timerange 2009-01-05 to 2009-07-24
-Best threshold for timerange [2009-01-05,2009-07-24] is 0.2
-
-For timerange [2009-01-05,2009-07-24]:
-Mean Accuracy train is 51.33333333333333 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.33333333333333 %
-Mean Accuracy test is 66.7948717948718 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 66.7948717948718 %
-
-
-In mode test for timerange [2009-01-05,2009-07-24]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 4.163331998932265
-CAGR is 2.4795598107620433
-
-End timerange 2009-01-05 to 2009-07-24
 
 Start timerange 2009-02-09 to 2009-08-28
 Best threshold for timerange [2009-02-09,2009-08-28] is 0.2
 
 For timerange [2009-02-09,2009-08-28]:
-Mean Accuracy train is 56.33846153846154 %
+Mean Accuracy train is 51.51404151404151 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.33846153846154 %
-Mean Accuracy test is 50.8974358974359 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 50.8974358974359 %
+Mean Recall train is 51.51404151404151 %
+Mean Accuracy test is 66.28205128205128 %
+Mean Precision test is 100.0 %
+Mean Recall test is 66.28205128205128 %
 
 
 In mode test for timerange [2009-02-09,2009-08-28]:
@@ -481,136 +246,67 @@ AccuracyD is 100.0 %
 PrecisionD is 100.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.163331998932264
-CAGR is 10.19828668237644
+Sharpe Ratio is 2.7255405754769875
+CAGR is 1.8160242608953552
 
 End timerange 2009-02-09 to 2009-08-28
 
-Start timerange 2009-03-16 to 2009-10-02
-Best threshold for timerange [2009-03-16,2009-10-02] is 0.2
+Start timerange 2009-04-20 to 2009-11-06
+Best threshold for timerange [2009-04-20,2009-11-06] is 0.2
 
-For timerange [2009-03-16,2009-10-02]:
-Mean Accuracy train is 59.25128205128205 %
+For timerange [2009-04-20,2009-11-06]:
+Mean Accuracy train is 58.058608058608066 %
 Mean Precision train is 100.0 %
-Mean Recall train is 59.25128205128205 %
-Mean Accuracy test is 52.56410256410257 %
-Mean Precision test is 97.43589743589743 %
-Mean Recall test is 52.56410256410257 %
+Mean Recall train is 58.058608058608066 %
+Mean Accuracy test is 53.52564102564102 %
+Mean Precision test is 100.0 %
+Mean Recall test is 53.52564102564102 %
 
 
-In mode test for timerange [2009-03-16,2009-10-02]:
+In mode test for timerange [2009-04-20,2009-11-06]:
 
 AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -3.487761352853987
-CAGR is -0.050254668464333685
-
-End timerange 2009-03-16 to 2009-10-02
-
-Start timerange 2009-04-20 to 2009-11-06
-Best threshold for timerange [2009-04-20,2009-11-06] is 0.12
-
-For timerange [2009-04-20,2009-11-06]:
-Mean Accuracy train is 57.29230769230769 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.29230769230769 %
-Mean Accuracy test is 53.78205128205128 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 53.78205128205128 %
-
-
-In mode test for timerange [2009-04-20,2009-11-06]:
-
-AccuracyD is 4.545454545454546 %
-PrecisionD is 4.545454545454546 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -0.24850228541498917
-CAGR is -0.07202038745096417
+Sharpe Ratio is -1.9121085228792574
+CAGR is -0.5098872327464905
 
 End timerange 2009-04-20 to 2009-11-06
-
-Start timerange 2009-05-25 to 2009-12-11
-Best threshold for timerange [2009-05-25,2009-12-11] is 0.12
-
-For timerange [2009-05-25,2009-12-11]:
-Mean Accuracy train is 58.76923076923076 %
-Mean Precision train is 100.0 %
-Mean Recall train is 58.76923076923076 %
-Mean Accuracy test is 55.96153846153846 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 55.96153846153846 %
-
-
-In mode test for timerange [2009-05-25,2009-12-11]:
-
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.463617600950095
-CAGR is 1.900060084323862
-
-End timerange 2009-05-25 to 2009-12-11
 
 Start timerange 2009-06-29 to 2010-01-15
 Best threshold for timerange [2009-06-29,2010-01-15] is 0.12
 
 For timerange [2009-06-29,2010-01-15]:
-Mean Accuracy train is 59.62051282051283 %
+Mean Accuracy train is 59.08424908424909 %
 Mean Precision train is 100.0 %
-Mean Recall train is 59.62051282051283 %
-Mean Accuracy test is 58.01282051282052 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 58.01282051282052 %
+Mean Recall train is 59.08424908424909 %
+Mean Accuracy test is 60.22435897435897 %
+Mean Precision test is 100.0 %
+Mean Recall test is 60.22435897435897 %
 
 
 In mode test for timerange [2009-06-29,2010-01-15]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2009-06-29 to 2010-01-15
-
-Start timerange 2009-08-03 to 2010-02-19
-Best threshold for timerange [2009-08-03,2010-02-19] is 0.12
-
-For timerange [2009-08-03,2010-02-19]:
-Mean Accuracy train is 55.8974358974359 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.8974358974359 %
-Mean Accuracy test is 55.705128205128204 %
-Mean Precision test is 97.6923076923077 %
-Mean Recall test is 55.705128205128204 %
-
-
-In mode test for timerange [2009-08-03,2010-02-19]:
 
 AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 3.2642396970934833
-CAGR is 0.4425419258380239
+Sharpe Ratio is -1.8934691858860784
+CAGR is -0.0668841102476544
 
-End timerange 2009-08-03 to 2010-02-19
+End timerange 2009-06-29 to 2010-01-15
 
 Start timerange 2009-09-07 to 2010-03-26
 Best threshold for timerange [2009-09-07,2010-03-26] is 0.12
 
 For timerange [2009-09-07,2010-03-26]:
-Mean Accuracy train is 56.99487179487179 %
+Mean Accuracy train is 55.21367521367523 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.99487179487179 %
-Mean Accuracy test is 67.88461538461539 %
-Mean Precision test is 99.74358974358975 %
-Mean Recall test is 67.88461538461539 %
+Mean Recall train is 55.21367521367523 %
+Mean Accuracy test is 67.11538461538461 %
+Mean Precision test is 100.0 %
+Mean Recall test is 67.11538461538461 %
 
 
 In mode test for timerange [2009-09-07,2010-03-26]:
@@ -619,136 +315,67 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.33968668338432617
+Sharpe Ratio is 4.0889908757610005
+CAGR is 1.4664873379192183
 
 End timerange 2009-09-07 to 2010-03-26
-
-Start timerange 2009-10-12 to 2010-04-30
-Best threshold for timerange [2009-10-12,2010-04-30] is 0.12
-
-For timerange [2009-10-12,2010-04-30]:
-Mean Accuracy train is 58.9948717948718 %
-Mean Precision train is 100.0 %
-Mean Recall train is 58.9948717948718 %
-Mean Accuracy test is 57.820512820512825 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 57.820512820512825 %
-
-
-In mode test for timerange [2009-10-12,2010-04-30]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2009-10-12 to 2010-04-30
 
 Start timerange 2009-11-16 to 2010-06-04
 Best threshold for timerange [2009-11-16,2010-06-04] is 0.12
 
 For timerange [2009-11-16,2010-06-04]:
-Mean Accuracy train is 57.774358974358975 %
+Mean Accuracy train is 60.134310134310134 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.774358974358975 %
-Mean Accuracy test is 26.410256410256412 %
-Mean Precision test is 71.53846153846153 %
-Mean Recall test is 26.410256410256412 %
+Mean Recall train is 60.134310134310134 %
+Mean Accuracy test is 35.8974358974359 %
+Mean Precision test is 96.92307692307692 %
+Mean Recall test is 35.8974358974359 %
 
 
 In mode test for timerange [2009-11-16,2010-06-04]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 5.049897999388164
-CAGR is 1.41687500993243
-
-End timerange 2009-11-16 to 2010-06-04
-
-Start timerange 2009-12-21 to 2010-07-09
-Best threshold for timerange [2009-12-21,2010-07-09] is 0.12
-
-For timerange [2009-12-21,2010-07-09]:
-Mean Accuracy train is 54.379487179487185 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.379487179487185 %
-Mean Accuracy test is 49.93589743589744 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 49.93589743589744 %
-
-
-In mode test for timerange [2009-12-21,2010-07-09]:
-
-AccuracyD is 5.555555555555555 %
-PrecisionD is 5.555555555555555 %
+AccuracyD is 10.48951048951049 %
+PrecisionD is 10.48951048951049 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -0.30354799723497616
-CAGR is -0.11586078060691618
+Sharpe Ratio is 3.6212700346041187
+CAGR is 0.7068529056416248
 
-End timerange 2009-12-21 to 2010-07-09
+End timerange 2009-11-16 to 2010-06-04
 
 Start timerange 2010-01-25 to 2010-08-13
 Best threshold for timerange [2010-01-25,2010-08-13] is 0.12
 
 For timerange [2010-01-25,2010-08-13]:
-Mean Accuracy train is 55.05641025641026 %
+Mean Accuracy train is 56.2026862026862 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.05641025641026 %
-Mean Accuracy test is 53.01282051282051 %
-Mean Precision test is 97.17948717948718 %
-Mean Recall test is 53.01282051282051 %
+Mean Recall train is 56.2026862026862 %
+Mean Accuracy test is 51.02564102564102 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 51.02564102564102 %
 
 
 In mode test for timerange [2010-01-25,2010-08-13]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 6.0606060606060606 %
+PrecisionD is 6.0606060606060606 %
+RecallD is 100.0 %
 
-Sharpe Ratio is -0.9520950426737216
-CAGR is -0.16322026847352022
+Sharpe Ratio is 1.9048366074726897
+CAGR is 0.5924663310932241
 
 End timerange 2010-01-25 to 2010-08-13
-
-Start timerange 2010-03-01 to 2010-09-17
-Best threshold for timerange [2010-03-01,2010-09-17] is 0.2
-
-For timerange [2010-03-01,2010-09-17]:
-Mean Accuracy train is 52.102564102564095 %
-Mean Precision train is 100.0 %
-Mean Recall train is 52.102564102564095 %
-Mean Accuracy test is 80.38461538461539 %
-Mean Precision test is 100.0 %
-Mean Recall test is 80.38461538461539 %
-
-
-In mode test for timerange [2010-03-01,2010-09-17]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2010-03-01 to 2010-09-17
 
 Start timerange 2010-04-05 to 2010-10-22
 Best threshold for timerange [2010-04-05,2010-10-22] is 0.12
 
 For timerange [2010-04-05,2010-10-22]:
-Mean Accuracy train is 53.6 %
+Mean Accuracy train is 49.36507936507936 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.6 %
-Mean Accuracy test is 69.48717948717949 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 69.48717948717949 %
+Mean Recall train is 49.36507936507936 %
+Mean Accuracy test is 72.66025641025641 %
+Mean Precision test is 100.0 %
+Mean Recall test is 72.66025641025641 %
 
 
 In mode test for timerange [2010-04-05,2010-10-22]:
@@ -757,44 +384,21 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -3.5037481035371805
-CAGR is -0.4081001626043419
+Sharpe Ratio is -3.7147926059328906
+CAGR is -0.342882331203328
 
 End timerange 2010-04-05 to 2010-10-22
-
-Start timerange 2010-05-10 to 2010-11-26
-Best threshold for timerange [2010-05-10,2010-11-26] is 0.15
-
-For timerange [2010-05-10,2010-11-26]:
-Mean Accuracy train is 57.44615384615385 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.44615384615385 %
-Mean Accuracy test is 48.14102564102564 %
-Mean Precision test is 95.38461538461539 %
-Mean Recall test is 48.14102564102564 %
-
-
-In mode test for timerange [2010-05-10,2010-11-26]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2010-05-10 to 2010-11-26
 
 Start timerange 2010-06-14 to 2010-12-31
 Best threshold for timerange [2010-06-14,2010-12-31] is 0.15
 
 For timerange [2010-06-14,2010-12-31]:
-Mean Accuracy train is 60.32820512820513 %
+Mean Accuracy train is 60.67155067155067 %
 Mean Precision train is 100.0 %
-Mean Recall train is 60.32820512820513 %
-Mean Accuracy test is 64.74358974358975 %
-Mean Precision test is 98.71794871794873 %
-Mean Recall test is 64.74358974358975 %
+Mean Recall train is 60.67155067155067 %
+Mean Accuracy test is 61.63461538461539 %
+Mean Precision test is 100.0 %
+Mean Recall test is 61.63461538461539 %
 
 
 In mode test for timerange [2010-06-14,2010-12-31]:
@@ -808,131 +412,62 @@ CAGR is 0.0
 
 End timerange 2010-06-14 to 2010-12-31
 
-Start timerange 2010-07-19 to 2011-02-04
-Best threshold for timerange [2010-07-19,2011-02-04] is 0.04
-
-For timerange [2010-07-19,2011-02-04]:
-Mean Accuracy train is 62.46153846153846 %
-Mean Precision train is 100.0 %
-Mean Recall train is 62.46153846153846 %
-Mean Accuracy test is 68.07692307692308 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 68.07692307692308 %
-
-
-In mode test for timerange [2010-07-19,2011-02-04]:
-
-AccuracyD is 38.095238095238095 %
-PrecisionD is 38.095238095238095 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 8.96236555146059
-CAGR is 1.4564425178562384
-
-End timerange 2010-07-19 to 2011-02-04
-
 Start timerange 2010-08-23 to 2011-03-11
 Best threshold for timerange [2010-08-23,2011-03-11] is 0.04
 
 For timerange [2010-08-23,2011-03-11]:
-Mean Accuracy train is 66.8923076923077 %
+Mean Accuracy train is 66.6056166056166 %
 Mean Precision train is 100.0 %
-Mean Recall train is 66.8923076923077 %
-Mean Accuracy test is 33.71794871794872 %
-Mean Precision test is 81.02564102564102 %
-Mean Recall test is 33.71794871794872 %
+Mean Recall train is 66.6056166056166 %
+Mean Accuracy test is 51.05769230769231 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 51.05769230769231 %
 
 
 In mode test for timerange [2010-08-23,2011-03-11]:
 
-AccuracyD is 11.428571428571429 %
-PrecisionD is 11.428571428571429 %
+AccuracyD is 27.0 %
+PrecisionD is 27.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -6.7145539668906435
-CAGR is -0.3049261782804996
+Sharpe Ratio is 1.3382206784891217
+CAGR is 0.2104160775958619
 
 End timerange 2010-08-23 to 2011-03-11
-
-Start timerange 2010-09-27 to 2011-04-15
-Best threshold for timerange [2010-09-27,2011-04-15] is 0.04
-
-For timerange [2010-09-27,2011-04-15]:
-Mean Accuracy train is 59.73333333333333 %
-Mean Precision train is 100.0 %
-Mean Recall train is 59.73333333333333 %
-Mean Accuracy test is 60.96153846153847 %
-Mean Precision test is 97.17948717948718 %
-Mean Recall test is 60.96153846153847 %
-
-
-In mode test for timerange [2010-09-27,2011-04-15]:
-
-AccuracyD is 21.73913043478261 %
-PrecisionD is 21.73913043478261 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -1.2333367167034683
-CAGR is -0.19430521109534493
-
-End timerange 2010-09-27 to 2011-04-15
 
 Start timerange 2010-11-01 to 2011-05-20
 Best threshold for timerange [2010-11-01,2011-05-20] is 0.04
 
 For timerange [2010-11-01,2011-05-20]:
-Mean Accuracy train is 58.69743589743589 %
+Mean Accuracy train is 58.27838827838827 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.69743589743589 %
-Mean Accuracy test is 42.243589743589745 %
-Mean Precision test is 86.66666666666667 %
-Mean Recall test is 42.243589743589745 %
+Mean Recall train is 58.27838827838827 %
+Mean Accuracy test is 51.570512820512825 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 51.570512820512825 %
 
 
 In mode test for timerange [2010-11-01,2011-05-20]:
 
-AccuracyD is 11.11111111111111 %
-PrecisionD is 11.11111111111111 %
+AccuracyD is 16.0 %
+PrecisionD is 16.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 0.209530195186513
-CAGR is 0.005069218519550001
+Sharpe Ratio is 3.2282088898660133
+CAGR is 0.307203310183765
 
 End timerange 2010-11-01 to 2011-05-20
-
-Start timerange 2010-12-06 to 2011-06-24
-Best threshold for timerange [2010-12-06,2011-06-24] is 0.04
-
-For timerange [2010-12-06,2011-06-24]:
-Mean Accuracy train is 57.33333333333333 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.33333333333333 %
-Mean Accuracy test is 50.38461538461539 %
-Mean Precision test is 98.2051282051282 %
-Mean Recall test is 50.38461538461539 %
-
-
-In mode test for timerange [2010-12-06,2011-06-24]:
-
-AccuracyD is 25.581395348837212 %
-PrecisionD is 25.581395348837212 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 5.723216108835698
-CAGR is 1.098525772856005
-
-End timerange 2010-12-06 to 2011-06-24
 
 Start timerange 2011-01-10 to 2011-07-29
 Best threshold for timerange [2011-01-10,2011-07-29] is 0.09
 
 For timerange [2011-01-10,2011-07-29]:
-Mean Accuracy train is 56.174358974358974 %
+Mean Accuracy train is 53.45543345543346 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.174358974358974 %
-Mean Accuracy test is 25.51282051282051 %
-Mean Precision test is 70.51282051282051 %
-Mean Recall test is 25.51282051282051 %
+Mean Recall train is 53.45543345543346 %
+Mean Accuracy test is 47.98076923076923 %
+Mean Precision test is 100.0 %
+Mean Recall test is 47.98076923076923 %
 
 
 In mode test for timerange [2011-01-10,2011-07-29]:
@@ -941,273 +476,136 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -6.5209324279448975
-CAGR is -0.822656734540899
+Sharpe Ratio is -1.2474190115881392
+CAGR is -0.283425373448993
 
 End timerange 2011-01-10 to 2011-07-29
-Start timerange 2011-02-14 to 2011-09-02
-Best threshold for timerange [2011-02-14,2011-09-02] is 0.15
-
-For timerange [2011-02-14,2011-09-02]:
-Mean Accuracy train is 46.65641025641026 %
-Mean Precision train is 100.0 %
-Mean Recall train is 46.65641025641026 %
-Mean Accuracy test is 54.35897435897436 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 54.35897435897436 %
-
-
-In mode test for timerange [2011-02-14,2011-09-02]:
-
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 1.7631686176096426
-CAGR is 0.6990622480558304
-
-End timerange 2011-02-14 to 2011-09-02
 
 Start timerange 2011-03-21 to 2011-10-07
-Best threshold for timerange [2011-03-21,2011-10-07] is 0.15
+Best threshold for timerange [2011-03-21,2011-10-07] is 0.12
 
 For timerange [2011-03-21,2011-10-07]:
-Mean Accuracy train is 49.84615384615384 %
+Mean Accuracy train is 49.0964590964591 %
 Mean Precision train is 100.0 %
-Mean Recall train is 49.84615384615384 %
-Mean Accuracy test is 47.628205128205124 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 47.628205128205124 %
+Mean Recall train is 49.0964590964591 %
+Mean Accuracy test is 50.705128205128204 %
+Mean Precision test is 100.0 %
+Mean Recall test is 50.705128205128204 %
 
 
 In mode test for timerange [2011-03-21,2011-10-07]:
 
-AccuracyD is 4.3478260869565215 %
-PrecisionD is 4.3478260869565215 %
+AccuracyD is 9.523809523809524 %
+PrecisionD is 9.523809523809524 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -0.7340201586551308
-CAGR is -0.2442194003207404
+Sharpe Ratio is -3.5906314211688817
+CAGR is -0.7731765188633692
 
 End timerange 2011-03-21 to 2011-10-07
 
-Start timerange 2011-04-25 to 2011-11-11
-Best threshold for timerange [2011-04-25,2011-11-11] is 0.09
-
-For timerange [2011-04-25,2011-11-11]:
-Mean Accuracy train is 47.323076923076925 %
-Mean Precision train is 100.0 %
-Mean Recall train is 47.323076923076925 %
-Mean Accuracy test is 49.03846153846153 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 49.03846153846153 %
-
-
-In mode test for timerange [2011-04-25,2011-11-11]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -7.574441728202203
-CAGR is -0.9972014714989729
-
-End timerange 2011-04-25 to 2011-11-11
-
 Start timerange 2011-05-30 to 2011-12-16
-Best threshold for timerange [2011-05-30,2011-12-16] is 0.0
+Best threshold for timerange [2011-05-30,2011-12-16] is 0.09
 
 For timerange [2011-05-30,2011-12-16]:
-Mean Accuracy train is 45.61025641025641 %
+Mean Accuracy train is 49.24297924297924 %
 Mean Precision train is 100.0 %
-Mean Recall train is 45.61025641025641 %
-Mean Accuracy test is 63.97435897435897 %
-Mean Precision test is 99.48717948717949 %
-Mean Recall test is 63.97435897435897 %
+Mean Recall train is 49.24297924297924 %
+Mean Accuracy test is 45.256410256410255 %
+Mean Precision test is 100.0 %
+Mean Recall test is 45.256410256410255 %
 
 
 In mode test for timerange [2011-05-30,2011-12-16]:
 
-AccuracyD is 52.90598290598291 %
-PrecisionD is 52.90598290598291 %
+AccuracyD is 34.78260869565217 %
+PrecisionD is 34.78260869565217 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -0.2870347198530381
-CAGR is -0.034702963366673445
+Sharpe Ratio is -0.7619013876958071
+CAGR is -0.256385773069555
 
 End timerange 2011-05-30 to 2011-12-16
-
-Start timerange 2011-07-04 to 2012-01-20
-Best threshold for timerange [2011-07-04,2012-01-20] is 0.0
-
-For timerange [2011-07-04,2012-01-20]:
-Mean Accuracy train is 47.271794871794874 %
-Mean Precision train is 100.0 %
-Mean Recall train is 47.271794871794874 %
-Mean Accuracy test is 77.24358974358975 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 77.24358974358975 %
-
-
-In mode test for timerange [2011-07-04,2012-01-20]:
-
-AccuracyD is 73.93162393162393 %
-PrecisionD is 73.93162393162393 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 7.828943861484201
-CAGR is 0.22502712753520981
-
-End timerange 2011-07-04 to 2012-01-20
 
 Start timerange 2011-08-08 to 2012-02-24
 Best threshold for timerange [2011-08-08,2012-02-24] is 0.06
 
 For timerange [2011-08-08,2012-02-24]:
-Mean Accuracy train is 58.092307692307685 %
+Mean Accuracy train is 55.421245421245416 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.092307692307685 %
-Mean Accuracy test is 56.666666666666664 %
-Mean Precision test is 94.87179487179486 %
-Mean Recall test is 56.666666666666664 %
+Mean Recall train is 55.421245421245416 %
+Mean Accuracy test is 64.39102564102565 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 64.39102564102565 %
 
 
 In mode test for timerange [2011-08-08,2012-02-24]:
 
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
+AccuracyD is 37.5 %
+PrecisionD is 37.5 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -1.484819261881777
-CAGR is -0.2751386610708255
+Sharpe Ratio is 2.9761490254005514
+CAGR is 0.9902892938137442
 
 End timerange 2011-08-08 to 2012-02-24
-
-Start timerange 2011-09-12 to 2012-03-30
-Best threshold for timerange [2011-09-12,2012-03-30] is 0.06
-
-For timerange [2011-09-12,2012-03-30]:
-Mean Accuracy train is 57.31282051282051 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.31282051282051 %
-Mean Accuracy test is 62.30769230769231 %
-Mean Precision test is 98.2051282051282 %
-Mean Recall test is 62.30769230769231 %
-
-
-In mode test for timerange [2011-09-12,2012-03-30]:
-
-AccuracyD is 11.11111111111111 %
-PrecisionD is 11.11111111111111 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -0.06350222643133759
-CAGR is -0.013111595497413697
-
-End timerange 2011-09-12 to 2012-03-30
 
 Start timerange 2011-10-17 to 2012-05-04
 Best threshold for timerange [2011-10-17,2012-05-04] is 0.04
 
 For timerange [2011-10-17,2012-05-04]:
-Mean Accuracy train is 57.21025641025641 %
+Mean Accuracy train is 59.76800976800977 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.21025641025641 %
-Mean Accuracy test is 54.29487179487179 %
-Mean Precision test is 94.87179487179486 %
-Mean Recall test is 54.29487179487179 %
+Mean Recall train is 59.76800976800977 %
+Mean Accuracy test is 49.03846153846153 %
+Mean Precision test is 99.23076923076923 %
+Mean Recall test is 49.03846153846153 %
 
 
 In mode test for timerange [2011-10-17,2012-05-04]:
 
-AccuracyD is 14.285714285714285 %
-PrecisionD is 14.285714285714285 %
+AccuracyD is 10.92436974789916 %
+PrecisionD is 10.92436974789916 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -2.3250505405308277
-CAGR is -0.22026686892757763
+Sharpe Ratio is -5.2766222209446125
+CAGR is -0.3638719857711543
 
 End timerange 2011-10-17 to 2012-05-04
-
-Start timerange 2011-11-21 to 2012-06-08
-Best threshold for timerange [2011-11-21,2012-06-08] is 0.09
-
-For timerange [2011-11-21,2012-06-08]:
-Mean Accuracy train is 58.676923076923075 %
-Mean Precision train is 100.0 %
-Mean Recall train is 58.676923076923075 %
-Mean Accuracy test is 50.8974358974359 %
-Mean Precision test is 93.07692307692308 %
-Mean Recall test is 50.8974358974359 %
-
-
-In mode test for timerange [2011-11-21,2012-06-08]:
-
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.654131780966691
-CAGR is 6.630906153248828
-
-End timerange 2011-11-21 to 2012-06-08
 
 Start timerange 2011-12-26 to 2012-07-13
 Best threshold for timerange [2011-12-26,2012-07-13] is 0.09
 
 For timerange [2011-12-26,2012-07-13]:
-Mean Accuracy train is 56.88205128205127 %
+Mean Accuracy train is 55.39682539682539 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.88205128205127 %
-Mean Accuracy test is 59.61538461538461 %
-Mean Precision test is 97.43589743589743 %
-Mean Recall test is 59.61538461538461 %
+Mean Recall train is 55.39682539682539 %
+Mean Accuracy test is 62.1474358974359 %
+Mean Precision test is 100.0 %
+Mean Recall test is 62.1474358974359 %
 
 
 In mode test for timerange [2011-12-26,2012-07-13]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 33.33333333333333 %
+PrecisionD is 33.33333333333333 %
+RecallD is 100.0 %
 
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.41742579985560024
+Sharpe Ratio is 2.7724745992761526
+CAGR is 1.291255843380985
 
 End timerange 2011-12-26 to 2012-07-13
 
-Start timerange 2012-01-30 to 2012-08-17
-Best threshold for timerange [2012-01-30,2012-08-17] is 0.15
-
-For timerange [2012-01-30,2012-08-17]:
-Mean Accuracy train is 53.364102564102566 %
-Mean Precision train is 100.0 %
-Mean Recall train is 53.364102564102566 %
-Mean Accuracy test is 61.346153846153854 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 61.346153846153854 %
-
-
-In mode test for timerange [2012-01-30,2012-08-17]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2012-01-30 to 2012-08-17
-
 Start timerange 2012-03-05 to 2012-09-21
-Best threshold for timerange [2012-03-05,2012-09-21] is 0.09
+Best threshold for timerange [2012-03-05,2012-09-21] is 0.15
 
 For timerange [2012-03-05,2012-09-21]:
-Mean Accuracy train is 53.94871794871796 %
+Mean Accuracy train is 54.02930402930403 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.94871794871796 %
-Mean Accuracy test is 58.84615384615385 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 58.84615384615385 %
+Mean Recall train is 54.02930402930403 %
+Mean Accuracy test is 56.18589743589744 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 56.18589743589744 %
 
 
 In mode test for timerange [2012-03-05,2012-09-21]:
@@ -1221,223 +619,108 @@ CAGR is 0.0
 
 End timerange 2012-03-05 to 2012-09-21
 
-Start timerange 2012-04-09 to 2012-10-26
-Best threshold for timerange [2012-04-09,2012-10-26] is 0.09
+Start timerange 2012-05-14 to 2012-11-30
+Best threshold for timerange [2012-05-14,2012-11-30] is 0.09
 
-For timerange [2012-04-09,2012-10-26]:
-Mean Accuracy train is 55.40512820512822 %
+For timerange [2012-05-14,2012-11-30]:
+Mean Accuracy train is 56.03174603174603 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.40512820512822 %
-Mean Accuracy test is 42.94871794871795 %
-Mean Precision test is 89.74358974358975 %
-Mean Recall test is 42.94871794871795 %
+Mean Recall train is 56.03174603174603 %
+Mean Accuracy test is 51.89102564102564 %
+Mean Precision test is 100.0 %
+Mean Recall test is 51.89102564102564 %
 
 
-In mode test for timerange [2012-04-09,2012-10-26]:
+In mode test for timerange [2012-05-14,2012-11-30]:
 
 AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -7.127674999863466
-CAGR is -0.7074439204605363
-
-End timerange 2012-04-09 to 2012-10-26
-
-Start timerange 2012-05-14 to 2012-11-30
-Best threshold for timerange [2012-05-14,2012-11-30] is 0.04
-
-For timerange [2012-05-14,2012-11-30]:
-Mean Accuracy train is 54.67692307692308 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.67692307692308 %
-Mean Accuracy test is 56.217948717948715 %
-Mean Precision test is 97.17948717948718 %
-Mean Recall test is 56.217948717948715 %
-
-
-In mode test for timerange [2012-05-14,2012-11-30]:
-
-AccuracyD is 28.915662650602407 %
-PrecisionD is 28.915662650602407 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 6.280651256601365
-CAGR is 1.9358538767298192
+Sharpe Ratio is 0.3691059317967169
+CAGR is 0.1053048722719625
 
 End timerange 2012-05-14 to 2012-11-30
-
-Start timerange 2012-06-18 to 2013-01-04
-Best threshold for timerange [2012-06-18,2013-01-04] is 0.04
-
-For timerange [2012-06-18,2013-01-04]:
-Mean Accuracy train is 55.107692307692304 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.107692307692304 %
-Mean Accuracy test is 62.56410256410256 %
-Mean Precision test is 99.48717948717949 %
-Mean Recall test is 62.56410256410256 %
-
-
-In mode test for timerange [2012-06-18,2013-01-04]:
-
-AccuracyD is 31.25 %
-PrecisionD is 31.25 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 0.9463805571659591
-CAGR is 0.15598433697438852
-
-End timerange 2012-06-18 to 2013-01-04
 
 Start timerange 2012-07-23 to 2013-02-08
 Best threshold for timerange [2012-07-23,2013-02-08] is 0.04
 
 For timerange [2012-07-23,2013-02-08]:
-Mean Accuracy train is 56.55384615384615 %
+Mean Accuracy train is 55.49450549450549 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.55384615384615 %
-Mean Accuracy test is 70.25641025641025 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 70.25641025641025 %
+Mean Recall train is 55.49450549450549 %
+Mean Accuracy test is 66.18589743589743 %
+Mean Precision test is 100.0 %
+Mean Recall test is 66.18589743589743 %
 
 
 In mode test for timerange [2012-07-23,2013-02-08]:
 
-AccuracyD is 50.0 %
-PrecisionD is 50.0 %
+AccuracyD is 47.61904761904761 %
+PrecisionD is 47.61904761904761 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 11.107082269858635
-CAGR is 1.520498594192325
+Sharpe Ratio is 8.826765451549553
+CAGR is 1.182919958226139
 
 End timerange 2012-07-23 to 2013-02-08
-
-Start timerange 2012-08-27 to 2013-03-15
-Best threshold for timerange [2012-08-27,2013-03-15] is 0.04
-
-For timerange [2012-08-27,2013-03-15]:
-Mean Accuracy train is 58.55384615384616 %
-Mean Precision train is 100.0 %
-Mean Recall train is 58.55384615384616 %
-Mean Accuracy test is 60.76923076923077 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 60.76923076923077 %
-
-
-In mode test for timerange [2012-08-27,2013-03-15]:
-
-AccuracyD is 18.75 %
-PrecisionD is 18.75 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.649135027464124
-CAGR is 0.46800996376694015
-
-End timerange 2012-08-27 to 2013-03-15
 
 Start timerange 2012-10-01 to 2013-04-19
 Best threshold for timerange [2012-10-01,2013-04-19] is 0.04
 
 For timerange [2012-10-01,2013-04-19]:
-Mean Accuracy train is 58.71794871794872 %
+Mean Accuracy train is 57.74114774114775 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.71794871794872 %
-Mean Accuracy test is 57.05128205128205 %
-Mean Precision test is 97.17948717948718 %
-Mean Recall test is 57.05128205128205 %
+Mean Recall train is 57.74114774114775 %
+Mean Accuracy test is 60.44871794871794 %
+Mean Precision test is 100.0 %
+Mean Recall test is 60.44871794871794 %
 
 
 In mode test for timerange [2012-10-01,2013-04-19]:
 
-AccuracyD is 36.666666666666664 %
-PrecisionD is 36.666666666666664 %
+AccuracyD is 28.888888888888886 %
+PrecisionD is 28.888888888888886 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 0.5572716209197569
-CAGR is 0.14424104162625495
+Sharpe Ratio is 0.5845267545958963
+CAGR is 0.09779237059190016
 
 End timerange 2012-10-01 to 2013-04-19
-
-Start timerange 2012-11-05 to 2013-05-24
-Best threshold for timerange [2012-11-05,2013-05-24] is 0.12
-
-For timerange [2012-11-05,2013-05-24]:
-Mean Accuracy train is 62.08205128205129 %
-Mean Precision train is 100.0 %
-Mean Recall train is 62.08205128205129 %
-Mean Accuracy test is 63.46153846153846 %
-Mean Precision test is 96.92307692307692 %
-Mean Recall test is 63.46153846153846 %
-
-
-In mode test for timerange [2012-11-05,2013-05-24]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.34411377840226076
-
-End timerange 2012-11-05 to 2013-05-24
 
 Start timerange 2012-12-10 to 2013-06-28
 Best threshold for timerange [2012-12-10,2013-06-28] is 0.12
 
 For timerange [2012-12-10,2013-06-28]:
-Mean Accuracy train is 61.251282051282054 %
+Mean Accuracy train is 63.406593406593416 %
 Mean Precision train is 100.0 %
-Mean Recall train is 61.251282051282054 %
-Mean Accuracy test is 51.02564102564102 %
-Mean Precision test is 95.8974358974359 %
-Mean Recall test is 51.02564102564102 %
+Mean Recall train is 63.406593406593416 %
+Mean Accuracy test is 50.480769230769226 %
+Mean Precision test is 100.0 %
+Mean Recall test is 50.480769230769226 %
 
 
 In mode test for timerange [2012-12-10,2013-06-28]:
 
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
+AccuracyD is 16.666666666666664 %
+PrecisionD is 16.666666666666664 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 5.699310065679726
-CAGR is 1.746492572707076
+Sharpe Ratio is 1.6265570728163787
+CAGR is 0.27962783127502444
 
 End timerange 2012-12-10 to 2013-06-28
-
-Start timerange 2013-01-14 to 2013-08-02
-Best threshold for timerange [2013-01-14,2013-08-02] is 0.12
-
-For timerange [2013-01-14,2013-08-02]:
-Mean Accuracy train is 60.27692307692307 %
-Mean Precision train is 100.0 %
-Mean Recall train is 60.27692307692307 %
-Mean Accuracy test is 60.7051282051282 %
-Mean Precision test is 98.2051282051282 %
-Mean Recall test is 60.7051282051282 %
-
-
-In mode test for timerange [2013-01-14,2013-08-02]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 1.2245040052427068
-CAGR is 0.38144525351871184
-
-End timerange 2013-01-14 to 2013-08-02
 
 Start timerange 2013-02-18 to 2013-09-06
 Best threshold for timerange [2013-02-18,2013-09-06] is 0.12
 
 For timerange [2013-02-18,2013-09-06]:
-Mean Accuracy train is 57.774358974358975 %
+Mean Accuracy train is 59.682539682539684 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.774358974358975 %
-Mean Accuracy test is 48.52564102564102 %
-Mean Precision test is 94.61538461538461 %
-Mean Recall test is 48.52564102564102 %
+Mean Recall train is 59.682539682539684 %
+Mean Accuracy test is 48.14102564102564 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 48.14102564102564 %
 
 
 In mode test for timerange [2013-02-18,2013-09-06]:
@@ -1446,44 +729,21 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.0716745000760739
+Sharpe Ratio is 3.9992376929447424
+CAGR is 0.5040070511666064
 
 End timerange 2013-02-18 to 2013-09-06
-
-Start timerange 2013-03-25 to 2013-10-11
-Best threshold for timerange [2013-03-25,2013-10-11] is 0.12
-
-For timerange [2013-03-25,2013-10-11]:
-Mean Accuracy train is 57.025641025641015 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.025641025641015 %
-Mean Accuracy test is 50.8974358974359 %
-Mean Precision test is 97.6923076923077 %
-Mean Recall test is 50.8974358974359 %
-
-
-In mode test for timerange [2013-03-25,2013-10-11]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 4.163331998932266
-CAGR is 0.2999320738720621
-
-End timerange 2013-03-25 to 2013-10-11
 
 Start timerange 2013-04-29 to 2013-11-15
 Best threshold for timerange [2013-04-29,2013-11-15] is 0.12
 
 For timerange [2013-04-29,2013-11-15]:
-Mean Accuracy train is 56.42051282051281 %
+Mean Accuracy train is 54.72527472527472 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.42051282051281 %
-Mean Accuracy test is 63.84615384615384 %
-Mean Precision test is 97.6923076923077 %
-Mean Recall test is 63.84615384615384 %
+Mean Recall train is 54.72527472527472 %
+Mean Accuracy test is 64.58333333333334 %
+Mean Precision test is 100.0 %
+Mean Recall test is 64.58333333333334 %
 
 
 In mode test for timerange [2013-04-29,2013-11-15]:
@@ -1492,274 +752,136 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.2887490327024931
+Sharpe Ratio is 2.7255405754769875
+CAGR is 0.11484632901770397
 
 End timerange 2013-04-29 to 2013-11-15
-
-Start timerange 2013-06-03 to 2013-12-20
-Best threshold for timerange [2013-06-03,2013-12-20] is 0.12
-
-For timerange [2013-06-03,2013-12-20]:
-Mean Accuracy train is 57.88717948717949 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.88717948717949 %
-Mean Accuracy test is 58.52564102564103 %
-Mean Precision test is 96.92307692307692 %
-Mean Recall test is 58.52564102564103 %
-
-
-In mode test for timerange [2013-06-03,2013-12-20]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2013-06-03 to 2013-12-20
 
 Start timerange 2013-07-08 to 2014-01-24
 Best threshold for timerange [2013-07-08,2014-01-24] is 0.06
 
 For timerange [2013-07-08,2014-01-24]:
-Mean Accuracy train is 57.723076923076924 %
+Mean Accuracy train is 56.89865689865689 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.723076923076924 %
-Mean Accuracy test is 46.53846153846154 %
-Mean Precision test is 88.71794871794872 %
-Mean Recall test is 46.53846153846154 %
+Mean Recall train is 56.89865689865689 %
+Mean Accuracy test is 54.29487179487179 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 54.29487179487179 %
 
 
 In mode test for timerange [2013-07-08,2014-01-24]:
 
-AccuracyD is 7.142857142857142 %
-PrecisionD is 7.142857142857142 %
+AccuracyD is 12.5 %
+PrecisionD is 12.5 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -4.31352943909198
-CAGR is -0.1866764808015723
+Sharpe Ratio is 1.558925319924192
+CAGR is 0.16199942758502184
 
 End timerange 2013-07-08 to 2014-01-24
-
-Start timerange 2013-08-12 to 2014-02-28
-Best threshold for timerange [2013-08-12,2014-02-28] is 0.06
-
-For timerange [2013-08-12,2014-02-28]:
-Mean Accuracy train is 55.94871794871794 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.94871794871794 %
-Mean Accuracy test is 75.1923076923077 %
-Mean Precision test is 99.48717948717949 %
-Mean Recall test is 75.1923076923077 %
-
-
-In mode test for timerange [2013-08-12,2014-02-28]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2013-08-12 to 2014-02-28
 
 Start timerange 2013-09-16 to 2014-04-04
 Best threshold for timerange [2013-09-16,2014-04-04] is 0.04
 
 For timerange [2013-09-16,2014-04-04]:
-Mean Accuracy train is 58.12307692307692 %
+Mean Accuracy train is 56.97191697191697 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.12307692307692 %
-Mean Accuracy test is 46.34615384615385 %
-Mean Precision test is 93.58974358974359 %
-Mean Recall test is 46.34615384615385 %
+Mean Recall train is 56.97191697191697 %
+Mean Accuracy test is 55.25641025641026 %
+Mean Precision test is 100.0 %
+Mean Recall test is 55.25641025641026 %
 
 
 In mode test for timerange [2013-09-16,2014-04-04]:
 
-AccuracyD is 13.636363636363635 %
-PrecisionD is 13.636363636363635 %
+AccuracyD is 15.887850467289718 %
+PrecisionD is 15.887850467289718 %
 RecallD is 100.0 %
 
-Sharpe Ratio is -5.23527827156687
-CAGR is -0.5688543832537414
+Sharpe Ratio is -0.30228798849304833
+CAGR is -0.050664069868001316
 
 End timerange 2013-09-16 to 2014-04-04
-
-Start timerange 2013-10-21 to 2014-05-09
-Best threshold for timerange [2013-10-21,2014-05-09] is 0.04
-
-For timerange [2013-10-21,2014-05-09]:
-Mean Accuracy train is 55.76410256410257 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.76410256410257 %
-Mean Accuracy test is 63.46153846153846 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 63.46153846153846 %
-
-
-In mode test for timerange [2013-10-21,2014-05-09]:
-
-AccuracyD is 18.181818181818183 %
-PrecisionD is 18.181818181818183 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 3.2691953271989056
-CAGR is 0.5627569840798969
-
-End timerange 2013-10-21 to 2014-05-09
 
 Start timerange 2013-11-25 to 2014-06-13
 Best threshold for timerange [2013-11-25,2014-06-13] is 0.04
 
 For timerange [2013-11-25,2014-06-13]:
-Mean Accuracy train is 55.04615384615384 %
+Mean Accuracy train is 55.44566544566545 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.04615384615384 %
-Mean Accuracy test is 71.02564102564102 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 71.02564102564102 %
+Mean Recall train is 55.44566544566545 %
+Mean Accuracy test is 61.98717948717949 %
+Mean Precision test is 100.0 %
+Mean Recall test is 61.98717948717949 %
 
 
 In mode test for timerange [2013-11-25,2014-06-13]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -7.018551203808027
-CAGR is -0.4335140357039158
-
-End timerange 2013-11-25 to 2014-06-13
-
-Start timerange 2013-12-30 to 2014-07-18
-Best threshold for timerange [2013-12-30,2014-07-18] is 0.04
-
-For timerange [2013-12-30,2014-07-18]:
-Mean Accuracy train is 56.85128205128205 %
-Mean Precision train is 100.0 %
-Mean Recall train is 56.85128205128205 %
-Mean Accuracy test is 52.62820512820513 %
-Mean Precision test is 93.33333333333333 %
-Mean Recall test is 52.62820512820513 %
-
-
-In mode test for timerange [2013-12-30,2014-07-18]:
-
-AccuracyD is 50.0 %
-PrecisionD is 50.0 %
+AccuracyD is 17.142857142857142 %
+PrecisionD is 17.142857142857142 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 9.599551967428892
-CAGR is 2.882319079229692
+Sharpe Ratio is -1.3235293705999032
+CAGR is -0.10558091528541469
 
-End timerange 2013-12-30 to 2014-07-18
+End timerange 2013-11-25 to 2014-06-13
 
 Start timerange 2014-02-03 to 2014-08-22
 Best threshold for timerange [2014-02-03,2014-08-22] is 0.04
 
 For timerange [2014-02-03,2014-08-22]:
-Mean Accuracy train is 57.78461538461538 %
+Mean Accuracy train is 60.15873015873016 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.78461538461538 %
-Mean Accuracy test is 62.756410256410255 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 62.756410256410255 %
+Mean Recall train is 60.15873015873016 %
+Mean Accuracy test is 54.03846153846153 %
+Mean Precision test is 100.0 %
+Mean Recall test is 54.03846153846153 %
 
 
 In mode test for timerange [2014-02-03,2014-08-22]:
 
-AccuracyD is 17.647058823529413 %
-PrecisionD is 17.647058823529413 %
+AccuracyD is 12.195121951219512 %
+PrecisionD is 12.195121951219512 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.994287478416877
-CAGR is 0.2540706682832521
+Sharpe Ratio is 5.690016321970604
+CAGR is 0.5211456599154647
 
 End timerange 2014-02-03 to 2014-08-22
-
-Start timerange 2014-03-10 to 2014-09-26
-Best threshold for timerange [2014-03-10,2014-09-26] is 0.04
-
-For timerange [2014-03-10,2014-09-26]:
-Mean Accuracy train is 57.21025641025641 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.21025641025641 %
-Mean Accuracy test is 34.679487179487175 %
-Mean Precision test is 76.92307692307693 %
-Mean Recall test is 34.679487179487175 %
-
-
-In mode test for timerange [2014-03-10,2014-09-26]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.462792480268753
-CAGR is -0.4913239744027602
-
-End timerange 2014-03-10 to 2014-09-26
 
 Start timerange 2014-04-14 to 2014-10-31
 Best threshold for timerange [2014-04-14,2014-10-31] is 0.04
 
 For timerange [2014-04-14,2014-10-31]:
-Mean Accuracy train is 55.62051282051282 %
+Mean Accuracy train is 59.45054945054944 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.62051282051282 %
-Mean Accuracy test is 70.1923076923077 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 70.1923076923077 %
+Mean Recall train is 59.45054945054944 %
+Mean Accuracy test is 52.8525641025641 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 52.8525641025641 %
 
 
 In mode test for timerange [2014-04-14,2014-10-31]:
 
-AccuracyD is 59.09090909090909 %
-PrecisionD is 59.09090909090909 %
+AccuracyD is 30.303030303030305 %
+PrecisionD is 30.303030303030305 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 11.581456707300596
-CAGR is 2.0874929540018106
+Sharpe Ratio is -1.270995632515683
+CAGR is -0.28736772073836403
 
 End timerange 2014-04-14 to 2014-10-31
-
-Start timerange 2014-05-19 to 2014-12-05
-Best threshold for timerange [2014-05-19,2014-12-05] is 0.12
-
-For timerange [2014-05-19,2014-12-05]:
-Mean Accuracy train is 57.76410256410256 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.76410256410256 %
-Mean Accuracy test is 61.53846153846154 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 61.53846153846154 %
-
-
-In mode test for timerange [2014-05-19,2014-12-05]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2014-05-19 to 2014-12-05
 
 Start timerange 2014-06-23 to 2015-01-09
 Best threshold for timerange [2014-06-23,2015-01-09] is 0.12
 
 For timerange [2014-06-23,2015-01-09]:
-Mean Accuracy train is 56.092307692307685 %
+Mean Accuracy train is 55.543345543345545 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.092307692307685 %
-Mean Accuracy test is 51.41025641025641 %
-Mean Precision test is 96.92307692307692 %
-Mean Recall test is 51.41025641025641 %
+Mean Recall train is 55.543345543345545 %
+Mean Accuracy test is 55.19230769230769 %
+Mean Precision test is 100.0 %
+Mean Recall test is 55.19230769230769 %
 
 
 In mode test for timerange [2014-06-23,2015-01-09]:
@@ -1768,90 +890,44 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.640273436369359
+Sharpe Ratio is -0.09102969460214783
+CAGR is -0.020519833627068773
 
 End timerange 2014-06-23 to 2015-01-09
-
-Start timerange 2014-07-28 to 2015-02-13
-Best threshold for timerange [2014-07-28,2015-02-13] is 0.12
-
-For timerange [2014-07-28,2015-02-13]:
-Mean Accuracy train is 56.81025641025641 %
-Mean Precision train is 100.0 %
-Mean Recall train is 56.81025641025641 %
-Mean Accuracy test is 60.0 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 60.0 %
-
-
-In mode test for timerange [2014-07-28,2015-02-13]:
-
-AccuracyD is 33.33333333333333 %
-PrecisionD is 33.33333333333333 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 5.7929285918415685
-CAGR is 3.97369275979816
-
-End timerange 2014-07-28 to 2015-02-13
 
 Start timerange 2014-09-01 to 2015-03-20
 Best threshold for timerange [2014-09-01,2015-03-20] is 0.12
 
 For timerange [2014-09-01,2015-03-20]:
-Mean Accuracy train is 56.12307692307692 %
+Mean Accuracy train is 54.66422466422467 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.12307692307692 %
-Mean Accuracy test is 47.243589743589745 %
-Mean Precision test is 95.64102564102565 %
-Mean Recall test is 47.243589743589745 %
+Mean Recall train is 54.66422466422467 %
+Mean Accuracy test is 55.51282051282052 %
+Mean Precision test is 100.0 %
+Mean Recall test is 55.51282051282052 %
 
 
 In mode test for timerange [2014-09-01,2015-03-20]:
 
-AccuracyD is 100.0 %
-PrecisionD is 100.0 %
+AccuracyD is 50.0 %
+PrecisionD is 50.0 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 2.795808909349148
+Sharpe Ratio is 3.5124676482281827
+CAGR is 1.06662870018322
 
 End timerange 2014-09-01 to 2015-03-20
-
-Start timerange 2014-10-06 to 2015-04-24
-Best threshold for timerange [2014-10-06,2015-04-24] is 0.12
-
-For timerange [2014-10-06,2015-04-24]:
-Mean Accuracy train is 57.28205128205127 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.28205128205127 %
-Mean Accuracy test is 54.03846153846153 %
-Mean Precision test is 93.84615384615384 %
-Mean Recall test is 54.03846153846153 %
-
-
-In mode test for timerange [2014-10-06,2015-04-24]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.163331998932266
-CAGR is -0.1909514919856724
-
-End timerange 2014-10-06 to 2015-04-24
 
 Start timerange 2014-11-10 to 2015-05-29
 Best threshold for timerange [2014-11-10,2015-05-29] is 0.12
 
 For timerange [2014-11-10,2015-05-29]:
-Mean Accuracy train is 53.97948717948717 %
+Mean Accuracy train is 54.92063492063492 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.97948717948717 %
-Mean Accuracy test is 47.179487179487175 %
-Mean Precision test is 90.76923076923077 %
-Mean Recall test is 47.179487179487175 %
+Mean Recall train is 54.92063492063492 %
+Mean Accuracy test is 48.10897435897436 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 48.10897435897436 %
 
 
 In mode test for timerange [2014-11-10,2015-05-29]:
@@ -1860,44 +936,21 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.02338723482420968
+Sharpe Ratio is 1.1524060318591682
+CAGR is 0.09491175840897181
 
 End timerange 2014-11-10 to 2015-05-29
-
-Start timerange 2014-12-15 to 2015-07-03
-Best threshold for timerange [2014-12-15,2015-07-03] is 0.12
-
-For timerange [2014-12-15,2015-07-03]:
-Mean Accuracy train is 51.04615384615385 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.04615384615385 %
-Mean Accuracy test is 46.53846153846154 %
-Mean Precision test is 91.53846153846153 %
-Mean Recall test is 46.53846153846154 %
-
-
-In mode test for timerange [2014-12-15,2015-07-03]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.163331998932264
-CAGR is -0.09417608286139645
-
-End timerange 2014-12-15 to 2015-07-03
 
 Start timerange 2015-01-19 to 2015-08-07
 Best threshold for timerange [2015-01-19,2015-08-07] is 0.12
 
 For timerange [2015-01-19,2015-08-07]:
-Mean Accuracy train is 50.96410256410257 %
+Mean Accuracy train is 51.24542124542124 %
 Mean Precision train is 100.0 %
-Mean Recall train is 50.96410256410257 %
-Mean Accuracy test is 53.58974358974359 %
-Mean Precision test is 93.84615384615384 %
-Mean Recall test is 53.58974358974359 %
+Mean Recall train is 51.24542124542124 %
+Mean Accuracy test is 51.53846153846153 %
+Mean Precision test is 98.71794871794873 %
+Mean Recall test is 51.53846153846153 %
 
 
 In mode test for timerange [2015-01-19,2015-08-07]:
@@ -1906,90 +959,44 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -3.6633881000390494
-CAGR is -0.19429356227096162
+Sharpe Ratio is -4.9630557863662474
+CAGR is -0.6547839194723999
 
 End timerange 2015-01-19 to 2015-08-07
-
-Start timerange 2015-02-23 to 2015-09-11
-Best threshold for timerange [2015-02-23,2015-09-11] is 0.0
-
-For timerange [2015-02-23,2015-09-11]:
-Mean Accuracy train is 49.21025641025641 %
-Mean Precision train is 100.0 %
-Mean Recall train is 49.21025641025641 %
-Mean Accuracy test is 41.85897435897436 %
-Mean Precision test is 93.33333333333333 %
-Mean Recall test is 41.85897435897436 %
-
-
-In mode test for timerange [2015-02-23,2015-09-11]:
-
-AccuracyD is 54.95726495726496 %
-PrecisionD is 54.95726495726496 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -0.374919108168694
-CAGR is -0.03875584064646598
-
-End timerange 2015-02-23 to 2015-09-11
 
 Start timerange 2015-03-30 to 2015-10-16
 Best threshold for timerange [2015-03-30,2015-10-16] is 0.0
 
 For timerange [2015-03-30,2015-10-16]:
-Mean Accuracy train is 48.17435897435898 %
+Mean Accuracy train is 48.47374847374847 %
 Mean Precision train is 100.0 %
-Mean Recall train is 48.17435897435898 %
-Mean Accuracy test is 64.48717948717949 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 64.48717948717949 %
+Mean Recall train is 48.47374847374847 %
+Mean Accuracy test is 55.544871794871796 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 55.544871794871796 %
 
 
 In mode test for timerange [2015-03-30,2015-10-16]:
 
-AccuracyD is 76.66666666666667 %
-PrecisionD is 76.66666666666667 %
+AccuracyD is 58.4981684981685 %
+PrecisionD is 58.4981684981685 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 1.6363053826264407
-CAGR is 0.034967620493851825
+Sharpe Ratio is 0.7296927154415159
+CAGR is 0.040620278524864606
 
 End timerange 2015-03-30 to 2015-10-16
-
-Start timerange 2015-05-04 to 2015-11-20
-Best threshold for timerange [2015-05-04,2015-11-20] is 0.15
-
-For timerange [2015-05-04,2015-11-20]:
-Mean Accuracy train is 50.44102564102564 %
-Mean Precision train is 100.0 %
-Mean Recall train is 50.44102564102564 %
-Mean Accuracy test is 47.69230769230769 %
-Mean Precision test is 94.61538461538461 %
-Mean Recall test is 47.69230769230769 %
-
-
-In mode test for timerange [2015-05-04,2015-11-20]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.48002294459355843
-
-End timerange 2015-05-04 to 2015-11-20
 
 Start timerange 2015-06-08 to 2015-12-25
 Best threshold for timerange [2015-06-08,2015-12-25] is 0.2
 
 For timerange [2015-06-08,2015-12-25]:
-Mean Accuracy train is 51.610256410256405 %
+Mean Accuracy train is 52.27106227106228 %
 Mean Precision train is 100.0 %
-Mean Recall train is 51.610256410256405 %
-Mean Accuracy test is 46.794871794871796 %
-Mean Precision test is 93.58974358974359 %
-Mean Recall test is 46.794871794871796 %
+Mean Recall train is 52.27106227106228 %
+Mean Accuracy test is 47.467948717948715 %
+Mean Precision test is 99.23076923076923 %
+Mean Recall test is 47.467948717948715 %
 
 
 In mode test for timerange [2015-06-08,2015-12-25]:
@@ -1998,90 +1005,44 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 4.517466992294193
+Sharpe Ratio is 3.033271314573856
+CAGR is 1.8168841284323984
 
 End timerange 2015-06-08 to 2015-12-25
 
-Start timerange 2015-07-13 to 2016-01-29
-Best threshold for timerange [2015-07-13,2016-01-29] is 0.2
-
-For timerange [2015-07-13,2016-01-29]:
-Mean Accuracy train is 49.02564102564103 %
-Mean Precision train is 100.0 %
-Mean Recall train is 49.02564102564103 %
-Mean Accuracy test is 43.52564102564103 %
-Mean Precision test is 87.94871794871794 %
-Mean Recall test is 43.52564102564103 %
-
-
-In mode test for timerange [2015-07-13,2016-01-29]:
-
-AccuracyD is 14.285714285714285 %
-PrecisionD is 14.285714285714285 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.7904839394150986
-
-End timerange 2015-07-13 to 2016-01-29
-
 Start timerange 2015-08-17 to 2016-03-04
-Best threshold for timerange [2015-08-17,2016-03-04] is 0.15
+Best threshold for timerange [2015-08-17,2016-03-04] is 0.2
 
 For timerange [2015-08-17,2016-03-04]:
-Mean Accuracy train is 46.37948717948718 %
+Mean Accuracy train is 46.58119658119658 %
 Mean Precision train is 100.0 %
-Mean Recall train is 46.37948717948718 %
-Mean Accuracy test is 78.3974358974359 %
+Mean Recall train is 46.58119658119658 %
+Mean Accuracy test is 61.858974358974365 %
 Mean Precision test is 100.0 %
-Mean Recall test is 78.3974358974359 %
+Mean Recall test is 61.858974358974365 %
 
 
 In mode test for timerange [2015-08-17,2016-03-04]:
 
-AccuracyD is 50.0 %
-PrecisionD is 50.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 4.163331998932265
-CAGR is 3.020245886732061
-
-End timerange 2015-08-17 to 2016-03-04
-
-Start timerange 2015-09-21 to 2016-04-08
-Best threshold for timerange [2015-09-21,2016-04-08] is 0.15
-
-For timerange [2015-09-21,2016-04-08]:
-Mean Accuracy train is 54.77948717948718 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.77948717948718 %
-Mean Accuracy test is 57.11538461538461 %
-Mean Precision test is 97.6923076923077 %
-Mean Recall test is 57.11538461538461 %
-
-
-In mode test for timerange [2015-09-21,2016-04-08]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
+AccuracyD is 0.0 %
+PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is nan
-CAGR is 0.0
+Sharpe Ratio is 3.249636624631231
+CAGR is 0.7157601497079502
 
-End timerange 2015-09-21 to 2016-04-08
+End timerange 2015-08-17 to 2016-03-04
 
 Start timerange 2015-10-26 to 2016-05-13
 Best threshold for timerange [2015-10-26,2016-05-13] is 0.15
 
 For timerange [2015-10-26,2016-05-13]:
-Mean Accuracy train is 54.21538461538461 %
+Mean Accuracy train is 52.10012210012209 %
 Mean Precision train is 100.0 %
-Mean Recall train is 54.21538461538461 %
-Mean Accuracy test is 43.717948717948715 %
-Mean Precision test is 90.25641025641026 %
-Mean Recall test is 43.717948717948715 %
+Mean Recall train is 52.10012210012209 %
+Mean Accuracy test is 54.51923076923077 %
+Mean Precision test is 100.0 %
+Mean Recall test is 54.51923076923077 %
 
 
 In mode test for timerange [2015-10-26,2016-05-13]:
@@ -2090,44 +1051,21 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932266
-CAGR is 1.031901945020226
+Sharpe Ratio is 2.7255405754769875
+CAGR is 0.3550593578733383
 
 End timerange 2015-10-26 to 2016-05-13
-
-Start timerange 2015-11-30 to 2016-06-17
-Best threshold for timerange [2015-11-30,2016-06-17] is 0.15
-
-For timerange [2015-11-30,2016-06-17]:
-Mean Accuracy train is 53.65128205128206 %
-Mean Precision train is 100.0 %
-Mean Recall train is 53.65128205128206 %
-Mean Accuracy test is 58.782051282051285 %
-Mean Precision test is 97.43589743589743 %
-Mean Recall test is 58.782051282051285 %
-
-
-In mode test for timerange [2015-11-30,2016-06-17]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2015-11-30 to 2016-06-17
 
 Start timerange 2016-01-04 to 2016-07-22
 Best threshold for timerange [2016-01-04,2016-07-22] is 0.15
 
 For timerange [2016-01-04,2016-07-22]:
-Mean Accuracy train is 56.96410256410257 %
+Mean Accuracy train is 57.655677655677664 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.96410256410257 %
-Mean Accuracy test is 69.16666666666667 %
-Mean Precision test is 99.48717948717949 %
-Mean Recall test is 69.16666666666667 %
+Mean Recall train is 57.655677655677664 %
+Mean Accuracy test is 61.25000000000001 %
+Mean Precision test is 100.0 %
+Mean Recall test is 61.25000000000001 %
 
 
 In mode test for timerange [2016-01-04,2016-07-22]:
@@ -2141,39 +1079,16 @@ CAGR is 0.0
 
 End timerange 2016-01-04 to 2016-07-22
 
-Start timerange 2016-02-08 to 2016-08-26
-Best threshold for timerange [2016-02-08,2016-08-26] is 0.15
-
-For timerange [2016-02-08,2016-08-26]:
-Mean Accuracy train is 62.133333333333326 %
-Mean Precision train is 100.0 %
-Mean Recall train is 62.133333333333326 %
-Mean Accuracy test is 51.73076923076923 %
-Mean Precision test is 88.71794871794872 %
-Mean Recall test is 51.73076923076923 %
-
-
-In mode test for timerange [2016-02-08,2016-08-26]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2016-02-08 to 2016-08-26
-
 Start timerange 2016-03-14 to 2016-09-30
 Best threshold for timerange [2016-03-14,2016-09-30] is 0.15
 
 For timerange [2016-03-14,2016-09-30]:
-Mean Accuracy train is 56.51282051282052 %
+Mean Accuracy train is 57.66788766788766 %
 Mean Precision train is 100.0 %
-Mean Recall train is 56.51282051282052 %
-Mean Accuracy test is 45.8974358974359 %
-Mean Precision test is 93.84615384615384 %
-Mean Recall test is 45.8974358974359 %
+Mean Recall train is 57.66788766788766 %
+Mean Accuracy test is 48.17307692307693 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 48.17307692307693 %
 
 
 In mode test for timerange [2016-03-14,2016-09-30]:
@@ -2187,131 +1102,62 @@ CAGR is 0.0
 
 End timerange 2016-03-14 to 2016-09-30
 
-Start timerange 2016-04-18 to 2016-11-04
-Best threshold for timerange [2016-04-18,2016-11-04] is 0.15
-
-For timerange [2016-04-18,2016-11-04]:
-Mean Accuracy train is 53.10769230769231 %
-Mean Precision train is 100.0 %
-Mean Recall train is 53.10769230769231 %
-Mean Accuracy test is 50.38461538461539 %
-Mean Precision test is 96.15384615384616 %
-Mean Recall test is 50.38461538461539 %
-
-
-In mode test for timerange [2016-04-18,2016-11-04]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2016-04-18 to 2016-11-04
-
 Start timerange 2016-05-23 to 2016-12-09
-Best threshold for timerange [2016-05-23,2016-12-09] is 0.2
+Best threshold for timerange [2016-05-23,2016-12-09] is 0.0
 
 For timerange [2016-05-23,2016-12-09]:
-Mean Accuracy train is 53.825641025641026 %
+Mean Accuracy train is 53.52869352869353 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.825641025641026 %
-Mean Accuracy test is 66.15384615384615 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 66.15384615384615 %
+Mean Recall train is 53.52869352869353 %
+Mean Accuracy test is 60.76923076923077 %
+Mean Precision test is 100.0 %
+Mean Recall test is 60.76923076923077 %
 
 
 In mode test for timerange [2016-05-23,2016-12-09]:
 
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
+AccuracyD is 61.72161172161172 %
+PrecisionD is 61.72161172161172 %
+RecallD is 100.0 %
 
-Sharpe Ratio is nan
-CAGR is 0.0
+Sharpe Ratio is 1.2110878294399934
+CAGR is 0.07389980003589458
 
 End timerange 2016-05-23 to 2016-12-09
 
-Start timerange 2016-06-27 to 2017-01-13
-Best threshold for timerange [2016-06-27,2017-01-13] is 0.09
-
-For timerange [2016-06-27,2017-01-13]:
-Mean Accuracy train is 54.44102564102564 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.44102564102564 %
-Mean Accuracy test is 51.60256410256411 %
-Mean Precision test is 94.35897435897435 %
-Mean Recall test is 51.60256410256411 %
-
-
-In mode test for timerange [2016-06-27,2017-01-13]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2016-06-27 to 2017-01-13
-
 Start timerange 2016-08-01 to 2017-02-17
-Best threshold for timerange [2016-08-01,2017-02-17] is 0.06
+Best threshold for timerange [2016-08-01,2017-02-17] is 0.04
 
 For timerange [2016-08-01,2017-02-17]:
-Mean Accuracy train is 52.42051282051282 %
+Mean Accuracy train is 51.12332112332112 %
 Mean Precision train is 100.0 %
-Mean Recall train is 52.42051282051282 %
-Mean Accuracy test is 63.653846153846146 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 63.653846153846146 %
+Mean Recall train is 51.12332112332112 %
+Mean Accuracy test is 61.44230769230769 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 61.44230769230769 %
 
 
 In mode test for timerange [2016-08-01,2017-02-17]:
 
-AccuracyD is 11.11111111111111 %
-PrecisionD is 11.11111111111111 %
+AccuracyD is 14.705882352941178 %
+PrecisionD is 14.705882352941178 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 0.23811026493582338
-CAGR is 0.03870777093132327
+Sharpe Ratio is -1.6420084316589294
+CAGR is -0.24180325834350136
 
 End timerange 2016-08-01 to 2017-02-17
-
-Start timerange 2016-09-05 to 2017-03-24
-Best threshold for timerange [2016-09-05,2017-03-24] is 0.06
-
-For timerange [2016-09-05,2017-03-24]:
-Mean Accuracy train is 55.18974358974359 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.18974358974359 %
-Mean Accuracy test is 39.871794871794876 %
-Mean Precision test is 86.15384615384616 %
-Mean Recall test is 39.871794871794876 %
-
-
-In mode test for timerange [2016-09-05,2017-03-24]:
-
-AccuracyD is 16.666666666666664 %
-PrecisionD is 16.666666666666664 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 6.500551930056325
-CAGR is 1.8707741904209216
-
-End timerange 2016-09-05 to 2017-03-24
 
 Start timerange 2016-10-10 to 2017-04-28
 Best threshold for timerange [2016-10-10,2017-04-28] is 0.2
 
 For timerange [2016-10-10,2017-04-28]:
-Mean Accuracy train is 54.78974358974359 %
+Mean Accuracy train is 56.3003663003663 %
 Mean Precision train is 100.0 %
-Mean Recall train is 54.78974358974359 %
-Mean Accuracy test is 55.96153846153846 %
-Mean Precision test is 97.43589743589743 %
-Mean Recall test is 55.96153846153846 %
+Mean Recall train is 56.3003663003663 %
+Mean Accuracy test is 51.41025641025641 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 51.41025641025641 %
 
 
 In mode test for timerange [2016-10-10,2017-04-28]:
@@ -2325,39 +1171,16 @@ CAGR is 0.0
 
 End timerange 2016-10-10 to 2017-04-28
 
-Start timerange 2016-11-14 to 2017-06-02
-Best threshold for timerange [2016-11-14,2017-06-02] is 0.2
-
-For timerange [2016-11-14,2017-06-02]:
-Mean Accuracy train is 55.39487179487179 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.39487179487179 %
-Mean Accuracy test is 61.282051282051285 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 61.282051282051285 %
-
-
-In mode test for timerange [2016-11-14,2017-06-02]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2016-11-14 to 2017-06-02
-
 Start timerange 2016-12-19 to 2017-07-07
 Best threshold for timerange [2016-12-19,2017-07-07] is 0.2
 
 For timerange [2016-12-19,2017-07-07]:
-Mean Accuracy train is 55.51794871794872 %
+Mean Accuracy train is 53.98046398046398 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.51794871794872 %
-Mean Accuracy test is 51.7948717948718 %
-Mean Precision test is 93.33333333333333 %
-Mean Recall test is 51.7948717948718 %
+Mean Recall train is 53.98046398046398 %
+Mean Accuracy test is 57.692307692307686 %
+Mean Precision test is 99.23076923076923 %
+Mean Recall test is 57.692307692307686 %
 
 
 In mode test for timerange [2016-12-19,2017-07-07]:
@@ -2371,85 +1194,39 @@ CAGR is 0.0
 
 End timerange 2016-12-19 to 2017-07-07
 
-Start timerange 2017-01-23 to 2017-08-11
-Best threshold for timerange [2017-01-23,2017-08-11] is 0.12
-
-For timerange [2017-01-23,2017-08-11]:
-Mean Accuracy train is 55.84615384615385 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.84615384615385 %
-Mean Accuracy test is 49.1025641025641 %
-Mean Precision test is 91.7948717948718 %
-Mean Recall test is 49.1025641025641 %
-
-
-In mode test for timerange [2017-01-23,2017-08-11]:
-
-AccuracyD is 25.0 %
-PrecisionD is 25.0 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 2.4069578266656095
-CAGR is 0.23844017770713322
-
-End timerange 2017-01-23 to 2017-08-11
-
 Start timerange 2017-02-27 to 2017-09-15
 Best threshold for timerange [2017-02-27,2017-09-15] is 0.12
 
 For timerange [2017-02-27,2017-09-15]:
-Mean Accuracy train is 52.0102564102564 %
+Mean Accuracy train is 54.236874236874236 %
 Mean Precision train is 100.0 %
-Mean Recall train is 52.0102564102564 %
-Mean Accuracy test is 66.08974358974359 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 66.08974358974359 %
+Mean Recall train is 54.236874236874236 %
+Mean Accuracy test is 53.205128205128204 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 53.205128205128204 %
 
 
 In mode test for timerange [2017-02-27,2017-09-15]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 14.285714285714285 %
+PrecisionD is 14.285714285714285 %
+RecallD is 100.0 %
 
-Sharpe Ratio is 6.213937007680019
-CAGR is 6.15617496423194
+Sharpe Ratio is 4.828744845310482
+CAGR is 1.7834698489282919
 
 End timerange 2017-02-27 to 2017-09-15
-
-Start timerange 2017-04-03 to 2017-10-20
-Best threshold for timerange [2017-04-03,2017-10-20] is 0.12
-
-For timerange [2017-04-03,2017-10-20]:
-Mean Accuracy train is 56.36923076923078 %
-Mean Precision train is 100.0 %
-Mean Recall train is 56.36923076923078 %
-Mean Accuracy test is 66.41025641025641 %
-Mean Precision test is 96.41025641025641 %
-Mean Recall test is 66.41025641025641 %
-
-
-In mode test for timerange [2017-04-03,2017-10-20]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is 4.163331998932266
-CAGR is 0.02848204540177801
-
-End timerange 2017-04-03 to 2017-10-20
 
 Start timerange 2017-05-08 to 2017-11-24
 Best threshold for timerange [2017-05-08,2017-11-24] is 0.12
 
 For timerange [2017-05-08,2017-11-24]:
-Mean Accuracy train is 58.08205128205128 %
+Mean Accuracy train is 57.570207570207565 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.08205128205128 %
-Mean Accuracy test is 60.192307692307686 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 60.192307692307686 %
+Mean Recall train is 57.570207570207565 %
+Mean Accuracy test is 60.480769230769226 %
+Mean Precision test is 100.0 %
+Mean Recall test is 60.480769230769226 %
 
 
 In mode test for timerange [2017-05-08,2017-11-24]:
@@ -2458,71 +1235,25 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.19704911582007922
+Sharpe Ratio is -2.5728834952165323
+CAGR is -0.2927009911225874
 
 End timerange 2017-05-08 to 2017-11-24
 
-Start timerange 2017-06-12 to 2017-12-29
-Best threshold for timerange [2017-06-12,2017-12-29] is 0.12
-
-For timerange [2017-06-12,2017-12-29]:
-Mean Accuracy train is 57.97948717948718 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.97948717948718 %
-Mean Accuracy test is 55.833333333333336 %
-Mean Precision test is 94.61538461538461 %
-Mean Recall test is 55.833333333333336 %
-
-
-In mode test for timerange [2017-06-12,2017-12-29]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2017-06-12 to 2017-12-29
-
 Start timerange 2017-07-17 to 2018-02-02
-Best threshold for timerange [2017-07-17,2018-02-02] is 0.06
+Best threshold for timerange [2017-07-17,2018-02-02] is 0.09
 
 For timerange [2017-07-17,2018-02-02]:
-Mean Accuracy train is 58.61538461538463 %
+Mean Accuracy train is 57.692307692307686 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.61538461538463 %
-Mean Accuracy test is 50.57692307692307 %
-Mean Precision test is 95.8974358974359 %
-Mean Recall test is 50.57692307692307 %
+Mean Recall train is 57.692307692307686 %
+Mean Accuracy test is 57.01923076923077 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 57.01923076923077 %
 
 
 In mode test for timerange [2017-07-17,2018-02-02]:
 
-AccuracyD is 7.6923076923076925 %
-PrecisionD is 7.6923076923076925 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -3.6667169865152793
-CAGR is -0.2914516078156212
-
-End timerange 2017-07-17 to 2018-02-02
-
-Start timerange 2017-08-21 to 2018-03-09
-Best threshold for timerange [2017-08-21,2018-03-09] is 0.2
-
-For timerange [2017-08-21,2018-03-09]:
-Mean Accuracy train is 59.08717948717948 %
-Mean Precision train is 100.0 %
-Mean Recall train is 59.08717948717948 %
-Mean Accuracy test is 63.84615384615384 %
-Mean Precision test is 97.43589743589743 %
-Mean Recall test is 63.84615384615384 %
-
-
-In mode test for timerange [2017-08-21,2018-03-09]:
-
 AccuracyD is 0 %
 PrecisionD is 0 %
 RecallD is 0 %
@@ -2530,18 +1261,18 @@ RecallD is 0 %
 Sharpe Ratio is nan
 CAGR is 0.0
 
-End timerange 2017-08-21 to 2018-03-09
+End timerange 2017-07-17 to 2018-02-02
 
 Start timerange 2017-09-25 to 2018-04-13
 Best threshold for timerange [2017-09-25,2018-04-13] is 0.2
 
 For timerange [2017-09-25,2018-04-13]:
-Mean Accuracy train is 57.32307692307692 %
+Mean Accuracy train is 57.692307692307686 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.32307692307692 %
-Mean Accuracy test is 49.743589743589745 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 49.743589743589745 %
+Mean Recall train is 57.692307692307686 %
+Mean Accuracy test is 52.56410256410257 %
+Mean Precision test is 100.0 %
+Mean Recall test is 52.56410256410257 %
 
 
 In mode test for timerange [2017-09-25,2018-04-13]:
@@ -2550,44 +1281,21 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 1.8683663267923163
+Sharpe Ratio is 2.7255405754769875
+CAGR is 0.5708297612671684
 
 End timerange 2017-09-25 to 2018-04-13
-
-Start timerange 2017-10-30 to 2018-05-18
-Best threshold for timerange [2017-10-30,2018-05-18] is 0.2
-
-For timerange [2017-10-30,2018-05-18]:
-Mean Accuracy train is 54.338461538461544 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.338461538461544 %
-Mean Accuracy test is 57.88461538461539 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 57.88461538461539 %
-
-
-In mode test for timerange [2017-10-30,2018-05-18]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2017-10-30 to 2018-05-18
 
 Start timerange 2017-12-04 to 2018-06-22
 Best threshold for timerange [2017-12-04,2018-06-22] is 0.2
 
 For timerange [2017-12-04,2018-06-22]:
-Mean Accuracy train is 53.374358974358984 %
+Mean Accuracy train is 52.6984126984127 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.374358974358984 %
-Mean Accuracy test is 54.551282051282044 %
-Mean Precision test is 98.46153846153847 %
-Mean Recall test is 54.551282051282044 %
+Mean Recall train is 52.6984126984127 %
+Mean Accuracy test is 55.73717948717949 %
+Mean Precision test is 100.0 %
+Mean Recall test is 55.73717948717949 %
 
 
 In mode test for timerange [2017-12-04,2018-06-22]:
@@ -2601,39 +1309,16 @@ CAGR is 0.0
 
 End timerange 2017-12-04 to 2018-06-22
 
-Start timerange 2018-01-08 to 2018-07-27
-Best threshold for timerange [2018-01-08,2018-07-27] is 0.2
-
-For timerange [2018-01-08,2018-07-27]:
-Mean Accuracy train is 51.98974358974359 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.98974358974359 %
-Mean Accuracy test is 66.21794871794872 %
-Mean Precision test is 97.94871794871794 %
-Mean Recall test is 66.21794871794872 %
-
-
-In mode test for timerange [2018-01-08,2018-07-27]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2018-01-08 to 2018-07-27
-
 Start timerange 2018-02-12 to 2018-08-31
 Best threshold for timerange [2018-02-12,2018-08-31] is 0.12
 
 For timerange [2018-02-12,2018-08-31]:
-Mean Accuracy train is 55.08717948717948 %
+Mean Accuracy train is 54.40781440781441 %
 Mean Precision train is 100.0 %
-Mean Recall train is 55.08717948717948 %
-Mean Accuracy test is 56.666666666666664 %
-Mean Precision test is 96.66666666666667 %
-Mean Recall test is 56.666666666666664 %
+Mean Recall train is 54.40781440781441 %
+Mean Accuracy test is 57.66025641025641 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 57.66025641025641 %
 
 
 In mode test for timerange [2018-02-12,2018-08-31]:
@@ -2642,228 +1327,113 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is 4.163331998932265
-CAGR is 0.23854552427456732
+Sharpe Ratio is 3.948080480735198
+CAGR is 0.2893646751543082
 
 End timerange 2018-02-12 to 2018-08-31
-
-Start timerange 2018-03-19 to 2018-10-05
-Best threshold for timerange [2018-03-19,2018-10-05] is 0.12
-
-For timerange [2018-03-19,2018-10-05]:
-Mean Accuracy train is 55.48717948717948 %
-Mean Precision train is 100.0 %
-Mean Recall train is 55.48717948717948 %
-Mean Accuracy test is 42.17948717948718 %
-Mean Precision test is 90.25641025641026 %
-Mean Recall test is 42.17948717948718 %
-
-
-In mode test for timerange [2018-03-19,2018-10-05]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -6.579432574359468
-CAGR is -0.5745746628073491
-
-End timerange 2018-03-19 to 2018-10-05
 
 Start timerange 2018-04-23 to 2018-11-09
 Best threshold for timerange [2018-04-23,2018-11-09] is 0.06
 
 For timerange [2018-04-23,2018-11-09]:
-Mean Accuracy train is 53.40512820512821 %
+Mean Accuracy train is 57.61904761904763 %
 Mean Precision train is 100.0 %
-Mean Recall train is 53.40512820512821 %
-Mean Accuracy test is 51.60256410256411 %
-Mean Precision test is 94.35897435897435 %
-Mean Recall test is 51.60256410256411 %
+Mean Recall train is 57.61904761904763 %
+Mean Accuracy test is 41.44230769230769 %
+Mean Precision test is 98.97435897435898 %
+Mean Recall test is 41.44230769230769 %
 
 
 In mode test for timerange [2018-04-23,2018-11-09]:
 
-AccuracyD is 34.93975903614458 %
-PrecisionD is 34.93975903614458 %
+AccuracyD is 15.458937198067632 %
+PrecisionD is 15.458937198067632 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 1.2165713636560354
-CAGR is 0.2892879785363047
+Sharpe Ratio is -3.6097176032600164
+CAGR is -0.5254012055889097
 
 End timerange 2018-04-23 to 2018-11-09
 
-Start timerange 2018-05-28 to 2018-12-14
-Best threshold for timerange [2018-05-28,2018-12-14] is 0.15
-
-For timerange [2018-05-28,2018-12-14]:
-Mean Accuracy train is 51.917948717948725 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.917948717948725 %
-Mean Accuracy test is 41.53846153846154 %
-Mean Precision test is 95.64102564102565 %
-Mean Recall test is 41.53846153846154 %
-
-
-In mode test for timerange [2018-05-28,2018-12-14]:
-
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
-
-Sharpe Ratio is -4.163331998932265
-CAGR is -0.6042214083916244
-
-End timerange 2018-05-28 to 2018-12-14
-
 Start timerange 2018-07-02 to 2019-01-18
-Best threshold for timerange [2018-07-02,2019-01-18] is 0.0
+Best threshold for timerange [2018-07-02,2019-01-18] is 0.06
 
 For timerange [2018-07-02,2019-01-18]:
-Mean Accuracy train is 48.328205128205134 %
+Mean Accuracy train is 52.393162393162385 %
 Mean Precision train is 100.0 %
-Mean Recall train is 48.328205128205134 %
-Mean Accuracy test is 78.26923076923077 %
+Mean Recall train is 52.393162393162385 %
+Mean Accuracy test is 52.62820512820513 %
 Mean Precision test is 100.0 %
-Mean Recall test is 78.26923076923077 %
+Mean Recall test is 52.62820512820513 %
 
 
 In mode test for timerange [2018-07-02,2019-01-18]:
 
-AccuracyD is 80.68376068376068 %
-PrecisionD is 80.68376068376068 %
+AccuracyD is 3.2846715328467155 %
+PrecisionD is 3.2846715328467155 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 1.4499026476321555
-CAGR is 0.05087437201293965
+Sharpe Ratio is -2.8361739376045816
+CAGR is -0.39885261496620206
 
 End timerange 2018-07-02 to 2019-01-18
-
-Start timerange 2018-08-06 to 2019-02-22
-Best threshold for timerange [2018-08-06,2019-02-22] is 0.0
-
-For timerange [2018-08-06,2019-02-22]:
-Mean Accuracy train is 51.01538461538462 %
-Mean Precision train is 100.0 %
-Mean Recall train is 51.01538461538462 %
-Mean Accuracy test is 73.58974358974359 %
-Mean Precision test is 99.23076923076923 %
-Mean Recall test is 73.58974358974359 %
-
-
-In mode test for timerange [2018-08-06,2019-02-22]:
-
-AccuracyD is 73.76068376068376 %
-PrecisionD is 73.76068376068376 %
-RecallD is 100.0 %
-
-Sharpe Ratio is 3.019552254728039
-CAGR is 0.13163849267283045
-
-End timerange 2018-08-06 to 2019-02-22
 
 Start timerange 2018-09-10 to 2019-03-29
 Best threshold for timerange [2018-09-10,2019-03-29] is 0.0
 
 For timerange [2018-09-10,2019-03-29]:
-Mean Accuracy train is 52.9948717948718 %
+Mean Accuracy train is 50.598290598290596 %
 Mean Precision train is 100.0 %
-Mean Recall train is 52.9948717948718 %
-Mean Accuracy test is 62.371794871794876 %
-Mean Precision test is 99.48717948717949 %
-Mean Recall test is 62.371794871794876 %
+Mean Recall train is 50.598290598290596 %
+Mean Accuracy test is 63.97435897435897 %
+Mean Precision test is 100.0 %
+Mean Recall test is 63.97435897435897 %
 
 
 In mode test for timerange [2018-09-10,2019-03-29]:
 
-AccuracyD is 66.75213675213675 %
-PrecisionD is 66.75213675213675 %
+AccuracyD is 62.34432234432234 %
+PrecisionD is 62.34432234432234 %
 RecallD is 100.0 %
 
-Sharpe Ratio is 4.1298802545461415
-CAGR is 0.15356582848699873
+Sharpe Ratio is 0.44175244840077876
+CAGR is 0.027055403125058053
 
 End timerange 2018-09-10 to 2019-03-29
 
-Start timerange 2018-10-15 to 2019-05-03
-Best threshold for timerange [2018-10-15,2019-05-03] is 0.0
-
-For timerange [2018-10-15,2019-05-03]:
-Mean Accuracy train is 57.89743589743589 %
-Mean Precision train is 100.0 %
-Mean Recall train is 57.89743589743589 %
-Mean Accuracy test is 48.97435897435897 %
-Mean Precision test is 94.35897435897435 %
-Mean Recall test is 48.97435897435897 %
-
-
-In mode test for timerange [2018-10-15,2019-05-03]:
-
-AccuracyD is 44.871794871794876 %
-PrecisionD is 44.871794871794876 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -3.795840906133176
-CAGR is -0.2288337520042255
-
-End timerange 2018-10-15 to 2019-05-03
-
 Start timerange 2018-11-19 to 2019-06-07
-Best threshold for timerange [2018-11-19,2019-06-07] is 0.09
+Best threshold for timerange [2018-11-19,2019-06-07] is 0.0
 
 For timerange [2018-11-19,2019-06-07]:
-Mean Accuracy train is 57.620512820512815 %
+Mean Accuracy train is 60.54945054945055 %
 Mean Precision train is 100.0 %
-Mean Recall train is 57.620512820512815 %
-Mean Accuracy test is 56.217948717948715 %
-Mean Precision test is 97.6923076923077 %
-Mean Recall test is 56.217948717948715 %
+Mean Recall train is 60.54945054945055 %
+Mean Accuracy test is 49.23076923076923 %
+Mean Precision test is 98.97435897435898 %
+Mean Recall test is 49.23076923076923 %
 
 
 In mode test for timerange [2018-11-19,2019-06-07]:
 
-AccuracyD is 0.0 %
-PrecisionD is 0.0 %
-RecallD is 0 %
+AccuracyD is 48.68131868131868 %
+PrecisionD is 48.68131868131868 %
+RecallD is 100.0 %
 
-Sharpe Ratio is 1.8683153636384384
-CAGR is 0.188723264320241
+Sharpe Ratio is -2.82941980707298
+CAGR is -0.23589710783382167
 
 End timerange 2018-11-19 to 2019-06-07
-
-Start timerange 2018-12-24 to 2019-07-12
-Best threshold for timerange [2018-12-24,2019-07-12] is 0.09
-
-For timerange [2018-12-24,2019-07-12]:
-Mean Accuracy train is 62.62564102564102 %
-Mean Precision train is 100.0 %
-Mean Recall train is 62.62564102564102 %
-Mean Accuracy test is 61.410256410256416 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 61.410256410256416 %
-
-
-In mode test for timerange [2018-12-24,2019-07-12]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2018-12-24 to 2019-07-12
 
 Start timerange 2019-01-28 to 2019-08-16
 Best threshold for timerange [2019-01-28,2019-08-16] is 0.09
 
 For timerange [2019-01-28,2019-08-16]:
-Mean Accuracy train is 58.92307692307692 %
+Mean Accuracy train is 58.473748473748465 %
 Mean Precision train is 100.0 %
-Mean Recall train is 58.92307692307692 %
-Mean Accuracy test is 42.5 %
-Mean Precision test is 81.7948717948718 %
-Mean Recall test is 42.5 %
+Mean Recall train is 58.473748473748465 %
+Mean Accuracy test is 51.89102564102564 %
+Mean Precision test is 99.74358974358975 %
+Mean Recall test is 51.89102564102564 %
 
 
 In mode test for timerange [2019-01-28,2019-08-16]:
@@ -2872,83 +1442,37 @@ AccuracyD is 0.0 %
 PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is -7.064169641456903
-CAGR is -0.5305868253675685
+Sharpe Ratio is -4.106198734236355
+CAGR is -0.27683404101411047
 
 End timerange 2019-01-28 to 2019-08-16
-
-Start timerange 2019-03-04 to 2019-09-20
-Best threshold for timerange [2019-03-04,2019-09-20] is 0.09
-
-For timerange [2019-03-04,2019-09-20]:
-Mean Accuracy train is 54.05128205128206 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.05128205128206 %
-Mean Accuracy test is 57.24358974358974 %
-Mean Precision test is 98.97435897435898 %
-Mean Recall test is 57.24358974358974 %
-
-
-In mode test for timerange [2019-03-04,2019-09-20]:
-
-AccuracyD is 0 %
-PrecisionD is 0 %
-RecallD is 0 %
-
-Sharpe Ratio is nan
-CAGR is 0.0
-
-End timerange 2019-03-04 to 2019-09-20
 
 Start timerange 2019-04-08 to 2019-10-25
 Best threshold for timerange [2019-04-08,2019-10-25] is 0.09
 
 For timerange [2019-04-08,2019-10-25]:
-Mean Accuracy train is 52.389743589743595 %
+Mean Accuracy train is 53.553113553113555 %
 Mean Precision train is 100.0 %
-Mean Recall train is 52.389743589743595 %
-Mean Accuracy test is 60.641025641025635 %
-Mean Precision test is 97.17948717948718 %
-Mean Recall test is 60.641025641025635 %
+Mean Recall train is 53.553113553113555 %
+Mean Accuracy test is 53.46153846153846 %
+Mean Precision test is 100.0 %
+Mean Recall test is 53.46153846153846 %
 
 
 In mode test for timerange [2019-04-08,2019-10-25]:
 
-AccuracyD is 0 %
-PrecisionD is 0 %
+AccuracyD is 0.0 %
+PrecisionD is 0.0 %
 RecallD is 0 %
 
-Sharpe Ratio is nan
-CAGR is 0.0
+Sharpe Ratio is 2.185892587141682
+CAGR is 0.3820005578883159
 
 End timerange 2019-04-08 to 2019-10-25
 
-Start timerange 2019-05-13 to 2019-11-29
-Best threshold for timerange [2019-05-13,2019-11-29] is 0.04
-
-For timerange [2019-05-13,2019-11-29]:
-Mean Accuracy train is 54.70457079152732 %
-Mean Precision train is 100.0 %
-Mean Recall train is 54.70457079152732 %
-Mean Accuracy test is 57.05128205128205 %
-Mean Precision test is 96.15384615384616 %
-Mean Recall test is 57.05128205128205 %
-
-
-In mode test for timerange [2019-05-13,2019-11-29]:
-
-AccuracyD is 9.523809523809524 %
-PrecisionD is 9.523809523809524 %
-RecallD is 100.0 %
-
-Sharpe Ratio is -6.296033178315975
-CAGR is -0.38831660702104454
-
-End timerange 2019-05-13 to 2019-11-29
-
-Mean Accuracy test for the whole period is 54.696673189823876 %
-Mean Precision test for the whole period is 54.696673189823876 %
+Mean Accuracy test for the whole period is 54.17067307692308 %
+Mean Precision test for the whole period is 54.17067307692308 %
 Mean Recall test for the whole period is 100.0 %
 
-Whole period Sharpe Ratio is 1.0474750423034693
-Whole period CAGR is 5.004508149878872 %
+Whole period Sharpe Ratio is 1.3406285773469335
+Whole period CAGR is 6.37380435578998 %
