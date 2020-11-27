@@ -16,7 +16,7 @@ sf.set_api_key('free')
 
 # Set the local directory where data-files are stored.
 # The dir will be created if it does not already exist.
-sf.set_data_dir('DirPath)
+sf.set_data_dir('YourSimDataDirPath')
 
 # Data for USA.
 market = 'us'
@@ -420,305 +420,304 @@ def create_traintest_bundles(df_ta, ref, total_weeks, test_weeks):
 #df_ta_cc = selectdates2(df_ta, date2)
 #highrise_cc = selectdates2(highrise, date2)
 
-def traintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts = False, sc=False):
-    threshold_list = [0., 0.04, 0.06, 0.09, 0.12, 0.15, 0.2]
+# def traintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts = False, sc=False):
+#     threshold_list = [0., 0.04, 0.06, 0.09, 0.12, 0.15, 0.2]
     
-    #Supporting Threshold Dict creation
-    threshold_dict = dict()
-    threshold_dict[0.] = 0.
-    threshold_dict[round(0.04,2)] = 0.0
-    threshold_dict[round(0.05,2)] = 0.0
-    threshold_dict[round(0.06,2)] = 0.0
-    threshold_dict[round(0.09,2)] = 0.0
-    threshold_dict[round(0.12,2)] = 0.0
-    threshold_dict[round(0.15,2)] = 0.0
-    threshold_dict[round(0.2,2)] = 0.0
+#     #Supporting Threshold Dict creation
+#     threshold_dict = dict()
+#     threshold_dict[0.] = 0.
+#     threshold_dict[round(0.04,2)] = 0.0
+#     threshold_dict[round(0.05,2)] = 0.0
+#     threshold_dict[round(0.06,2)] = 0.0
+#     threshold_dict[round(0.09,2)] = 0.0
+#     threshold_dict[round(0.12,2)] = 0.0
+#     threshold_dict[round(0.15,2)] = 0.0
+#     threshold_dict[round(0.2,2)] = 0.0
     
-    timerange_stock_preds_dict = dict()
-    threshold_repartition_dict = dict()
+#     timerange_stock_preds_dict = dict()
+#     threshold_repartition_dict = dict()
     
-    for threshold in threshold_list:
-        threshold_repartition_dict[threshold] = 0
+#     for threshold in threshold_list:
+#         threshold_repartition_dict[threshold] = 0
     
-    for timerange in timeranges:
-        print('')
-        print('Start timerange: {} to {}'.format(str(timerange[0]), str(timerange[1])))
-        print('')
+#     for timerange in timeranges:
+#         print('')
+#         print('Start timerange: {} to {}'.format(str(timerange[0]), str(timerange[1])))
+#         print('')
         
-        tmp_stock_preds_dict = dict()
+#         tmp_stock_preds_dict = dict()
         
-        avg_stock_acc_train_tmp = 0
-        avg_stock_prec_train_tmp = 0
-        avg_stock_rec_train_tmp = 0
-        avg_stock_acc_test_tmp = 0
-        avg_stock_prec_test_tmp = 0
-        avg_stock_rec_test_tmp = 0
+#         avg_stock_acc_train_tmp = 0
+#         avg_stock_prec_train_tmp = 0
+#         avg_stock_rec_train_tmp = 0
+#         avg_stock_acc_test_tmp = 0
+#         avg_stock_prec_test_tmp = 0
+#         avg_stock_rec_test_tmp = 0
         
-        list_stock_acc_train_tmp = list()
-        list_stock_prec_train_tmp = list()
-        list_stock_rec_train_tmp = list()
-        list_stock_acc_test_tmp = list()
-        list_stock_prec_test_tmp = list()
-        list_stock_rec_test_tmp = list()
+#         list_stock_acc_train_tmp = list()
+#         list_stock_prec_train_tmp = list()
+#         list_stock_rec_train_tmp = list()
+#         list_stock_acc_test_tmp = list()
+#         list_stock_prec_test_tmp = list()
+#         list_stock_rec_test_tmp = list()
         
-        for ticker in tickersa:
-            df_ta_f = selectdates(df_ta, timerange[0], timerange[1])
-            highrise_f = selectdates(highrise, timerange[0], timerange[1])
-            X = df_ta_f.loc[ticker].copy()
-            y = highrise_f.loc[ticker].copy()
+#         for ticker in tickersa:
+#             df_ta_f = selectdates(df_ta, timerange[0], timerange[1])
+#             highrise_f = selectdates(highrise, timerange[0], timerange[1])
+#             X = df_ta_f.loc[ticker].copy()
+#             y = highrise_f.loc[ticker].copy()
             
-            l = int((1-ratio)*len(X))
+#             l = int((1-ratio)*len(X))
             
-            X_train, X_test, y_train, y_test = X[:l], X[l:], y[:l], y[l:]
+#             X_train, X_test, y_train, y_test = X[:l], X[l:], y[:l], y[l:]
             
-            train_indexes = list(y_train.index)
-            test_indexes = list(y_test.index)
+#             train_indexes = list(y_train.index)
+#             test_indexes = list(y_test.index)
             
-            X_train = np.array(X_train)
-            X_test = np.array(X_test)
-            y_train = np.array(y_train)
-            y_test = np.array(y_test)    
+#             X_train = np.array(X_train)
+#             X_test = np.array(X_test)
+#             y_train = np.array(y_train)
+#             y_test = np.array(y_test)    
             
-            if sc == True:
-                #Standard Scaling to train and val
-                sc = StandardScaler()
-                sc.fit(X_train)
-                X_train_f = sc.transform(X_train)
-                X_test_f = sc.transform(X_test)
+#             if sc == True:
+#                 #Standard Scaling to train and val
+#                 sc = StandardScaler()
+#                 sc.fit(X_train)
+#                 X_train_f = sc.transform(X_train)
+#                 X_test_f = sc.transform(X_test)
                 
-                #SVC construction
-                clf = SVC(kernel='rbf', gamma='scale')
-                clf.fit(X_train_f, y_train)
-                predtrain = clf.predict(X_train_f)
-                predtest = clf.predict(X_test_f)
+#                 #SVC construction
+#                 clf = SVC(kernel='rbf', gamma='scale')
+#                 clf.fit(X_train_f, y_train)
+#                 predtrain = clf.predict(X_train_f)
+#                 predtest = clf.predict(X_test_f)
                 
-            else:
+#             else:
                 
-                #SVC construction
-                clf = SVC(kernel='rbf', gamma='scale')
-                clf.fit(X_train, y_train)
-                predtrain = clf.predict(X_train)
-                predtest = clf.predict(X_test)               
+#                 #SVC construction
+#                 clf = SVC(kernel='rbf', gamma='scale')
+#                 clf.fit(X_train, y_train)
+#                 predtrain = clf.predict(X_train)
+#                 predtest = clf.predict(X_test)               
             
-            acc_train = accuracy_score(predtrain,y_train)
-            prec_train = precision_score(predtrain,y_train)
-            rec_train = recall_score(predtrain,y_train)
-            acc_test = accuracy_score(predtest,y_test)
-            prec_test = precision_score(predtest,y_test)
-            rec_test = recall_score(predtest,y_test)
+#             acc_train = accuracy_score(predtrain,y_train)
+#             prec_train = precision_score(predtrain,y_train)
+#             rec_train = recall_score(predtrain,y_train)
+#             acc_test = accuracy_score(predtest,y_test)
+#             prec_test = precision_score(predtest,y_test)
+#             rec_test = recall_score(predtest,y_test)
             
-            #Add predictions to the tmp stock preds dict and to the timerange stock preds dict
-            tmp_stock_preds_dict['trainpred'+ticker] = predtrain
-            tmp_stock_preds_dict['testpred'+ticker] = predtest
+#             #Add predictions to the tmp stock preds dict and to the timerange stock preds dict
+#             tmp_stock_preds_dict['trainpred'+ticker] = predtrain
+#             tmp_stock_preds_dict['testpred'+ticker] = predtest
             
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainpred'+ticker] = predtrain
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testpred'+ticker] = predtest
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainpred'+ticker] = predtrain
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testpred'+ticker] = predtest
             
-            #Add accuracies precisions and recalls to the tmp stock preds dict and to the timerange stock preds dict
-            tmp_stock_preds_dict['trainacc'+ticker] = acc_train
-            tmp_stock_preds_dict['trainprec'+ticker] = prec_train
-            tmp_stock_preds_dict['trainrec'+ticker] = rec_train
-            tmp_stock_preds_dict['testacc'+ticker] = acc_test
-            tmp_stock_preds_dict['testprec'+ticker] = prec_test
-            tmp_stock_preds_dict['testrec'+ticker] = rec_test
+#             #Add accuracies precisions and recalls to the tmp stock preds dict and to the timerange stock preds dict
+#             tmp_stock_preds_dict['trainacc'+ticker] = acc_train
+#             tmp_stock_preds_dict['trainprec'+ticker] = prec_train
+#             tmp_stock_preds_dict['trainrec'+ticker] = rec_train
+#             tmp_stock_preds_dict['testacc'+ticker] = acc_test
+#             tmp_stock_preds_dict['testprec'+ticker] = prec_test
+#             tmp_stock_preds_dict['testrec'+ticker] = rec_test
         
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainacc'+ticker] = acc_train
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainprec'+ticker] = prec_train
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainrec'+ticker] = rec_train
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testacc'+ticker] = acc_test
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testprec'+ticker] = prec_test
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testrec'+ticker] = rec_test
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainacc'+ticker] = acc_train
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainprec'+ticker] = prec_train
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'trainrec'+ticker] = rec_train
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testacc'+ticker] = acc_test
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testprec'+ticker] = prec_test
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testrec'+ticker] = rec_test
             
-            #Add test indexes and values to the timerange stock preds dict
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes'] = test_indexes
-            timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'ytest'+ticker] = y_test
+#             #Add test indexes and values to the timerange stock preds dict
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes'] = test_indexes
+#             timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'ytest'+ticker] = y_test
             
-        #Select the best threshold
-        date1 = train_indexes[0]
-        date2 = train_indexes[-1]
-        df_rets_train = selectdates(df_rets, date1, date2)
+#         #Select the best threshold
+#         date1 = train_indexes[0]
+#         date2 = train_indexes[-1]
+#         df_rets_train = selectdates(df_rets, date1, date2)
         
-        CAGR = 0.
-        best_threshold = 0.
-        for threshold in threshold_list:
-            computed_list = computeCAGR(df_rets_train, tickersa, tmp_stock_preds_dict, threshold, threshold_dict, tcosts, mode = 'train', naive = False)
-            CAGRval = computed_list[2]
+#         CAGR = 0.
+#         best_threshold = 0.
+#         for threshold in threshold_list:
+#             computed_list = computeCAGR(df_rets_train, tickersa, tmp_stock_preds_dict, threshold, threshold_dict, tcosts, mode = 'train', naive = True)
+#             CAGRval = computed_list[2]
             
-            if CAGRval>CAGR:
-                CAGR = CAGRval
-                best_threshold = threshold
-        threshold_repartition_dict[best_threshold]+=1
-        print('Best threshold for timerange [{},{}] is {}'.format(str(timerange[0]), str(timerange[1]), best_threshold))
+#             if CAGRval>CAGR:
+#                 CAGR = CAGRval
+#                 best_threshold = threshold
+#         threshold_repartition_dict[best_threshold]+=1
+#         print('Best threshold for timerange [{},{}] is {}'.format(str(timerange[0]), str(timerange[1]), best_threshold))
         
-        #Backtest with the best threshold
-        date3 = test_indexes[0]
-        date4 = test_indexes[-1]
-        df_rets_test = selectdates(df_rets, date3, date4)
+#         #Backtest with the best threshold
+#         date3 = test_indexes[0]
+#         date4 = test_indexes[-1]
+#         df_rets_test = selectdates(df_rets, date3, date4)
         
-        computed_list = computeCAGR(df_rets_test, tickersa, tmp_stock_preds_dict, best_threshold, threshold_dict, tcosts, mode = 'test', naive = False)
-        trade_df = computed_list[0]
+#         computed_list = computeCAGR(df_rets_test, tickersa, tmp_stock_preds_dict, best_threshold, threshold_dict, tcosts, mode = 'test', naive = True)
+#         trade_df = computed_list[0]
         
-        #Add strategy returns to the timerange stock preds dict
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'StratRets'] = trade_df['Strategy Returns']
+#         #Add strategy returns to the timerange stock preds dict
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'StratRets'] = trade_df['Strategy Returns']
         
-        sharpe = computed_list[1]
-        CAGR2 = computed_list[2]
-        accuracyD = computed_list[3]
-        precisionD = computed_list[4]
-        recallD = computed_list[5]
+#         sharpe = computed_list[1]
+#         CAGR2 = computed_list[2]
+#         accuracyD = computed_list[3]
+#         precisionD = computed_list[4]
+#         recallD = computed_list[5]
         
-        #Add accuraciesD precisionsD recallsD Sharpe and CAGR to the timerange stock preds dict
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'accD'] = accuracyD
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'precD'] = precisionD
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'recD'] = recallD
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'sharpe'] = sharpe
-        timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'CAGR'] = CAGR2
+#         #Add accuraciesD precisionsD recallsD Sharpe and CAGR to the timerange stock preds dict
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'accD'] = accuracyD
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'precD'] = precisionD
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'recD'] = recallD
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'sharpe'] = sharpe
+#         timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'CAGR'] = CAGR2
         
-        for ticker in tickersa:
-            list_stock_acc_train_tmp.append(tmp_stock_preds_dict['trainacc'+ticker])
-            list_stock_prec_train_tmp.append(tmp_stock_preds_dict['trainprec'+ticker])
-            list_stock_rec_train_tmp.append(tmp_stock_preds_dict['trainrec'+ticker])
+#         for ticker in tickersa:
+#             list_stock_acc_train_tmp.append(tmp_stock_preds_dict['trainacc'+ticker])
+#             list_stock_prec_train_tmp.append(tmp_stock_preds_dict['trainprec'+ticker])
+#             list_stock_rec_train_tmp.append(tmp_stock_preds_dict['trainrec'+ticker])
             
-            list_stock_acc_test_tmp.append(tmp_stock_preds_dict['testacc'+ticker])
-            list_stock_prec_test_tmp.append(tmp_stock_preds_dict['testprec'+ticker])
-            list_stock_rec_test_tmp.append(tmp_stock_preds_dict['testrec'+ticker])
+#             list_stock_acc_test_tmp.append(tmp_stock_preds_dict['testacc'+ticker])
+#             list_stock_prec_test_tmp.append(tmp_stock_preds_dict['testprec'+ticker])
+#             list_stock_rec_test_tmp.append(tmp_stock_preds_dict['testrec'+ticker])
         
-        avg_stock_acc_train_tmp = np.sum(list_stock_acc_train_tmp)/len(tickersa)
-        avg_stock_prec_train_tmp = np.sum(list_stock_prec_train_tmp)/len(tickersa)
-        avg_stock_rec_train_tmp = np.sum(list_stock_rec_train_tmp)/len(tickersa)
-        avg_stock_acc_test_tmp = np.sum(list_stock_acc_test_tmp)/len(tickersa)
-        avg_stock_prec_test_tmp = np.sum(list_stock_prec_test_tmp)/len(tickersa)
-        avg_stock_rec_test_tmp = np.sum(list_stock_rec_test_tmp)/len(tickersa)
+#         avg_stock_acc_train_tmp = np.sum(list_stock_acc_train_tmp)/len(tickersa)
+#         avg_stock_prec_train_tmp = np.sum(list_stock_prec_train_tmp)/len(tickersa)
+#         avg_stock_rec_train_tmp = np.sum(list_stock_rec_train_tmp)/len(tickersa)
+#         avg_stock_acc_test_tmp = np.sum(list_stock_acc_test_tmp)/len(tickersa)
+#         avg_stock_prec_test_tmp = np.sum(list_stock_prec_test_tmp)/len(tickersa)
+#         avg_stock_rec_test_tmp = np.sum(list_stock_rec_test_tmp)/len(tickersa)
         
-        print('')
-        print('In train mode for timerange [{},{}]:'.format(str(train_indexes[0]), str(train_indexes[-1])))
-        print('Mean Accuracy train is {} %'.format(avg_stock_acc_train_tmp*100))
-        print('Mean Precision train is {} %'.format(avg_stock_prec_train_tmp*100))
-        print('Mean Recall train is {} %'.format(avg_stock_rec_train_tmp*100))
-        print('Mean Accuracy test is {} %'.format(avg_stock_acc_test_tmp*100))
-        print('Mean Precision test is {} %'.format(avg_stock_prec_test_tmp*100))
-        print('Mean Recall test is {} %'.format(avg_stock_rec_test_tmp*100))
-        print('')
-        print('')
-        print('In test mode for timerange [{},{}]:'.format(str(test_indexes[0]), str(test_indexes[-1])))
-        print('')
-        print('AccuracyD is {} %'.format(accuracyD*100))
-        print('PrecisionD is {} %'.format(precisionD*100))
-        print('RecallD is {} %'.format(recallD*100))
-        print('')
-        print('Sharpe Ratio is {}'.format(sharpe))
-        print('CAGR is {}'.format(CAGR2))
+#         print('')
+#         print('In train mode for timerange [{},{}]:'.format(str(train_indexes[0]), str(train_indexes[-1])))
+#         print('Mean Accuracy train is {} %'.format(avg_stock_acc_train_tmp*100))
+#         print('Mean Precision train is {} %'.format(avg_stock_prec_train_tmp*100))
+#         print('Mean Recall train is {} %'.format(avg_stock_rec_train_tmp*100))
+#         print('Mean Accuracy test is {} %'.format(avg_stock_acc_test_tmp*100))
+#         print('Mean Precision test is {} %'.format(avg_stock_prec_test_tmp*100))
+#         print('Mean Recall test is {} %'.format(avg_stock_rec_test_tmp*100))
+#         print('')
+#         print('')
+#         print('In test mode for timerange [{},{}]:'.format(str(test_indexes[0]), str(test_indexes[-1])))
+#         print('')
+#         print('AccuracyD is {} %'.format(accuracyD*100))
+#         print('PrecisionD is {} %'.format(precisionD*100))
+#         print('RecallD is {} %'.format(recallD*100))
+#         print('')
+#         print('Sharpe Ratio is {}'.format(sharpe))
+#         print('CAGR is {}'.format(CAGR2))
     
-        print('')
-        print('End timerange: {} to {}'.format(str(timerange[0]), str(timerange[1])))
+#         print('')
+#         print('End timerange: {} to {}'.format(str(timerange[0]), str(timerange[1])))
     
-    list_stock_acc_test = list()
-    list_stock_prec_test = list()
-    list_stock_rec_test = list()
+#     list_stock_acc_test = list()
+#     list_stock_prec_test = list()
+#     list_stock_rec_test = list()
     
-    avg_stock_acc_test = 0
-    avg_stock_prec_test = 0
-    avg_stock_rec_test = 0
+#     avg_stock_acc_test = 0
+#     avg_stock_prec_test = 0
+#     avg_stock_rec_test = 0
     
-    pred_metrics_stock = dict()
+#     pred_metrics_stock = dict()
     
-    for ticker in tickersa:
-        tot_indexes = list()
-        tot_test = list()
-        tot_predictions = list()
-        for timerange in timeranges:
-            temp_indexes = timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes']
-            temp_test = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'ytest'+ticker])
-            temp_predictions = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testpred'+ticker])
-            for (index, test, prediction) in zip(temp_indexes, temp_test, temp_predictions):
-                if index not in tot_indexes:
-                    tot_indexes.append(index)
-                    tot_test.append(test)
-                    tot_predictions.append(prediction)
+#     for ticker in tickersa:
+#         tot_indexes = list()
+#         tot_test = list()
+#         tot_predictions = list()
+#         for timerange in timeranges:
+#             temp_indexes = timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes']
+#             temp_test = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'ytest'+ticker])
+#             temp_predictions = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testpred'+ticker])
+#             for (index, test, prediction) in zip(temp_indexes, temp_test, temp_predictions):
+#                 if index not in tot_indexes:
+#                     tot_indexes.append(index)
+#                     tot_test.append(test)
+#                     tot_predictions.append(prediction)
         
-        acc_score = accuracy_score(tot_test,tot_predictions)
-        prec_score = precision_score(tot_test,tot_predictions)
-        rec_score = recall_score(tot_test,tot_predictions)
+#         acc_score = accuracy_score(tot_test,tot_predictions)
+#         prec_score = precision_score(tot_test,tot_predictions)
+#         rec_score = recall_score(tot_test,tot_predictions)
         
-        #Feed the prediction metrics dictionary
-        pred_metrics_stock['totindexes'+ticker] = tot_indexes
-        pred_metrics_stock['totpredictions'+ticker] = tot_predictions
-        pred_metrics_stock['tottest'+ticker] = tot_test
+#         #Feed the prediction metrics dictionary
+#         pred_metrics_stock['totindexes'+ticker] = tot_indexes
+#         pred_metrics_stock['totpredictions'+ticker] = tot_predictions
+#         pred_metrics_stock['tottest'+ticker] = tot_test
         
-        pred_metrics_stock['totacc'+ticker] = acc_score
-        pred_metrics_stock['totprec'+ticker] = prec_score
-        pred_metrics_stock['totrec'+ticker] = rec_score
+#         pred_metrics_stock['totacc'+ticker] = acc_score
+#         pred_metrics_stock['totprec'+ticker] = prec_score
+#         pred_metrics_stock['totrec'+ticker] = rec_score
         
-        list_stock_acc_test.append(acc_score)
-        list_stock_prec_test.append(prec_score)
-        list_stock_rec_test.append(rec_score)
+#         list_stock_acc_test.append(acc_score)
+#         list_stock_prec_test.append(prec_score)
+#         list_stock_rec_test.append(rec_score)
     
-    avg_stock_acc_test = np.sum(list_stock_acc_test)/len(tickersa)
-    avg_stock_prec_test = np.sum(list_stock_prec_test)/len(tickersa)
-    avg_stock_rec_test = np.sum(list_stock_rec_test)/len(tickersa)
+#     avg_stock_acc_test = np.sum(list_stock_acc_test)/len(tickersa)
+#     avg_stock_prec_test = np.sum(list_stock_prec_test)/len(tickersa)
+#     avg_stock_rec_test = np.sum(list_stock_rec_test)/len(tickersa)
     
-    #Retrieve strategy total returns for the whole period
-    tot_indexes = list()
-    tot_returns = list()
-    for timerange in timeranges:
-        temp_indexes = timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes']
-        temp_returns = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'StratRets'])
-        for (index, ret) in zip(temp_indexes, temp_returns):
-            if index not in tot_indexes:
-                tot_indexes.append(index)
-                tot_returns.append(ret)
+#     #Retrieve strategy total returns for the whole period
+#     tot_indexes = list()
+#     tot_returns = list()
+#     for timerange in timeranges:
+#         temp_indexes = timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'testindexes']
+#         temp_returns = list(timerange_stock_preds_dict[str(timerange[0])+':'+str(timerange[1])+'StratRets'])
+#         for (index, ret) in zip(temp_indexes, temp_returns):
+#             if index not in tot_indexes:
+#                 tot_indexes.append(index)
+#                 tot_returns.append(ret)
     
-    #Feed the prediction metrics dictionary
-    pred_metrics_stock['Strategy Returns'] = tot_returns
+#     #Feed the prediction metrics dictionary
+#     pred_metrics_stock['Strategy Returns'] = tot_returns
     
-    #Cumulative returns
-    pred_metrics_stock['Cumulative Strategy Returns'] = np.cumsum(pred_metrics_stock['Strategy Returns'])
+#     #Cumulative returns
+#     pred_metrics_stock['Cumulative Strategy Returns'] = np.cumsum(pred_metrics_stock['Strategy Returns'])
     
-    #Sharpe Ratio
-    sharpe = np.sqrt(252)*np.mean(pred_metrics_stock['Strategy Returns'])/np.std(pred_metrics_stock['Strategy Returns'])
-    pred_metrics_stock['Sharpe Ratio'] = sharpe
+#     #Sharpe Ratio
+#     sharpe = np.sqrt(252)*np.mean(pred_metrics_stock['Strategy Returns'])/np.std(pred_metrics_stock['Strategy Returns'])
+#     pred_metrics_stock['Sharpe Ratio'] = sharpe
     
-    #CAGR
-    start_val = 1
-    end_val = pred_metrics_stock['Cumulative Strategy Returns'][-1]+1
-    start_date = tot_indexes[0]
-    end_date = tot_indexes[-1]
-    trade_df.index = pd.to_datetime(trade_df.index)
-    days = (end_date - start_date).days
-    CAGR = (float(end_val) / float(start_val)) ** (252.0/days) - 1
-    pred_metrics_stock['CAGR'] = CAGR
+#     #CAGR
+#     start_val = 1
+#     end_val = pred_metrics_stock['Cumulative Strategy Returns'][-1]+1
+#     start_date = tot_indexes[0]
+#     end_date = tot_indexes[-1]
+#     trade_df.index = pd.to_datetime(trade_df.index)
+#     days = (end_date - start_date).days
+#     CAGR = (float(end_val) / float(start_val)) ** (252.0/days) - 1
+#     pred_metrics_stock['CAGR'] = CAGR
     
-    print('')
-    print('Mean Accuracy test for the whole period is {} %'.format(avg_stock_acc_test*100))
-    print('Mean Precision test for the whole period is {} %'.format(avg_stock_prec_test*100))
-    print('Mean Recall test for the whole period is {} %'.format(avg_stock_rec_test*100))
-    print('')
-    print('Whole period Sharpe Ratio is {}'.format(sharpe))
-    print('Whole period CAGR is {} %'.format(CAGR*100))
+#     print('')
+#     print('Mean Accuracy test for the whole period is {} %'.format(avg_stock_acc_test*100))
+#     print('Mean Precision test for the whole period is {} %'.format(avg_stock_prec_test*100))
+#     print('Mean Recall test for the whole period is {} %'.format(avg_stock_rec_test*100))
+#     print('')
+#     print('Whole period Sharpe Ratio is {}'.format(sharpe))
+#     print('Whole period CAGR is {} %'.format(CAGR*100))
     
-    print('')
+#     print('')
     
-    return timerange_stock_preds_dict, threshold_repartition_dict, pred_metrics_stock
+#     return timerange_stock_preds_dict, threshold_repartition_dict, pred_metrics_stock
 
-total_weeks = 105
-test_weeks = 5
-timeranges = create_traintest_bundles(df_ta, ref, total_weeks, test_weeks)
+# total_weeks = 40
+# test_weeks = 5
+# timeranges = create_traintest_bundles(df_ta, ref, total_weeks, test_weeks)
 
-timeranges1 = timeranges[30:40]
-ratio = 5/105
-test_results = traintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges1, tcosts = True, sc=True)      
+# ratio = 5/40
+# test_results = traintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts = True, sc=False)      
 
-pred_metrics_stock = test_results[2]
+# pred_metrics_stock = test_results[2]
 
-cumrets = pred_metrics_stock['Cumulative Strategy Returns']
-sharpe = pred_metrics_stock['Sharpe Ratio']
-CAGR = pred_metrics_stock['CAGR']
+# cumrets = pred_metrics_stock['Cumulative Strategy Returns']
+# sharpe = pred_metrics_stock['Sharpe Ratio']
+# CAGR = pred_metrics_stock['CAGR']
         
-import matplotlib.pyplot as plt
-plt.figure(figsize=(10,5))
-plt.plot(cumrets, color='g', label='Strategy Returns')
-plt.legend()
-plt.show()
+# import matplotlib.pyplot as plt
+# plt.figure(figsize=(10,5))
+# plt.plot(cumrets, color='g', label='Strategy Returns')
+# plt.legend()
+# plt.show()
 
 def naivetraintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts = False, mode = 'test'):
     threshold_list = [0., 0.04, 0.06, 0.09, 0.12, 0.15, 0.2]
@@ -982,10 +981,10 @@ def naivetraintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts
     return timerange_stock_preds_dict, threshold_repartition_dict, pred_metrics_stock
 
 total_weeks = 40
-test_weeks = 5
+test_weeks = 10
 timeranges = create_traintest_bundles(df_ta, ref, total_weeks, test_weeks)
 
-ratio = 5/40
+ratio = 1/4
 test_results = naivetraintest(df_ta, df_rets, tickersa, highrise, ratio, timeranges, tcosts = True, mode = 'test')      
 
 pred_metrics_stock = test_results[2]
@@ -997,5 +996,8 @@ CAGR = pred_metrics_stock['CAGR']
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10,5))
 plt.plot(cumrets, color='g', label='Strategy Returns')
+plt.xlabel('Number of weeks')
+plt.ylabel('Returns')
 plt.legend()
 plt.show()
+        
