@@ -53,7 +53,7 @@ df00.index = df0.index
 df0 = df0[df0.index.dayofweek < 5]
 df00 = df00[df00.index.dayofweek < 5]
 
-def func(comp, param, trans_costs, critical_level):
+def func(comp, param, trans_costs, critical_level, error_level):
 
     dfa = df0[0:comp+param]
     dfb = df00[0:comp+param]
@@ -97,7 +97,7 @@ def func(comp, param, trans_costs, critical_level):
         return halflife
     
     
-    def backtest(dfa, dfb, param, s1, s2, trans_costs=False):
+    def backtest(dfa, dfb, param, s1, s2, error_level, trans_costs=False):
         #############################################################
         # INPUT:
         # DataFrame of prices
@@ -209,8 +209,9 @@ def func(comp, param, trans_costs, critical_level):
         # df1['long entry'] = ((df1.zScore < - entryZscore) & (df1.zScore.shift(1) > - entryZscore))
         # df1['long exit'] = ((df1.zScore > - exitZscore) & (df1.zScore.shift(1) < - exitZscore))
         
-        df1['long entry'] = ((df1.et < -0.002) & (df1.et.shift(1) > -0.002))
-        df1['long exit'] = ((df1.et > -0.000) & (df1.et.shift(1) < -0.000))
+        threshold = error_level * 0.001
+        df1['long entry'] = ((df1.et < -threshold) & (df1.et.shift(1) > -threshold))
+        df1['long exit'] = ((df1.et > 0) & (df1.et.shift(1) < 0))
         
         df1['num units long'] = np.nan 
         df1.loc[df1['long entry'],'num units long'] = 1 
@@ -222,8 +223,8 @@ def func(comp, param, trans_costs, critical_level):
         # df1['short entry'] = ((df1.zScore > entryZscore) & (df1.zScore.shift(1) < entryZscore))
         # df1['short exit'] = ((df1.zScore < exitZscore) & (df1.zScore.shift(1) > exitZscore))
         
-        df1['short entry'] = ((df1.et > 0.002) & (df1.et.shift(1) < 0.002))
-        df1['short exit'] = ((df1.et < 0.000) & (df1.et.shift(1) > 0.000))
+        df1['short entry'] = ((df1.et > threshold) & (df1.et.shift(1) < threshold))
+        df1['short exit'] = ((df1.et < 0) & (df1.et.shift(1) > 0))
         
         df1.loc[df1['short entry'],'num units short'] = -1
         df1.loc[df1['short exit'],'num units short'] = 0
@@ -281,7 +282,7 @@ def func(comp, param, trans_costs, critical_level):
         
     for pair in pairs:
         
-        rets, sharpe,  CAGR = backtest(dfa, dfb, param, pair[0], pair[1], trans_costs)
+        rets, sharpe,  CAGR = backtest(dfa, dfb, param, pair[0], pair[1], trans_costs, error_level)
         results.append(rets)
         #print("The pair {} and {} produced a Sharpe Ratio of {} and a CAGR of {}".format(pair[0],pair[1],round(sharpe,2),round(CAGR,4)))
         #rets.plot(figsize=(20,15),legend=True)
@@ -330,4 +331,4 @@ comps = [i for i in range(compini,len(df0),param)]
 for comp in comps:
     print('')
     print('Between {} and {}'.format(str(indexes[comp])[:10],str(indexes[min(comp+param,len(indexes)-1)])[:10]))
-    func(comp, param, trans_costs = True, critical_level = 0.2)
+    func(comp, param, trans_costs = True, critical_level = 0.05, error_level = 3)
