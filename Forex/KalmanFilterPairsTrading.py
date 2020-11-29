@@ -331,4 +331,4 @@ comps = [i for i in range(compini,len(df0),param)]
 for comp in comps:
     print('')
     print('Between {} and {}'.format(str(indexes[comp])[:10],str(indexes[min(comp+param,len(indexes)-1)])[:10]))
-    func(comp, param, trans_costs = True, critical_level = 0.05, error_level = 3)
+    func(comp, param, trans_costs = True, critical_level = 0.15, error_level = 5)
