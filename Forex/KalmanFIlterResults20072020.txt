@@ -1,0 +1,43 @@
+Critical_level = 0.15, eror_level = 5
+
+Between 2007-12-04 and 2008-11-18
+Sharpe Ratio is 3.95 and CAGR is 0.1028
+
+Between 2008-11-18 and 2009-11-03
+Sharpe Ratio is 3.17 and CAGR is 0.0952
+
+Between 2009-11-03 and 2010-10-19
+Sharpe Ratio is 4.23 and CAGR is 0.0651
+
+Between 2010-10-19 and 2011-10-04
+Sharpe Ratio is 1.02 and CAGR is 0.0115
+
+Between 2011-10-04 and 2012-09-18
+Sharpe Ratio is 2.77 and CAGR is 0.0302
+
+Between 2012-09-18 and 2013-09-03
+Sharpe Ratio is 1.09 and CAGR is 0.014
+
+Between 2013-09-03 and 2014-08-19
+Sharpe Ratio is 4.04 and CAGR is 0.0411
+
+Between 2014-08-19 and 2015-08-04
+Sharpe Ratio is 3.82 and CAGR is 0.0541
+
+Between 2015-08-04 and 2016-07-19
+Sharpe Ratio is 4.03 and CAGR is 0.0755
+
+Between 2016-07-19 and 2017-07-04
+Sharpe Ratio is 2.55 and CAGR is 0.0294
+
+Between 2017-07-04 and 2018-06-19
+Sharpe Ratio is 4.37 and CAGR is 0.0489
+
+Between 2018-06-19 and 2019-06-04
+Sharpe Ratio is 3.48 and CAGR is 0.0326
+
+Between 2019-06-04 and 2020-05-19
+Sharpe Ratio is 1.75 and CAGR is 0.0271
+
+Between 2020-05-19 and 2020-09-04
+Sharpe Ratio is 2.32 and CAGR is 0.036
