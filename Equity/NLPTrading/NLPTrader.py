@@ -116,7 +116,7 @@ df1['Cumulative Strategy Returns'] = np.cumsum(df1['Strategy Returns'])
 df1['Cumulative Market Returns'] = np.cumsum(df1['Frets_SPY'])
 df1['Cumulative Strategy Returns'].plot() 
 
-sharpe = np.sqrt(25)*np.mean(df1['Strategy Returns'])/np.std(df1['Strategy Returns'])
+sharpe = np.sqrt(252)*np.mean(df1['Strategy Returns'])/np.std(df1['Strategy Returns'])
 
 #Plot
 import matplotlib.pyplot as plt
