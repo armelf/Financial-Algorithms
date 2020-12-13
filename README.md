@@ -58,3 +58,17 @@ We can implement technical indicators by ourselves on Python, since their formul
 pip install ta
 ```
 
+### Historical price data
+
+As said above, we retrieve historical price data from Yahoo Finance and we use `pandas_datareader` to access them easily. This library is very useful since it loads the data from Yahoo directly into `pandas`, in a format that makes them easy to preprocess. A simple syntax to retrieve data is:
+
+```python
+from pandas_datareader import data as pdr
+
+ticker = "SPY"
+start_date = "2000-01-01"
+end_date = "2020-01-01"
+
+#Retrieve yahoo data
+data = pdr.get_data_yahoo(ticker, start_date, end_date)
+```
