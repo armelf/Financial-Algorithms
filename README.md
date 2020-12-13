@@ -214,3 +214,28 @@ Then, we calculate *CminusVWAP* = Close - VWMA and its rolling zcore, denoted y 
 - If *Trend* = 'Downtrend' and zscore > 1 and previouszscore < 1, while cor>sl and zscore > 0, signal = -1.
 - *Trend* = 'Uptrend' and zscore < -1.5 and previouszscore > -1.5, while cor>sl and zscore < 1.5, signal = 1.
 - Else, if zscore < -2 and previouszscore > -2, while cor>sl and zscore < -1, signal = 1. Elif zscore > 2 and previouszscore < 2, while cor>sl and zscore > 1, signal = -1. Else, signal = 0.
+
+Stock prediction is done this way: **tomorrow_predicted_returns = tomorrows_real_returns * signal**
+
+### Creating the dataset
+The final dataset(the one used before backtesting) is created is the *create_df* function of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. It is composed of OHLCV historical price data, Trend, Strategy Signal(the one used) and Price Rise. In our specific case we will only test the VWSMA strategy, hence the line helps to create the strategy signal:
+
+```python
+df = ta_strategies.vwsma_strategy(df, sl)
+```
+
+### Backtesting the VWSMA strategy
+The backtesting part is done if the function *test_factor_acc* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. We create a modified signal(*msignal*) by taking the n-days SMA of the strategy signal. Ou backtestng proves that **n=2** works well for our strategy and it works in a robust way between 1993 and 2019. 
+
+The backtesting is simple, we perform transations one after **one after the other**. Each transaction involves the whole **initial** capital, so we trade **without reinvestment**. Our acktesting is performed **without taking account of transaction costs**, but overall transactions costs are low compared to total strategy returns here, due to the **low turnover** of the strategy (Turnover, in the stock market, refers to the total value of stocks traded during a specific period of time). An **improvement here would be to compute strategy returns taing transaction costs into account**. 
+
+We use *log-returns* = ln(Close/previousClose) for our backtesting and are aware of the *look-ahead bias*, then we use today's modified signal to compute tomorrow returns(*trets*).
+
+Note *srets* our outstanding strategy returns. 
+- If msignal = 1, srets = trets
+- Elif msignal = -1, srets = -trets
+- Else, srets = 0
+
+At the end we compute cumulative returns *cumrets* = 1 + sum(srets) and plot the *equity_curve*.
+
+Between 1993 and 2019 we obtain:
