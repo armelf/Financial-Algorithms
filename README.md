@@ -239,4 +239,4 @@ Note *srets* our outstanding strategy returns.
 At the end we compute cumulative returns *cumrets* = 1 + sum(srets) and plot the *equity_curve*.
 
 Between 1993 and 2019 we obtain:
-![VWSMA Strategy Graph](Equity/Technical%20Indicators/VWSMA Strategy Returns.png)
+![VWSMA Strategy Graph](Equity/Technical%20Indicators/VWSMA%20Strategy%20Returns.png)
