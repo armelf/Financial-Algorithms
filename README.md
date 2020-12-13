@@ -60,7 +60,7 @@ pip install ta
 
 ### Historical price data
 
-As said above, we retrieve historical price data from Yahoo Finance and we use `pandas_datareader` to access them easily. This library is very useful since it loads the data from Yahoo directly into `pandas`, in a format that makes them easy to preprocess. A simple syntax to retrieve data is:
+As said above, we retrieve historical prices data from Yahoo Finance and we use `pandas_datareader` to access them easily. This library is very useful since it loads the data from Yahoo directly into `pandas`, in a format that makes them easy to preprocess. They are time-indexed, on a **daily** basis.  A simple syntax to retrieve data is:
 
 ```python
 from pandas_datareader import data as pdr
@@ -72,3 +72,10 @@ end_date = "2020-01-01"
 #Retrieve yahoo data
 data = pdr.get_data_yahoo(ticker, start_date, end_date)
 ```
+### Preprocessing historical price data
+
+Preprocessing historical price data consists of cleaning the price dataset and transforming it to a dataset usable to train and test our strategies. Prices data are retrieved in the OHLC format, plus 2 other columns: **Adj. Close**, the close price adusted to dividends and stock splits, and **Volume**. Data are **time-indexed**. We drop NaN rows from our dataset thanks to the *dropna()* function and we fill empty elements with the function *interpolate()*.  
+
+In our strategies, we try to predict how the **Close Price will vary the next day**. For this purpose, we create a target variable named *Price Rise* that is labelled to **1** if the close price **grows tomorrow** and **-1** else.
+
+The code is in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py.
