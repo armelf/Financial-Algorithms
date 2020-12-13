@@ -78,13 +78,11 @@ def sar_stoch_strategy(df): #Daily
     #Stochastic
     df['Stoch%K'] = ta.momentum.stoch(pd.Series(df['High']),df['Low'], df['Close'], n=14)
     df['Stoch%D'] = ta.momentum.stoch_signal(pd.Series(df['High']),df['Low'], df['Close'], n=14)
-    df['KminusD'] = df['Stoch%K'] -df['Stoch%D']
     
     #SAR + Stochastic signals
     df['SAR'] = ta.trend.sar(df,af=0.02, amax=0.2)
     sar = list(df['SAR'])
     stoch = list(df['Stoch%K'])
-    kminusd = list(df['KminusD'])
     ss_signal = [0]*len(df)
     close = list(df['Close'])
     
@@ -716,21 +714,3 @@ def vwsma_strategy(df,sl):
 
     df['VWSMA_signal'] = vwsma_signal
     return df
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
