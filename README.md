@@ -192,5 +192,23 @@ We compute the 14-days ADX. You can find documentation here: https://www.investo
 This strategy is a **reversal strategy**. We compute the 14-days ADX, along with the 20-days CCI. You can find documentation for CCI here: https://www.investopedia.com/terms/c/commoditychannelindex.asp.
 
 - If ADX < 25 and *Trend* = 'Downtrend' and CCI < 100 and previousCCI > 100, while cor>sl and CCI > -100, signal = 1.
-- Elif *Trend* = 'Uptrend' and ADX > 25, while cor>sl and ADX > 25, signal = -1.
+- Elif ADX < 25 and *Trend* = 'Uptrend' and CCI > -100 and previousCCI < -100, while cor>sl and CCI < 100, signal = -1.
+- Else, signal = 0
+
+#### Williams %R Stochastic Strategy
+We compute the %R of Williams(WR). You can find documentation here: https://www.investopedia.com/terms/w/williamsr.asp.
+
+Then, we calculate the 4-days SMA of WR_pct_change = (WR - WRPrevious)/WR_previous and we denote it *mwr*
+
+- If WR > -50 and previousWR < -50 and mwr>0, while cor>sl and WR < -20, signal = 1.
+- Elif WR < -50 and previousWR > -50 and mwr<0, while cor>sl and WR > -80, signal = -1..
+- Else, signal = 0
+
+#### Volume Weighted Moving Average Strategy
+We compute the 20-days Volume Weighted Moving Average(VWMA). You can find documentation here: https://www.investopedia.com/articles/trading/11/trading-with-vwap-mvwap.asp.
+
+Then, we calculate the 4-days SMA of WR_pct_change = (WR - WRPrevious)/WR_previous and we denote it *mwr*
+
+- If WR > -50 and previousWR < -50 and mwr>0, while cor>sl and WR < -20, signal = 1.
+- Elif WR < -50 and previousWR > -50 and mwr<0, while cor>sl and WR > -80, signal = -1..
 - Else, signal = 0
