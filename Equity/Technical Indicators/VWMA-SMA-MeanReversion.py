@@ -49,13 +49,13 @@ def create_df(freq):
     for i in range(25,len(df)-1):
         if ma[i]>=mas[i]:
             df['Trend'][i] = 'Uptrend'
-            df['NTrend'][i-1] = 1
+            df['NTrend'][i+1] = 1
         elif ma[i]<=-mas[i]:
             df['Trend'][i] = 'Downtrend'
-            df['NTrend'][i] = -1
+            df['NTrend'][i+1] = -1
         else:
             df['Trend'][i] = 'Range'
-            df['NTrend'][i] = 0
+            df['NTrend'][i+1] = 0
     
     #Signals creation
     df = ta_strategies.vwsma_strategy(df, sl)
