@@ -240,3 +240,5 @@ At the end we compute cumulative returns *cumrets* = 1 + sum(srets) and plot the
 
 Between 1993 and 2019 we obtain:
 ![VWSMA Strategy Graph](Equity/Technical%20Indicators/VWSMA%20Strategy%20Returns.png)
+
+## Fundamental Trading
