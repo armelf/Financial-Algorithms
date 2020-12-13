@@ -201,14 +201,16 @@ We compute the %R of Williams(WR). You can find documentation here: https://www.
 Then, we calculate the 4-days SMA of WR_pct_change = (WR - WRPrevious)/WR_previous and we denote it *mwr*
 
 - If WR > -50 and previousWR < -50 and mwr>0, while cor>sl and WR < -20, signal = 1.
-- Elif WR < -50 and previousWR > -50 and mwr<0, while cor>sl and WR > -80, signal = -1..
+- Elif WR < -50 and previousWR > -50 and mwr<0, while cor>sl and WR > -80, signal = -1.
 - Else, signal = 0
 
 #### Volume Weighted Moving Average Strategy
-We compute the 20-days Volume Weighted Moving Average(VWMA). You can find documentation here: https://www.investopedia.com/articles/trading/11/trading-with-vwap-mvwap.asp.
+This is a **mean-reversion** strategy. We compute the 20-days Volume Weighted Moving Average(VWMA). You can find documentation here: https://www.investopedia.com/articles/trading/11/trading-with-vwap-mvwap.asp.
 
-Then, we calculate the 4-days SMA of WR_pct_change = (WR - WRPrevious)/WR_previous and we denote it *mwr*
+This indicator is not implemented by the `ta` library, then you can implement it by yourself is the `volume` module of `ta`. You have the modified `volume` module here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/volume.py.
 
-- If WR > -50 and previousWR < -50 and mwr>0, while cor>sl and WR < -20, signal = 1.
-- Elif WR < -50 and previousWR > -50 and mwr<0, while cor>sl and WR > -80, signal = -1..
-- Else, signal = 0
+Then, we calculate *CminusVWAP* = Close - VWMA and its rolling zcore, denoted y *zscore* zcore = (CminusVWAP - 40daysSMA(CminusVWAP))/40daysStd(CminusVWAP)
+
+- If *Trend* = 'Downtrend' and zscore > 1 and previouszscore < 1, while cor>sl and zscore > 0, signal = -1.
+- *Trend* = 'Uptrend' and zscore < -1.5 and previouszscore > -1.5, while cor>sl and zscore < 1.5, signal = 1.
+- Else, if zscore < -2 and previouszscore > -2, while cor>sl and zscore < -1, signal = 1. Elif zscore > 2 and previouszscore < 2, while cor>sl and zscore > 1, signal = -1. Else, signal = 0.
