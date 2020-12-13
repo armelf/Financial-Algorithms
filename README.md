@@ -38,12 +38,12 @@ In general, to make predictions, we proceed as follows:
 
 ## Preliminaries
 
-This project uses python 3.6, and the common data science libraries `pandas` and `scikit-learn`. If you are on python 3.x less than 3.6, you will find some syntax errors wherever f-strings have been used for string formatting. These are fortunately very easy to fix (just rebuild the string using your preferred method), but I do encourage you to upgrade to 3.6 to enjoy the elegance of f-strings. A full list of requirements is included in the `requirements.txt` file. To install all of the requirements at once, run the following code in terminal:
+We use Python 3.7, but over time we will integrate algorithms using other programming languages, depending of the requirements. We mainly retrieve data on Yahoo Finance thans tothe libraries `pandas_datareader` and `yfinance`. The common data science libraries are `pandas` and `scikit-learn`and the library used for Neural Networks treatment is `tensorflow`. We advise you to use Python 3.7 as well, to run .py strategies.  A full list of requirements is included in the `python-requirements.txt` file. To install all of the requirements at once, run the following code in terminal:
 
 ```bash
-pip install -r requirements.txt
+pip install -r python-requirements.txt
 ```
 
-To get started, clone this project and unzip it. This folder will become our working directory, so make sure you `cd` your terminal instance into this directory.
+To get started, clone this project and unzip it.
 
 ## Technical Indicators
