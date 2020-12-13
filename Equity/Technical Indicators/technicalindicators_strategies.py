@@ -556,14 +556,9 @@ def cci_adx_strategy(df, sl): #Daily
     df['CDX_signal'] = cdx_signal #OK Up Down Range 10-mean Sharpe 0.51
     return df
 
-def wr_stoch_strategy(df, sl):
+def wr_strategy(df, sl):
     #William R Indicator
     df['WR'] = ta.momentum.wr(df['High'],df['Low'], df['Close'], lbp=14)
-    
-    #Stochastic
-    df['Stoch%K'] = ta.momentum.stoch(pd.Series(df['High']),df['Low'], df['Close'], n=14)
-    df['Stoch%D'] = ta.momentum.stoch_signal(pd.Series(df['High']),df['Low'], df['Close'], n=14)
-    df['KminusD'] = df['Stoch%K'] -df['Stoch%D']
     
     #WR Strategy
     wr_signal = [0]*len(df)
