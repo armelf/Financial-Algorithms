@@ -76,7 +76,7 @@ data = pdr.get_data_yahoo(ticker, start_date, end_date)
 
 Preprocessing historical price data consists of cleaning the price dataset and transforming it to a dataset usable to train and test our strategies. Prices data are retrieved in the OHLC format, plus 2 other columns: **Adj. Close**, the close price adusted to dividends and stock splits, and **Volume**. Data are **time-indexed**. We drop NaN rows from our dataset thanks to the *dropna()* function and we fill empty elements with the function *interpolate()*.  
 
-In our strategies, we try to predict how the **Close Price will vary the next day**. For this purpose, we create a target variable named *Price Rise* that is labelled to **1** if the close price **grows tomorrow** and **-1** else.
+In our strategies, we try to predict how the **Close Price of the SPY will vary the next day**. For this purpose, we create a target variable named *Price Rise* that is labelled to **1** if the close price **grows tomorrow** and **-1** else.
 
 The code is in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py.
 
@@ -110,8 +110,34 @@ Several technical indicators are used in our strategies:
 
 * On-Balance Volume (OBV)
 
-Along with these indicators, we use a special one created to detect market trends, and that will serve in every single strategy we implement afterwards. The indicator is named *NTrend* and is created in the function in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. We compute the percentage change *pc* of the 150-days SMA of the close price and his 150-days standard deviation *sc*. 
+Along with these indicators, we use a special one created to detect market trends, and that will serve in (almost) every single strategy we implement afterwards. The indicator is named *Trend* and is created in the function in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. We compute the percentage change *pc* of the 150-days SMA of the close price and his 150-days standard deviation *sc*. 
 
-- If *pc* > *sc*, we are in an uptrend tomorrow
-- Elif *pc* < -*sc*, we are in a downtrend tomorrow
-- Else, there is no trend tomorrow
+- If *pc* > *sc*, we are in an uptrend tomorrow, *Trend* is labelled as 'Uptrend' 
+- Elif *pc* < -*sc*, we are in a downtrend tomorrow, *Trend* is labelled as 'Downtrend' 
+- Else, there is no trend tomorrow, *Trend* is labelled as 'Range' 
+
+### Different Strategies and Stock Prediction
+All technical analysis strategies created are located in https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/technicalindicators_strategies.py
+
+These strategies are characterized by a **signal** that equals **1** if the strategy predicts that tomorrow the market is going up, **-1** if the market is predicted to be going down, and **0** else.
+
+#### Moving Averages Crossover Strategy
+We compute the 20-days SMA (20-SMA) and the 50-days SMA (50-SMA) of the close price.
+
+- If *Trend* = 'Uptrend', while 20-SMA >= 50-SMA, signal = 1
+- Elif *Trend* = 'Downtrend', while 20-SMA <= 50-SMA, signal = -1
+- Else, signal = 0
+
+#### SAR Stochastic Strategy
+We compute Parabolic SAR (PSAR), %K and %D of the Stochastic Oscillator. You can find documentation here: 
+- Parabolic SAR: https://www.investopedia.com/trading/introduction-to-parabolic-sar/
+- Stochastic Oscillator: https://www.investopedia.com/terms/s/stochasticoscillator.asp
+
+We then compute *KminusD* = %K - %D and define a dynamic *stop-loss* (slsar), which is the maximum loss we can bear on one transaction. At every moment **slsar = (SAR-Close)/Close**
+
+We will name the *current order return*, the percentage of return of an outstanding transaction, **cor**
+
+- If *Trend* = 'Uptrend' and SAR < Close and (%K >= 20 and previous%K < 20), while cor>slsar and SAR < Close, signal = 1
+- Elif *Trend* = 'Downtrend' and SAR > Close and (%K <= 80 and previous%K > 80), while cor>slsar and SAR > Close, signal = -1
+- Else, signal = 0
+
