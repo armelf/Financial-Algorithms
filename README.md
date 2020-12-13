@@ -79,3 +79,39 @@ Preprocessing historical price data consists of cleaning the price dataset and t
 In our strategies, we try to predict how the **Close Price will vary the next day**. For this purpose, we create a target variable named *Price Rise* that is labelled to **1** if the close price **grows tomorrow** and **-1** else.
 
 The code is in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py.
+
+
+### Usable Features
+
+Several technical indicators are used in our strategies:
+
+#### Trend technical indicators
+
+* Simple Moving Average (SMA)
+* Exponential Moving Average (EMA)
+* Volume Weighted Moving Average (VWMA)
+* Moving Average Convergence Divergence (MACD)
+* Average Directional Movement Index (ADX)
+* Commodity Channel Index (CCI)
+* Parabolic Stop And Reverse (Parabolic SAR)
+
+#### Momentum technical indicators
+
+* Relative Strength Index (RSI)
+* Stochastic Oscillator (SR)
+* Williams %R (WR)
+
+#### Volatility
+
+* Average True Range (ATR)
+* Bollinger Bands (BB)
+
+#### Volume
+
+* On-Balance Volume (OBV)
+
+Along with these indicators, we use a special one created to detect market trends, and that will serve in every single strategy we implement afterwards. The indicator is named *NTrend* and is created in the function in the function *create_df* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. We compute the percentage change *pc* of the 150-days SMA of the close price and his 150-days standard deviation *sc*. 
+
+- If *pc* > *sc*, we are in an uptrend tomorrow
+- Elif *pc* < -*sc*, we are in a downtrend tomorrow
+- Else, there is no trend tomorrow
