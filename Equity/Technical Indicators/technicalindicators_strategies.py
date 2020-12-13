@@ -609,7 +609,6 @@ def wr_strategy(df, sl):
 def vwsma_strategy(df,sl):
     # VWAP and SMA 20 days
     df['VWAP'] = ta.volume.volume_weighted_moving_average(df['Close'], df['Volume'], n=20)
-    df['MA20'] = df['Close'].rolling(window=20).mean()
     
     #Close price centered and zscore
     df['Close-VWAP'] = df['Close'] - df['VWAP']
