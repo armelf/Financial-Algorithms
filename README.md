@@ -141,3 +141,56 @@ We will name the *current order return*, the percentage of return of an outstand
 - Elif *Trend* = 'Downtrend' and SAR > Close and (%K <= 80 and previous%K > 80), while cor>slsar and SAR > Close, signal = -1
 - Else, signal = 0
 
+#### Stochastic MACD Strategy
+Again, we compute %K and %D and then *KminusD* = K - %D. We also compute MACD and its signal line(**MACDsl**), and then the MACD signal(**MACDs**) = MACD - MACDsl. You can find documentation here: https://www.investopedia.com/terms/m/macd.asp.
+
+We define a static stop-loss named **sl**.
+
+- If KminusD>0 and MACDs>0, while cor>sl and MACDs>0, signal = 1
+- Elif KminusD<0 and MACDs<0, while cor>sl and MACDs<0, signal = -1
+- Else, signal = 0
+
+#### RSI Strategy
+We compute the 14-days RSI. You can find documentation here: https://www.investopedia.com/terms/r/rsi.asp.
+
+We define a static stop-loss named sl.
+
+- If *Trend* = 'Range' and RSI < 30, while cor>sl and RSI<70, signal = 1
+- Elif *Trend* = 'Range' and RSI > 70, while cor>sl and RSI>30, signal = -1
+- Else, signal = 0
+
+#### Bollinger Bands RSI Strategy
+We compute RSI and Bollinger High and Low Bands(**BBHigh** and **BBLow**). You can find documentation for Bollinger Bands here: https://www.investopedia.com/terms/b/bollingerbands.asp.
+
+We then calculate %B = (Close - BBLow) / (BBHigh - BBLow)
+
+We define a static stop-loss named sl.
+
+- If %B > 0 and previous%B < 0, while cor>sl and %B < 1, signal = 1. This is the *bullish reversal* signal.
+- Elif %B < 0.2 and RSI <= 50, while cor>sl and %B < 0.8, signal = 1. Is it a simple Buy signal.
+- Elif %B > 0.8 and RSI >= 50, while cor>sl and %B > 0, signal = -1. It is a simple Sell signal.
+- Else, signal = 0
+
+#### OBV Bollinger Bands RSI Strategy
+We once more compute RSI and Bollinger High and Low Bands, and then %B. After that we compute OBV(On-Balance Volume). You can find documentation about this indicator here: https://www.investopedia.com/terms/o/onbalancevolume.asp.
+
+Finally we calculate the 4-days SMA of RSI, that we call *MRSI*.
+We define a static stop-loss named sl.
+
+- If *Trend* = 'Uptrend' and %B > 0.5 and RSI > 50 and (MRSI > previousMRSI and previousMRSI > beforepreviousMRSI) and ((OBV - previousOBV)/previousOBV)>0.005, while while cor>sl and %B < 1, signal = 1.
+- Elif *Trend* = 'Downtrend' and %B < 0.5 and RSI <= 50 and (MRSI < previousMRSI and previousMRSI < beforepreviousMRSI) and ((OBV - previousOBV)/previousOBV)<-0.005, while while cor>sl and %B > 0, signal = -1.
+- Else, signal = 0.
+
+#### ADX Strategy
+We compute the 14-days ADX. You can find documentation here: https://www.investopedia.com/terms/a/adx.asp.
+
+- If *Trend* = 'Uptrend' and ADX > 25, while cor>sl and ADX > 20, signal = 1.
+- Elif *Trend* = 'Downtrend' and ADX > 25, while cor>sl and ADX > 25, signal = -1.
+- Else, signal = 0
+
+#### CCI ADX Strategy
+This strategy is a **reversal strategy**. We compute the 14-days ADX, along with the 20-days CCI. You can find documentation for CCI here: https://www.investopedia.com/terms/c/commoditychannelindex.asp.
+
+- If ADX < 25 and *Trend* = 'Downtrend' and CCI < 100 and previousCCI > 100, while cor>sl and CCI > -100, signal = 1.
+- Elif *Trend* = 'Uptrend' and ADX > 25, while cor>sl and ADX > 25, signal = -1.
+- Else, signal = 0
