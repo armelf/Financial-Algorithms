@@ -49,7 +49,7 @@ def status_calc(stock, sp500, outperformance=10):
         raise ValueError("outperformance must be positive")
     return stock - sp500 >= outperformance
 
-def backtest(data_df, dates):
+def backtest(data_df, dates, date_test_ini):
     """
     A simple backtest, which splits the dataset into a train set and test set,
     then fits a Random Forest classifier to the train set. We print the precision and accuracy
@@ -78,9 +78,10 @@ def backtest(data_df, dates):
     z = np.array(df[["Forward Semester Returns", "Forward SPY Semester Returns"]])
 
     #Train-test split
-    l = int(0.75*len(X))
+    df_test = df.loc[date_test_ini:dates[1]]
+    l = int(len(df)-len(df_test))
     X_train, X_test, y_train, y_test, z_test = X[:l], X[l:], y[:l], y[l:], z[l:]
-
+    
     # Instantiate a RandomForestClassifier with 100 trees, then fit it to the training data
     # We begin y scaling data
     sc = StandardScaler()
@@ -95,7 +96,7 @@ def backtest(data_df, dates):
     y_pred = clf.predict(X_test)
     
     print('')
-    print('From {} to {}'.format(df.index[l],df.index[-1]))
+    print('From {} to {}'.format(df_test.index[0],df_test.index[-1]))
     print('')
     print("Classifier performance\n", "=" * 20)
     print(f"Accuracy score: {clf.score(X_test, y_test): .2f}")
@@ -142,6 +143,8 @@ if __name__ == "__main__":
             
     #Unique_indexes contains the number of snapshot dates, around 88 here
     j = 1
-    for i in range(0,len(unique_indexes)-4*j,j):
-        dates = [unique_indexes[i], unique_indexes[i+4*j]]
-        backtest(data_df, dates)
+    f = 4
+    for i in range(0,len(unique_indexes) - f*j,j):
+        dates = [unique_indexes[i], unique_indexes[i+f*j]]
+        date_test_ini = unique_indexes[i+(f-1)*j]
+        backtest(data_df, dates, date_test_ini)
