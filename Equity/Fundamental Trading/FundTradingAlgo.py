@@ -141,7 +141,7 @@ if __name__ == "__main__":
             unique_indexes.append(indexes[k])
             
     #Unique_indexes contains the number of snapshot dates, around 88 here
-    j = int(0.25*0.2*len(unique_indexes))
-    for i in range(0,len(unique_indexes)-j,j):
-        dates = [unique_indexes[i], unique_indexes[i+j]]
+    j = 1
+    for i in range(0,len(unique_indexes)-4*j,j):
+        dates = [unique_indexes[i], unique_indexes[i+4*j]]
         backtest(data_df, dates)
