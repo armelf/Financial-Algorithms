@@ -245,6 +245,8 @@ Between 1993 and 2019 we obtain:
 
 We aim to predict companies share prices thanks to their fundamental valuations. We collect fundamental data thanks to the Python library named `simfin` and we use them to compute needed valuations for our predictions. We then apply Machine Learning techniques to make our predictions.
 
+The strategy we are going to show is mainly inspired from Robert Martin's project that you will find here: https://github.com/robertmartin8/MachineLearningStocks
+
 ### Data acquisition
 
 SimFin is a platform where we can retrieve free fundamental data until one year efore the retrieval date. `simfin` is the corresponding Python API. You will find more information about it here: https://simfin.com/ and the Github page is: https://github.com/SimFin/simfin-tutorials. To install it run the following code in the terminal: 
@@ -264,7 +266,7 @@ Below are the interesting fundamental metrics, available on SimFin, that will he
 - Shares(Diluted)
 - Gross Profit
 - Net Income
-- Net Income Availale to Common Shareholders 
+- Net Income Available to Common Shareholders 
 - Operating Income or Loss
 
 #### Balance Sheet metrics
@@ -282,8 +284,59 @@ Below are the interesting fundamental metrics, available on SimFin, that will he
  - Net Cash from Operating Activities (Operating Cash Flow)
  - Change in Fixed Assets & Intangibles
  
- #### Historical prices dataset
+#### Historical prices dataset
  
  - OHLC
  - Adjusted Close
  - Shares Outstanding
+
+### Data preprocessing
+Our preprocessing mainly consists in creating our set of features and our target variable (The variable we want to predict and that will serve to run our strategy). 
+First, define the set of variables used: 
+
+#### Valuation fundamentals
+
+- Market Capitalization https://www.investopedia.com/terms/m/marketcapitalization.asp#:~:text=Market%20capitalization%20refers%20to%20the,market%20price%20of%20one%20share
+- Enterprise Value https://www.investopedia.com/terms/e/enterprisevalue.asp
+- Price-to-Earnings Ratio (P/E) https://www.investopedia.com/terms/p/price-earningsratio.asp
+- Price/Earnings-to-Growth Ratio (PEG) https://www.investopedia.com/terms/p/pegratio.asp
+- Price/Sales Ratio https://www.investopedia.com/terms/p/price-to-salesratio.asp
+- Price/Book Ratio https://www.investopedia.com/terms/p/price-to-bookratio.asp#:~:text=Companies%20use%20the%20price%2Dto,value%20per%20share%20(BVPS).
+- Enterprise Value / Revenue
+- Enterprise Value / EBITDA
+
+#### Financial fundamentals
+
+- Profit Margin https://www.investopedia.com/terms/p/profitmargin.asp
+- Operating Margin https://www.investopedia.com/terms/o/operatingmargin.asp
+- Return on Assets https://www.investopedia.com/terms/r/returnonassets.asp
+- Return on Equity https://www.investopedia.com/terms/r/returnonequity.asp
+- Revenue
+- Revenue Per Share
+- Quarterly Revenue Growth
+- Gross Profit https://www.investopedia.com/terms/g/grossprofit.asp
+- EBITDA https://www.investopedia.com/terms/e/ebitda.asp
+- Net Income
+- Net Income Available to Common Shareholders (Earnings)
+- Diluted Earnings-Per-Share https://www.investopedia.com/terms/d/dilutedeps.asp
+- Quarterly Earnings Growth
+- Total Cash
+- Total Cash Per Share
+- Total Debt
+- Total Debt/Equity
+- Current Ratio https://www.investopedia.com/terms/c/currentratio.asp
+- Book Value Per Share https://www.investopedia.com/terms/b/bvps.asp
+- Operating Cash Flow
+- Free Cash Flow https://www.investopedia.com/terms/f/freecashflow.asp
+
+#### Technical indicators
+
+- Beta https://www.investopedia.com/terms/b/beta.asp
+- 50-days Close Price SMA
+- 200-days Close Price SMA
+- 60-days Volume SMA
+- Shares Outstanding
+
+The principle of our strategy is simple: fundamentals help us to predict the **semiannually outperformance of a stock relative to the SPY**. 
+ 
+ 
