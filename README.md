@@ -290,8 +290,38 @@ Below are the interesting fundamental metrics, available on SimFin, that will he
  - Adjusted Close
  - Shares Outstanding
 
+A simple syntax to retrieve data is:
+
+```python
+import simfin as sf
+sf.set_api_key('free')
+
+# Set the local directory where data-files are stored.
+# The dir will be created if it does not already exist.
+sf.set_data_dir('YourDataDirPath')
+
+# TTM Income Statements.
+df_income_ttm = sf.load_income(variant='ttm', market=market)
+
+# Quarterly Income Statements.
+df_income_qrt = sf.load_income(variant='quarterly', market=market)
+
+# TTM Balance Sheets.
+df_balance_ttm = sf.load_balance(variant='ttm', market=market)
+
+# Daily Share-Prices.
+df_prices = sf.load_shareprices(variant='daily', market=market)
+```
+Note that every *load* function of `simfin` will download data(for every single stock available) from the online platform, save it into *YourDataDirPath* and then load it on your Python session.
+
+The syntax helps you to save fundamental data for the set of companies tickers you want to use in your strategy:
+
+```python
+df_income_ttm = df_income_ttm.loc[tickers].copy()
+```
+
 ### Data preprocessing
-Our preprocessing mainly consists in creating our set of features and our target variable (The variable we want to predict and that will serve to run our strategy). 
+Our preprocessing mainly consists in creating our set of features and our *target variable y* (The variable we want to predict and that will serve to run our strategy). 
 First, define the set of variables used: 
 
 #### Valuation fundamentals
@@ -337,6 +367,12 @@ First, define the set of variables used:
 - 60-days Volume SMA
 - Shares Outstanding
 
-The principle of our strategy is simple: fundamentals help us to predict the **semiannually outperformance of a stock relative to the SPY**. 
+After the calculus of all these indicators is done for every stock of our *tickers* list, we compute the *forward semester returns(%)(FSV)* = 100 * (125daysForwardClose - Close) / Close
+We also compute the forward semester returns of the SPY *FSVSPY*
+The principle of the strategy is simple: fundamentals help us to predict the **semiannually outperformance of a stock relative to the SPY**. We then define an *outperformance* parameter, that is adjustable. Our dataset is time-indexed on a *quarterly basis*. You can find the code here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundDatasetCreation.py
+
+For one stock and at a trading date:
+- If FSV > FSVPY + outperformance, y = 1 
+- Else, y = 0
  
  
