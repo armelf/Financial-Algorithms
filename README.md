@@ -368,11 +368,62 @@ First, define the set of variables used:
 - Shares Outstanding
 
 After the calculus of all these indicators is done for every stock of our *tickers* list, we compute the *forward semester returns(%)(FSV)* = 100 * (125daysForwardClose - Close) / Close
-We also compute the forward semester returns of the SPY *FSVSPY*
+We also compute the forward semester returns of the SPY: *FSVSPY*
 The principle of the strategy is simple: fundamentals help us to predict the **semiannually outperformance of a stock relative to the SPY**. We then define an *outperformance* parameter, that is adjustable. Our dataset is time-indexed on a *quarterly basis*. You can find the code here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundDatasetCreation.py
 
-For one stock and at a trading date:
-- If FSV > FSVPY + outperformance, y = 1 
+For one stock, at a certain trading date:
+- If FSV > FSVSPY + outperformance, y = 1 
 - Else, y = 0
  
- 
+### Machine learning
+Now we have our features and our target variable, we can apply Machine Learning techniques to learn patterns in our data and predict on new samples. We use the classical technique of *train-test split*, knowing our dataframe is time-indexed and sorted by indexed, we don't use data from the future in our training process (train set). We then avoid the *look-ahead bias*. Our test set serves to predict, using our model already trained on and having learned from the train set. It is a classification problem. The set of fundamental + technical features created help to predict y, variable that has 2 classes (labels): 0 and 1. We use a *Random Forest Classifier* and you can see the code here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundTradingAlgo.py.
+The trained ML algorithm is feeded with *X_test* values where *X_test* is the set of features of the test set, and predicts *y_pred* value, which wille correspond with *y_test* that contains the real target values of the test set. This way, we can have an *accuracy_score*that predicts to evaluate our prediction.
+
+It is known that financial markets behaviour vary with time, due to macroeconomic, political, or just economic changes. Our whole dataset goes from 2009 to 2019. But the way fundamentals affected the market in 2009 is not the same they will affect the maret in 2019. To make our training consistent with our testing, we need our training data to behave a bit like our testing data. We split our whole dataset such that *we train on 3 quarters and we predict on the next one, and we roll over the entire backtesting period*.
+
+Strategy returns for every stock are computed as signal * FSV and for every test period we compare the mean strategy returns of all the stocks traded with the SPY returns for the same period. Results are printed in this .txt file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundTradingAlgoResults20092019.txt
+
+Here are some results, in 2015:
+```txt
+From 2015-06-30 to 2015-07-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.67
+Precision score:  0.67
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 58
+Average return for stock predictions:  9.0 %
+Average market return in the same period: -1.2% 
+Compared to the index, our strategy earns  10.2 percentage points more
+
+From 2015-07-31 to 2015-08-31
+
+Classifier performance
+ ====================
+Accuracy score:  0.74
+Precision score:  0.75
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 12
+Average return for stock predictions:  11.4 %
+Average market return in the same period: -3.9% 
+Compared to the index, our strategy earns  15.3 percentage points more
+
+From 2015-08-31 to 2015-09-30
+
+Classifier performance
+ ====================
+Accuracy score:  0.59
+Precision score:  0.70
+
+ Stock prediction performance report 
+ ========================================
+Total Trades: 91
+Average return for stock predictions:  13.8 %
+Average market return in the same period:  6.5% 
+Compared to the index, our strategy earns  7.3 percentage points more
+```
