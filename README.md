@@ -242,3 +242,48 @@ Between 1993 and 2019 we obtain:
 ![VWSMA Strategy Graph](Equity/Technical%20Indicators/VWSMA%20Strategy%20Returns.png)
 
 ## Fundamental Trading
+
+We aim to predict companies share prices thanks to their fundamental valuations. We collect fundamental data thanks to the Python library named `simfin` and we use them to compute needed valuations for our predictions. We then apply Machine Learning techniques to make our predictions.
+
+### Data acquisition
+
+SimFin is a platform where we can retrieve free fundamental data until one year efore the retrieval date. `simfin` is the corresponding Python API. You will find more information about it here: https://simfin.com/ and the Github page is: https://github.com/SimFin/simfin-tutorials. To install it run the following code in the terminal: 
+
+```bash
+pip install simfin
+```
+
+Sinfin proposes fundamental data for **a lot of company**, of a *quarterly*, *annual* and *ttm (Twelve Trailing Months)* basis. The platform also gives access to historical prices data on a **daily basis**. We will use this abondance of data to develop a **long-only multi-stocks strategy** and at each potential trading time, we only pick and trade on a certain number of stocks.
+
+Below are the interesting fundamental metrics, available on SimFin, that will help us to construct our set of features:
+
+#### Income Statement metrics
+
+- Revenue
+- Cost of Revenue
+- Shares(Diluted)
+- Gross Profit
+- Net Income
+- Net Income Availale to Common Shareholders 
+- Operating Income or Loss
+
+#### Balance Sheet metrics
+
+- Long-term debt
+- Shares(Diluted)
+- Total Equity
+- Cash, Cash Equivalents & Short Term Investments (Total Cash)
+- Total Assets
+- Total Current Assets
+- Total Current Liabilities
+
+#### Cash-flows Statement metrics
+
+ - Net Cash from Operating Activities (Operating Cash Flow)
+ - Change in Fixed Assets & Intangibles
+ 
+ #### Historical prices dataset
+ 
+ - OHLC
+ - Adjusted Close
+ - Shares Outstanding
