@@ -629,6 +629,7 @@ CAGR is 1.7834698489282919
 End timerange 2017-02-27 to 2017-09-15
 ```
 
-Here 
+Here, you will find the Equity Curve between 2007 & 2019, we obtain:
+![D-Guided Strategy Graph(Equity/Robust%20Strategies/NaiveThresholdStrategyEquityCurve20072019.PNG)
 
 *NB.* This strategy **needs** optimization and there is room for improvement. Every suggestion is welcome, and a first one could be to train on a wider range of D-thresholds, eventually dynamic(and not static) ones
