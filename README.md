@@ -312,6 +312,8 @@ sf.set_api_key('free')
 # The dir will be created if it does not already exist.
 sf.set_data_dir('YourDataDirPath')
 
+market = 'us'
+
 # TTM Income Statements.
 df_income_ttm = sf.load_income(variant='ttm', market=market)
 
@@ -497,7 +499,7 @@ For a specific day and a specific company:
    - Else: Do nothing
    
 ##### TextBlob Sentiment Analysis
-We explain here how we compute our message score. We use the Python library named `textblob`. It is a Python library that provides a simple API for common NLP tasks. Here is a tutorials website: https://textblob.readthedocs.io/en/dev/quickstart.html. You can install it typing this syntax in your terminal.
+We explain here how we compute our message score. We use the Python library named `textblob`. It is a Python library that provides a simple API for common NLP tasks. Here is a tutorials website: https://textblob.readthedocs.io/en/dev/quickstart.html. You can install it typing this syntax in your terminal:
 
 ```bash
 pip install textblob
@@ -524,3 +526,53 @@ We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity
 
 Between May & October 2020, we obtain:
 ![NLP Strategy Graph](Equity/NLPTrading/NLPTradingReturnsBetweenMay2020%26Oct2020.PNG)
+
+## DGuided Strategy
+We are going to illustrate here a trading strategy that deals with high prices changes to predict stock close prices for the following week. We will make predictions on a portfolio composed of the 500 stocks of the S&P500. The whole code is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Robust%20Strategies/ThresholdWeeklyStrategies.py
+
+### Data retrieval
+We retrieve historical prices data from `simfin`, with the Python syntax: 
+
+```python
+import simfin as sf
+sf.set_api_key('free')
+
+# Set the local directory where data-files are stored.
+# The dir will be created if it does not already exist.
+sf.set_data_dir('YourDataDirPath')
+
+market = 'us'
+
+# Daily Share-Prices.
+df_prices = sf.load_shareprices(variant='daily', market=market)
+```
+Since we will use S&P500 companies, we need to retrieve the corresponding list of tickers, which is accessible here on Wikipedia: http://en.wikipedia.org/wiki/List_of_S%26P_500_companies. We will then use a library named `html_table_parser`, whose purpose is to parse HTML tables without help of external modules . The syntax to install this library is:
+
+```bash
+pip install html-table-parser-python3
+```
+Since we want to make weekly predictions, when data are retrieved, we will **resample our dataset on a weekly basis**.
+
+### Data preprocessing
+Now that the dataset has been resampled to weekly basis, we create our features is the function *calc()*. We will eventually use could some technical indicators, so we compute them as well. In this strategy we will not use them, but **it could be a point of improvement** to use and optimize our set of features + Machine Learning to create our signal. In fact the commented function *traintest()* uses technical features along with a Machine Learning Classifier, the Support Vector Machines Classifier *SVC*, and with train-test techniques, creates a signal. You have some information about Support Vector Machines (SVM) here: https://scikit-learn.org/stable/modules/svm.html. The technical indicators computed(each applied on the Close Price) are:
+
+- 10-weeks Simple Moving Average
+- 20-weeks Exponential Moving Average
+- 10-weeks Zero Lag Exponential Moving Average (https://www.technicalindicators.net/indicators-technical-analysis/182-zlema-zero-lag-exponential-moving-average)
+- 10-weeks Weighted Moving Average(https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/wma)
+- 14-weeks RSI
+- 10-weeks Momentum. It is the percentage of change of the Close price between week t and day t-10.
+- 10-weeks Rate Of Change (ROC) (https://www.investopedia.com/terms/r/rateofchange.asp#:~:text=What%20is%20Rate%20of%20Change%20(ROC)&text=ROC%20is%20often%20used%20when,the%20slope%20of%20a%20line.)
+- Force Index (https://www.investopedia.com/terms/f/force-index.asp)
+
+We want to remind that we don't use these technical indicators in our strategy, but we can. The core of this strategy is in the function *naivetraintest()* of the .py file. As the name of the function indicates, it is a **Naive** strategy, only using a set of simple and static principles to make our predictions.
+
+We build several other features that will be used to construct our signal:
+- Forward Close - Close returns (*FCCrets*). It is a complicated name, for the returns of the next week
+- High Close returns (*HCrets*): The relative variation between the High price and the Close price of the current week
+- Forward High Close returns (*FHCrets*): The relative variation between the High price of the next week and the Close price of the current week
+- Forward High High returns (*FHHrets*): The relative variation between the High price of the next week and the High price of the current week. 
+
+HCrets and FHHrets are the **most important** features for the signal creation of our naive strategy.
+
+Once all these features are created, we apply the *dropna()* function to our dataset to remove possible NaN rows.
