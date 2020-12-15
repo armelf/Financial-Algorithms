@@ -517,4 +517,5 @@ Our daily strategy returns, denoted y *avgsrets* = average, for each company hav
 We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity_curve*.
 
 Between May & October 2020, we obtain:
-![NLP Strategy Graph](Equity/NLPTrading/NLPTradingReturnsBetweenMay2020%26Oct2020.png)
+![NLP Strategy Graph](Equity/Technical%20Indicators/VWSMA%20Strategy%20Returns.png)
+(Equity/NLPTrading/NLPTradingReturnsBetweenMay2020%26Oct2020.png)
