@@ -485,9 +485,20 @@ For a specific day and a specific company:
 - dailyscore = 0
 - For each Tweet of the daily json file corresponding to the date: 
   - If the company's ticker is detected in the Tweet message (*text*), retrieve *retweet_count*, *favorite_count*, *retweeted_retweet_count*, *retweeted_favorite_count*. 
-Denote *s* = retweet_count + favorite_count + retweeted_retweet_count + retweeted_favorite_count
+  Denote *s* = retweet_count + favorite_count + retweeted_retweet_count + retweeted_favorite_count
     - Create *new_weight* = ln(s) and create *tweet_message_score* thanks to the sentiment analysis of *text*. *new_score* = new_weight * tweet_message_score
     - Update the daily score of the company: dailyscore = dailyscore + new_score
    - Else: Do nothing
    
-#### TextBlob Sentiment Analysis
+##### TextBlob Sentiment Analysis
+We explain here how we compute our message score. We use the Python library named `textblob`. It is a Python library that provides a simple API for common NLP tasks. Here is a tutorials website: https://textblob.readthedocs.io/en/dev/quickstart.html. You can install it typing this syntax in your terminal.
+
+```bash
+pip install textblob
+```
+`textblob` provides *polarity*(score)(range of [-1,1]) and *subjectivity*(score)(range of [0,1]) estimates for parsed documents, through the *.sentiment* attribute of its *TextBlob* class. The overall sentiment is often inferred as **positive, neutral or negative from the sign of the polarity score**. Subjective sentences or texts generally refer to personal opinion, emotion or judgment whereas objective refers to factual information. The subjectivity score reflects how much subjective is our text. Our tweet_message_score corresponds to the **polarity** of the tweet text.
+
+*NB* An improvement here could be to juggle between polarity and subjectivity to find a more relevant tweet_message_score
+
+
+
