@@ -31,9 +31,8 @@ This repository proposes a bunch of profitable trading algorithms and trading id
 - [DGuided Strategy](#dguided-strategy)
   - [Data retrieval](#data-retrieval)
   - [Data preprocessing](#data-preprocessing)
-  - [Robustness & D-thresholds](#robustness-&-D-thresholds)
-  - [Signal creation](#signal-creation)
-  - [Backtesting](#backtesting)
+  - [D-thresholds & Signal creation](#robustness-&-signal-creation)
+  - [Robust Backtesting](#robust-backtesting)
 - [Contributing](#contributing)
 
 
@@ -519,7 +518,7 @@ Every day:
 - If daily_score > pos_mean_scores + 2 * pos_scores_std, s = 1. It is a simple Buy Signal
 - Elif daily_score < neg_mean_scores - 3 * neg_scores_std, s = 1. It is *Reversal* Buy Signal.
 
-Using for tomorrow returns and outstanding strategy returnsthe same notation as in our previous strategies, we then create a portfolio where, for each company, srets = trets * s.
+Using for tomorrow returns and outstanding strategy returns the same notation as in our previous strategies, we then create a portfolio where, for each company, srets = trets * s.
 Our daily strategy returns, denoted y *avgsrets* = average, for each company having a signal(such that s = 1), of these companies tomorrow returns.
 
 We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity_curve*.
@@ -570,9 +569,66 @@ We want to remind that we don't use these technical indicators in our strategy, 
 We build several other features that will be used to construct our signal:
 - Forward Close - Close returns (*FCCrets*). It is a complicated name, for the returns of the next week
 - High Close returns (*HCrets*): The relative variation between the High price and the Close price of the current week
+- Previous High Close returns (*PHCrets*): The relative variation between the High price and the Close price of the previous week
 - Forward High Close returns (*FHCrets*): The relative variation between the High price of the next week and the Close price of the current week
 - Forward High High returns (*FHHrets*): The relative variation between the High price of the next week and the High price of the current week. 
 
-HCrets and FHHrets are the **most important** features for the signal creation of our naive strategy.
+HCrets, PHCrets and FHHrets are the **most important** features for the signal creation of our naive strategy.
 
 Once all these features are created, we apply the *dropna()* function to our dataset to remove possible NaN rows.
+
+### D-thresholds & Signal Creation
+This strategy is called D-Guided because we use a set of rules around a dictionary of threshold, *threshold_dict*. 'D' corresponds to one occurence of a dictionary (key + value). The keys(*threshold_key*) of the dictionary threshold_dict are composed of static thresholds on HCrets. Their correspond values(*threshold_value*) are *smoothed* static thresholds. This strategy is a **long-only breakout-strategy**.
+
+For each company, at a certain trading time:
+- If HCrets > threshold_key and PHCrets > threshold_value, Buy at the Close Price and place a stop-loss at High Price. The consequence is that: 
+  - If FHHrets > 0 (a Higher High next week), the outstanding strategy returns srets = HCrets
+  - Else, the outstanding strategy returns srets = FCCrets
+- Else, do nothing.
+
+Our weekly strategy returns, denoted y *avgsrets* = average, for each company having a srets!=0.0, of these companies srets.
+
+We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and can plot the *equity_curve*.
+
+The code of this signal creation and even (mere) backtesting part is in the function *computeCAGR()*. The whole backtesting process is a little more complicated. This function also proposes D-accuracy, D-precision and D-recall scores, that are accuracy, precision and recall scores of our threshold decision. You will find documentation on these scores here: https://wiki.pathmind.com/accuracy-precision-recall-f1. Finally the function provides a Sharpe Ratio and a CAGR: https://www.investopedia.com/terms/s/sharperatio.asp and https://www.investopedia.com/terms/c/cagr.asp. 
+
+### Robust backtesting
+The whole backtesting process is performed in the function *naivetraintest()*, this backtesting is qualified of *robust* because we split our dataset in several relatively little bundles, large enough to learn from our strategy and make predictions, but little enough to tackle changes in the financial market over time. We already used this method in our Fundamental Trading strategy below. But here, for each bundle:
+
+- We perform a 0.75-0.25 train-test split. The train set helps to find the best D-threshold over the training period, in threshold_dictionary. 
+
+- We select the D-threshold that gives the highest CAGR over the training period. Note that when choosing our training D-threshold, **we take transaction costs (tc) into account**. In this strategy, we estimate transaction costs around *0.35% (35 pips)* of our initial transaction amount. Then we backtest over the testing period, using this D-threshold and transaction costs and we roll over the whole data set.
+
+We need to specify that there exists a transaction costs parameter in the *naivetraintest()* and *computeCAGR()* functions, that is labeled 'True' if we consider transaction costs and 'False' else.
+
+Backtesting is done between 2007 and 2019. The .txt file here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Robust%20Strategies/NaiveThresholdStrategieResults20072019 transcribes relevant strategy figures during the whole backtesting period. 
+
+Here is an overview: 
+```txt
+Start timerange 2017-02-27 to 2017-09-15
+Best threshold for timerange [2017-02-27,2017-09-15] is 0.12
+
+For timerange [2017-02-27,2017-09-15]:
+Mean Accuracy train is 54.236874236874236 %
+Mean Precision train is 100.0 %
+Mean Recall train is 54.236874236874236 %
+Mean Accuracy test is 53.205128205128204 %
+Mean Precision test is 99.48717948717949 %
+Mean Recall test is 53.205128205128204 %
+
+
+In mode test for timerange [2017-02-27,2017-09-15]:
+
+AccuracyD is 14.285714285714285 %
+PrecisionD is 14.285714285714285 %
+RecallD is 100.0 %
+
+Sharpe Ratio is 4.828744845310482
+CAGR is 1.7834698489282919
+
+End timerange 2017-02-27 to 2017-09-15
+```
+
+Here 
+
+*NB.* This strategy **needs** optimization and there is room for improvement. Every suggestion is welcome, and a first one could be to train on a wider range of D-thresholds, eventually dynamic(and not static) ones
