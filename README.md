@@ -25,8 +25,8 @@ This repository proposes a bunch of profitable trading algorithms and trading id
 - [NLP Trading](#nlp-trading)
   - [Twitter data retrieval](#twitter-data-retrieval)
   - [Data preprocessing](#data-preprocessing)
-  - [TextBlob Sentiment Analysis](#textblob-sentiment-analysis)
-  - [Daily scores creation](#daily-scores-creation)
+    - [TextBlob Sentiment Analysis](#textblob-sentiment-analysis)
+    - [Daily scores creation](#daily-scores-creation)
   - [Backtesting](#backtesting)
 - [Contributing](#contributing)
 
@@ -471,6 +471,17 @@ To get access to Twitter data through the API, you need to go on the Twitter Dev
  - 'favorite_count': The number of favorites at the retrieval time
  - 'retweet_followers_count': The number of followers at the retrieval time
  
- If the tweet was retweeted we also retrieve:
+ If the tweet was retweeted, we also retrieve:
  - 'retweeted_retweet_count': The number of retweets of the retweeted tweets at the retrieval time
  - 'retweeted_favorite_count': The number of favorites of the retweeted tweets at the retrieval time
+
+Every day we retrieved this data and stored it in daily .json files. Once again, the whole crawling process is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/TwitterCrawler.py.
+
+### Data preprocessing
+After having stored Financial Twitter data in daily .json for 5 months, we decided to use them to implement our strategy. We begin by preprocessing our Twitter data in order to create a pandas Dataframe that will contains a set of features, created thanks to our Twitter data, and suitable to make a daily trading strategy. In the preprocessing part of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/NLPDailyScoreCreation.py, we create a *for loop* that will visit all Twitter data in relationship with *keywords*(the list containing all the tickers of the S&P100). We loop over each daily .json file, and retrieve twitter features cited above to compute, for each company in the S&P100, a daily_score named *daily_score* that will help to create our daily signals(we have one signal for each company / stock). The process is described below:
+
+For a specific day and a specific company:
+- dailyscore = 0
+- For each Tweet of the daily json file corresponding to the date, if the company's ticker is detected in the Tweet message (*text*), retrieve *retweet_count*, *favorite_count*, *retweeted_retweet_count*, *retweeted_favorite_count*. 
+Denote *s* = retweet_count + favorite_count + retweeted_retweet_count + retweeted_favorite_count
+- Create new_weight = ln(s) 
