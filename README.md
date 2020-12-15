@@ -18,10 +18,16 @@ This repository proposes a bunch of profitable trading algorithms and trading id
   - [Different Strategies and Stock Prediction](#different-strategies-and-stock-prediction)
   - [Creating the dataset](#creating-the-training-dataset)
   - [Backtesting the VWSMA strategy](#backtesting-the-vwsma-strategy)
-- [Fundamental trading](#fundamenta-trading)
+- [Fundamental Trading](#fundamental-trading)
   - [Data acquisition](#data-acquisition)
   - [Data preprocessing](#data-preprocessing)
   - [Machine learning](#machine-learning)
+- [NLP Trading](#nlp-trading)
+  - [Twitter data retrieval](#twitter-data-retrieval)
+  - [Data preprocessing](#data-preprocessing)
+  - [TextBlob Sentiment Analysis](#textblob-sentiment-analysis)
+  - [Daily scores creation](#daily-scores-creation)
+  - [Backtesting](#backtesting)
 - [Contributing](#contributing)
 
 
@@ -427,3 +433,44 @@ Average return for stock predictions:  13.8 %
 Average market return in the same period:  6.5% 
 Compared to the index, our strategy earns  7.3 percentage points more
 ```
+
+## NLP Trading
+
+In this part, we assume that Tweets can help to predict stocks. The rationale is that we can extract sentiment from tweets, that would help to predict future stock movements. Obviously, we retrieve tweets from Twitter. The problem is that we are limited in the amount of tweets we can retrieive from Twitter. To tackle that, we created a Twitter crawler that ran between May & Octoer 2020. You can find the Crawler here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/TwitterCrawler.py.
+
+### Twitter data retrieval
+
+As said above, we retrieved data from Twitter, everyday between May and October 2020. We then have a 5-months tweets history. We use the Python library `tweepy` that you can find here: https://www.tweepy.org/. It is a Python library to access the Twitter API. The corresponding Github is: https://github.com/tweepy/tweepy. 
+
+Here is the syntax to install this library:
+```bash
+pip install tweepy
+```
+
+To get access to Twitter data through the API, you need to go on the Twitter Developer website https://developer.twitter.com/apps and to apply for access. You will then be given some credentials:
+
+ - Your Consumer Key
+ - Your Consumer Secret Code
+ - Your Access Token
+ - Your Access Token Secret Code
+ 
+ #### Data crawling
+ The principle of how data crawler is simple: every hour, we retrieve several features of the tweets of:
+ - People in a list of users, a list named *users*. Our users are made up of well-known people, investors and analysts in the stock markets. For example Bill Gates, analysts from the NYSE, and so on.
+ - A keywords list named *keywords*, composed of the 100 components of the S&P100. We want to retrieve tweets relating events about one or several components of the S&P100.
+ 
+ A tweet is retrieved as a *dictionary* characterized by several keys or features you can find in the Tweet Obect Model here: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet.
+ 
+ Hence, every hour, for every user and for every keyword, we retrieve all the tweets posted over the penultimate hour. We especially retrieved these features or keys of the tweets:
+ 
+ - 'created_at': The date which the tweet message was posted
+ - 'text': The tweet message
+ - 'user_id': The user identifier
+ - 'name': The user name
+ - 'retweet_count': The number of retweets at the retrieval time
+ - 'favorite_count': The number of favorites at the retrieval time
+ - 'retweet_followers_count': The number of followers at the retrieval time
+ 
+ If the tweet was retweeted we also retrieve:
+ - 'retweeted_retweet_count': The number of retweets of the retweeted tweets at the retrieval time
+ - 'retweeted_favorite_count': The number of favorites of the retweeted tweets at the retrieval time
