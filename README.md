@@ -498,7 +498,23 @@ pip install textblob
 ```
 `textblob` provides *polarity*(score)(range of [-1,1]) and *subjectivity*(score)(range of [0,1]) estimates for parsed documents, through the *.sentiment* attribute of its *TextBlob* class. The overall sentiment is often inferred as **positive, neutral or negative from the sign of the polarity score**. Subjective sentences or texts generally refer to personal opinion, emotion or judgment whereas objective refers to factual information. The subjectivity score reflects how much subjective is our text. Our tweet_message_score corresponds to the **polarity** of the tweet text.
 
-*NB* An improvement here could be to juggle between polarity and subjectivity to find a more relevant tweet_message_score
+*NB.* An improvement here could be to juggle between polarity and subjectivity to find a more relevant tweet_message_score
 
+### Backtesting
 
+Now that we have daily NLP scores for every stock in our portfolio (S&P100 stocks in our case), we are able to create a trading signal *s*, that aims to predict stock prices changes for the next day. Note that we are *long-only* in this strategy. Note that **due to the lack of data(only 5 months of daily data), we introduce a look-ahead bias in our strategy** by creating relevant threshold using the whole dataset. 
 
+For each company, denote *pos_mean_scores*, *neg_mean_scores*, *pos_scores_std*, *neg_scores_std* = average (standard deviation) of the positive(negative) daily scores of the company over the whole dataset. They will serve as thresholds for our strategy. *A lookaround would haveeen to use rolling mean scores and rolling standard deviations as well*, ut we don't have enough data to do it.
+
+Every day:
+
+- If daily_score > pos_mean_scores + 2 * pos_scores_std, s = 1. It is a simple Buy Signal
+- Elif daily_score < neg_mean_scores - 3 * neg_scores_std, s = 1. It is *Reversal* Buy Signal.
+
+Using for tomorrow returns and outstanding strategy returnsthe same notation as in our previous strategies, we then create a portfolio where, for each company, srets = trets * s.
+Our daily strategy returns, denoted y *avgsrets* = average, for each company having a signal(such that s = 1), of these companies tomorrow returns.
+
+We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity_curve*.
+
+Between May & October 2020, we obtain:
+![VWSMA Strategy Graph](Equity/NLPTrading/NLPTradingReturnsBetweenMay2020%26Oct2020.png)
