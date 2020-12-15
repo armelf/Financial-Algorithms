@@ -28,6 +28,12 @@ This repository proposes a bunch of profitable trading algorithms and trading id
     - [Daily scores creation](#daily-scores-creation)
       - [TextBlob Sentiment Analysis](#textblob-sentiment-analysis)
   - [Backtesting](#backtesting)
+- [DGuided Strategy](#dguided-strategy)
+  - [Data retrieval](#data-retrieval)
+  - [Data preprocessing](#data-preprocessing)
+  - [Robustness & D-thresholds](#robustness-&-D-thresholds)
+  - [Signal creation](#signal-creation)
+  - [Backtesting](#backtesting)
 - [Contributing](#contributing)
 
 
