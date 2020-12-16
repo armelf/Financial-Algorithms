@@ -710,7 +710,7 @@ observes reward and next state. The current state correspond to the current iamg
 
 We initialize parameters *theta* parameters characterizing our CNN Model. Our target network parameters are *thetastar*
 We will iterate over *maxiter* = 50000 steps and at each step:
-- With probability &eps; we set *preA*(previous action or the action of the previous week) randomly; otherwise preA corresponds to the action that gives the best cumulative reward in the previous state. With probability &eps; we set *curA*(the current action) randomly, otherwise curA corresponds to the action that gives the best **expected** cumulative reward in the current state. This is the *&eps;-greedy policy*. 
+- With probability &epsilon; we set *preA*(previous action or the action of the previous week) randomly; otherwise preA corresponds to the action that gives the best cumulative reward in the previous state. With probability &epsilon; we set *curA*(the current action) randomly, otherwise curA corresponds to the action that gives the best **expected** cumulative reward in the current state. This is the *&epsilon;-greedy policy*. 
 - We update the current state *curS*(current image data), as well as the current reward *curR* and we go to the next state *nxtS*. We define the set {curS, curA, curR, nxtS} that we save in the memory buffer denoted *memory*, of size *M* = 300 here. 
 - If memory is full, delete the oldest experience in memory, else, if the current step denoted *b*, modulo the update interval parameter of parameters *theta*, denoted *B*(B = 10 here), equals 0, we randomly sample a minibatch of batch size *Beta* = 32 from memory, then we apply the Gradient Descent method to the Loss function of this minibatch, with respect to theta, and we update theta as well as our loss function. Is is the **experience replay part**, implemented here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/exReplay.py
 - If b mod (B * C), where *C* is the update interval parameter of parameters *thetastar*, and is 300 in our case, thetastar = theta.
@@ -718,3 +718,6 @@ We will iterate over *maxiter* = 50000 steps and at each step:
 You can find more information about Q-learning here: https://towardsdatascience.com/simple-reinforcement-learning-q-learning-fcddc4b6fe56, or in the article that you will find in the overview of this part.
 
 Our Q-learning whole process is done in the function member *trainModel()* of the class trainModel of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/train.py.
+
+### Model deployment & Backtesting
+
