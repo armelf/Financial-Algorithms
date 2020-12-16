@@ -1,1 +1,8 @@
-
+ta
+pandas_datareader
+yfinance
+simfin
+tweepy
+textblob
+html-table-parser-python3
+tensorflow==1.14.0
