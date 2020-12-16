@@ -33,6 +33,11 @@ This repository proposes a bunch of profitable trading algorithms and trading id
   - [Data preprocessing](#data-preprocessing)
   - [D-thresholds & Signal creation](#robustness-&-signal-creation)
   - [Robust Backtesting](#robust-backtesting)
+- [Deep Learning Trading](#deep-learning-trading)
+  - [Data retrieval & preprocessing](#data-retrieval-&-preprocessing)
+  - [Input Images creation](#input-images-creation)
+  - [Deep Learning Model](#deep-learning-model)
+  - [Model deployment & Backtesting](#model-deployment-&-backtesting)
 - [Contributing](#contributing)
 
 
@@ -633,3 +638,13 @@ Here, you will find the Equity Curve between 2007 & 2019, *transaction costs inc
 ![D-Guided Strategy Graph](Equity/Robust%20Strategies/NaiveThresholdStrategyEquityCurve20072019.PNG)
 
 *NB.* This strategy **needs** optimization and there is room for improvement. Every suggestion is welcome, and a first one could be to train on a wider range of D-thresholds, eventually dynamic(and not static) ones
+
+## Deep Learning Trading
+The strategy we will show here is a **long-only** tradaing strategy that illustrates how itis possible to use Deep Learning Models to predict stock markets changes. The Deep Learning Models we will use are: Convolutional Neural Networks (CNN) in parallel with a Reinforcement Learning Model. Here is a link where CNN are explained: https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53. Plus you have an explanationof what is Reinforcement Learning here: https://medium.com/@SmartLabAI/reinforcement-learning-algorithms-an-intuitive-overview-904e2dff5bbc. 
+
+The strategy is mainly inspired from the article you will find here: https://arxiv.org/abs/1902.10948. To create Deep Learning architectures in Python we will use the library named `tensorflow`, specifically the 1.14.0 version, that you can install this way:
+
+```bash
+pip install tensorflow==1.14.0
+```
+
