@@ -34,14 +34,14 @@ This repository proposes a bunch of profitable trading algorithms and trading id
   - [D-thresholds & Signal creation](#robustness-&-signal-creation)
   - [Robust Backtesting](#robust-backtesting)
 - [Deep Learning Trading](#deep-learning-trading)
-  - [Data retrieval & preprocessing](#data-retrieval-&-preprocessing)
+  - [Data retrieval and preprocessing](#data-retrieval-and-preprocessing)
   - [Input Images creation](#input-images-creation)
   - [Deep Learning Model](#deep-learning-model)
-  - [Model deployment & Backtesting](#model-deployment-&-backtesting)
+  - [Model deployment and Backtesting](#model-deployment-and-backtesting)
 - [Forex Kalman Filter Trading](#forex-kalman-filter-trading)
-  - [Data retrieval & preprocessing](#data-retrieval-&-preprocessing)
+  - [Data retrieval and preprocessing](#data-retrieval-and-preprocessing)
   - [Kalman Filter Model](#kalman-filter-model)
-  - [Model deployment & Backtesting](#model-deployment-&-backtesting)
+  - [Model deployment and Backtesting](#model-deployment-and-backtesting)
 - [Contributing](#contributing)
 
 
@@ -586,7 +586,7 @@ HCrets, PHCrets and FHHrets are the **most important** features for the signal c
 
 Once all these features are created, we apply the *dropna()* function to our dataset to remove possible NaN rows.
 
-### D-thresholds & Signal Creation
+### D-thresholds and Signal Creation
 This strategy is called D-Guided because we use a set of rules around a dictionary of threshold, *threshold_dict*. 'D' corresponds to one occurence of a dictionary (key + value). The keys(*threshold_key*) of the dictionary threshold_dict are composed of static thresholds on HCrets. Their correspond values(*threshold_value*) are *smoothed* static thresholds. This strategy is a **long-only breakout-strategy**.
 
 For each company, at a certain trading time:
@@ -652,7 +652,7 @@ The strategy is mainly inspired from the article you will find here: https://arx
 pip install tensorflow==1.14.0
 ```
 
-### Data retrieval & preprocessing
+### Data retrieval and preprocessing
 
 You can check this file for the code: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/BuildTrainTestData.ipynb.
 
@@ -723,7 +723,7 @@ You can find more information about Q-learning here: https://towardsdatascience.
 
 Our Q-learning whole process is done in the function member *trainModel()* of the class trainModel of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/train.py.
 
-### Model deployment & Backtesting
+### Model deployment and Backtesting
 Our model is deploye and bactesting in the Jupyter Notebook https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/DeepLearningTrader.ipynb. Here you can change the paramaters cited above and optimize the strategy. We have a list of companies bundles denoted *bundles_list*. You will see that several bundles have been excluded. After some checks, we find that stocks that aren't coherent between can't form a suitable bundles. A **similarity study of stocks is needed** to create relevant companies bundle and this study is not done here. There is really room for improvement. 
 
 For each bundle in bundles_list:
