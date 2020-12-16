@@ -640,11 +640,61 @@ Here, you will find the Equity Curve between 2007 & 2019, *transaction costs inc
 *NB.* This strategy **needs** optimization and there is room for improvement. Every suggestion is welcome, and a first one could be to train on a wider range of D-thresholds, eventually dynamic(and not static) ones
 
 ## Deep Learning Trading
-The strategy we will show here is a **long-only** tradaing strategy that illustrates how itis possible to use Deep Learning Models to predict stock markets changes. The Deep Learning Models we will use are: Convolutional Neural Networks (CNN) in parallel with a Reinforcement Learning Model. Here is a link where CNN are explained: https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53. Plus you have an explanationof what is Reinforcement Learning here: https://medium.com/@SmartLabAI/reinforcement-learning-algorithms-an-intuitive-overview-904e2dff5bbc. 
+The strategy we will show here is a **long-only** trading strategy that illustrates how it is possible to use Deep Learning Models to predict stock markets changes. The Deep Learning Models we will use are: Convolutional Neural Networks (CNN) in parallel with a Reinforcement Learning Model. Here is a link where CNN are explained: https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53. Plus, you have an explanation of what Reinforcement Learning is, here: https://medium.com/@SmartLabAI/reinforcement-learning-algorithms-an-intuitive-overview-904e2dff5bbc. 
 
 The strategy is mainly inspired from the article you will find here: https://arxiv.org/abs/1902.10948. To create Deep Learning architectures in Python we will use the library named `tensorflow`, specifically the 1.14.0 version, that you can install this way:
 
 ```bash
 pip install tensorflow==1.14.0
 ```
+
+### Data retrieval & preprocessing
+
+You can check this file for the code: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/BuildTrainTestData.ipynb.
+
+Historical prices are retrieved from Yahoo Finance thanks to the library `pandas_datareader`. You can find a syntax above, is the *Technical Indicators* part of our description, that shows how it is done in Python. We retrieve the daily prices of all stocks of the S&P500, between 1999 & 2020. As in our D-Guided strategy, the stocks tickers list is taken from Wikipedia. We split stocks datasets in bundles of 5 stocks datasets each, ordered by the stocks tickers order in the tickers list. We take the first five tickers in the list and create our first bundle, the next five ones for our second bundle, and so on. We will explain later why we need to create bundles.
+
+Once done, data are preprocessed this way for every stock(that belongs to a bundle *b*):
+- If the NaN rows percentage is greater than 0.75, the stock is discarded
+- We quantilize the prices dataset. It means that for each column of the dataset, we only keep row values that are in the interval [Q1 - 2.5 * IQR, Q3 + 2.5 * IQR], where Q1, Q3 are respectively the first and third quartiles of the column, and IBR = Q3 - Q1. In a row value is out of this interval, it is automatically replaced by the nearest interval's value(one of the boundaries). 
+- If the dataset is not of the same length as the average dataset length of the stocks in *b*, we discard the stock. Hence, we could end up with final bundles containing less than 5 tickers(stocks)
+- Finally, we do a 0.8-0.2 train-test split and save *trainset* and *testset*. In our case, trainset goes from 1999 to 2016 and testset from 2016 to 2020.
+
+### Input Images creation
+The code is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/BuildImageData.ipynb. In this part, we will create our input features and our target variable, both for our train sets and our test sets. For a tradale stock(selected in the preprocessing part), the train set is named *trainset* and the test set, *testset*. The creation process below is applied, for each bundle:
+
+For every stock in the bundle:
+- We load our set, be it trainset or testset. We resample our set on a weekly basis. We create the column *NextRets* = 100 * trets where trets corresponds to the Close price percentage change between next week and today. In set = trainset, neutralize returns, with the operation NextRets = NextRets - mean_over_trainset(NextRets). It is okay,since we are only using training data to do it. This operation helps to have **balanced returns**, and we hope that our Deep Learning system will learn more efficiently thanks to it.
+- We define a forward period *f* that represents the number of weeks forward over which we want to predict price variations. In our strategy we choose f = 4. For this forward period, *fNextRets* = sum_over_f_weeks(NextRets). For generalization, we still denote fNextRets by NextRets, now corresponding to the Close price percentage change between f next weeks forward and today
+- Every f weeks (hence every month since f=4), we create a list of *W* previous Close prices and volumes and we create a *binary matrix image* of size W * W that in its first *w* = int(W/2) - 1 rows *plots a w * W pixels version of* the close price and its last *w* rows, a *plots a w * W pixels version of* the close price. Here is an example of what an image matrix looks like, for W = 16:
+```txt
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 
+1 0 0 0 0 0 0 0 0 1 0 0 1 1 0 0 
+0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 
+0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 
+0 0 0 0 0 0 1 0 1 0 0 0 0 1 0 1 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+```
+
+We can see for example that the close price curve, which is represented by a sequence of (0,1) in the first 7 rows of the matrix, grows, then decreases and final goes upwards again.
+- Finally, the stock's image data is just a vertical concatenation of its monthly image matrices, separated by a E.
+
+The bundle's image matrix is a vertical concatenation of its stocks image data, separated by a F. It correspond to our input image for the bundle. To sum up, each lot between two 'F' or one 'F' an nothing else corresponds to one stock's image data, and each image between two 'E' or one 'E' an nothing else corresponds, that stock, to a monthly image data.  You can have a look here, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
+https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/ExampleOfImageData.txt.
+
+The bundle's target variable is a simple vertical concatenation of the NextRets corresponding to monthly images data, no matter the stock(there is no 'E' or 'F' separation). This suggests that, since we predict the NextRets of all stocks in the same bundle, their image data should have a similar pattern in relationship with their NexRets. This leads us to a **point of improvement**, we should create bundles by choosing stocks that have a certain *similarity* between themselves. In our strategy, the selection method is random, and could be largely optimized. Here is an example of target variable, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
+https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/ExampleOfTargetData.txt.
+
+
+
 
