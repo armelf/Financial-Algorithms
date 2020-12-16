@@ -697,5 +697,5 @@ https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%
 
 ### Deep Learning Model
 
-The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists: \rho
+The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists: &Rho; and &Eta;
 
