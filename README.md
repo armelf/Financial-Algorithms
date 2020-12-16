@@ -38,6 +38,10 @@ This repository proposes a bunch of profitable trading algorithms and trading id
   - [Input Images creation](#input-images-creation)
   - [Deep Learning Model](#deep-learning-model)
   - [Model deployment & Backtesting](#model-deployment-&-backtesting)
+- [Forex Kalman Filter Trading](#forex-kalman-filter-trading)
+  - [Data retrieval & preprocessing](#data-retrieval-&-preprocessing)
+  - [Kalman Filter Model](#kalman-filter-model)
+  - [Model deployment & Backtesting](#model-deployment-&-backtesting)
 - [Contributing](#contributing)
 
 
@@ -720,4 +724,22 @@ You can find more information about Q-learning here: https://towardsdatascience.
 Our Q-learning whole process is done in the function member *trainModel()* of the class trainModel of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/train.py.
 
 ### Model deployment & Backtesting
+Our model is deploye and bactesting in the Jupyter Notebook https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/DeepLearningTrader.ipynb. Here you can change the paramaters cited above and optimize the strategy. We have a list of companies bundles denoted *bundles_list*. You will see that several bundles have been excluded. After some checks, we find that stocks that aren't coherent between can't form a suitable bundles. A **similarity study of stocks is needed** to create relevant companies bundle and this study is not done here. There is really room for improvement. 
 
+For each bundle in bundles_list:
+- We read input image data & target variable generated above, for trainset. We create an instance of the class trainModel and we apply the function member *trainModel()* to our training data. Our model learns from training data and save its final parameters.
+
+- We then read input image data & target variable, for testset and we apply our trained model to the testing data. The function member *Test_SeveralAssets_Prediction()* of the class trainModel generate the whole backtesting process. Denote that during the bactesting process, we only take *Buy Signals* into account. It is a **long-only strategy**. Finally, we retrieve the outstanding strategy returns for each stock of the bundle *srets*
+
+Average monthly returns *avgsrets* corresponds to the average of portfolio stocks strategy returns every month. 
+We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity_curve*. 
+
+When *transactions costs are excluded* (tc = 0) we obtain, between 2016 and 2020:
+
+![DeepLearning Strategy Graph 1](Equity/Deep%20Learning%20Trading/DeepLearningTradingReturns20162020WithoutTC.PNG)
+
+When *transactions costs are included* (tc = 0.5 %) we obtain, between 2016 and 2020:
+
+![DeepLearning Strategy Graph 2](Equity/Deep%20Learning%20Trading/DeepLearningTradingReturns20162020WithTC.PNG)
+
+## Forex Kalman Filter Trading
