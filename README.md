@@ -697,5 +697,9 @@ https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%
 
 ### Deep Learning Model
 
-The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists: &Rho; and &Eta;
+#### CNN
+The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists of length 3: &rho; and &eta;. &rho; represents an action value which is the *expected cumulative reward* of an action [Buy, Sell, Do Nothing]. &eta; is a one hot vector market 1 in the same index where &rho; has the maximum action value.
 
+Our CNN model has 6 hidden layers. It takes W * W * 1 as input, since our image is binary. The first four hidden layers are Convolution layers, followed by a Rectifier non-Linearity Unit(ReLU) and the last two are fully connected layers. Each of the first four hidden layers consists of 16 filters of size 5 * 5 * 1 (*F_size = 5*), 16 filters of size 5 * 5 * 16, 32 filters of size 5 * 5 * 16, and 32 filters of size 5 * 5 * 32, respectively, all with stride 1, zero padding and followed by ReLU. Right after the second and fourth hidden layers, a max-pooling layer with a 2 * 2 (*P_size = 2*) filter and stride 2 (*P_stride = 2*) is applied. The model is developed here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/convNN.py. We can juggle with these paramaters (F_size, P_size and P_stride) to improve our model. 
+
+#### Q-learning
