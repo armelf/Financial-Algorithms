@@ -16,7 +16,7 @@ This repository proposes a bunch of profitable trading algorithms and trading id
   - [Preprocessing historical price data](#preprocessing-historical-price-data)
   - [Usable Features](#usable-features)
   - [Different Strategies and Stock Prediction](#different-strategies-and-stock-prediction)
-  - [Creating the dataset](#creating-the-training-dataset)
+  - [Creating the dataset](#creating-the-dataset)
   - [Backtesting the VWSMA strategy](#backtesting-the-vwsma-strategy)
 - [Fundamental Trading](#fundamental-trading)
   - [Data acquisition](#data-acquisition)
