@@ -695,6 +695,7 @@ https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%
 The bundle's target variable is a simple vertical concatenation of the NextRets corresponding to monthly images data, no matter the stock(there is no 'E' or 'F' separation). This suggests that, since we predict the NextRets of all stocks in the same bundle, their image data should have a similar pattern in relationship with their NexRets. This leads us to a **point of improvement**, we should create bundles by choosing stocks that have a certain *similarity* between themselves. In our strategy, the selection method is random, and could be largely optimized. Here is an example of target variable, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
 https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/ExampleOfTargetData.txt.
 
+### Deep Learning Model
 
-
+The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists: \rho
 
