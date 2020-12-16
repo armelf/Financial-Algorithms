@@ -31,7 +31,7 @@ This repository proposes a bunch of profitable trading algorithms and trading id
 - [DGuided Strategy](#dguided-strategy)
   - [Data retrieval](#data-retrieval)
   - [Data preprocessing](#data-preprocessing)
-  - [D-thresholds & Signal creation](#robustness-&-signal-creation)
+  - [D-thresholds and Signal creation](#D-thresholds-and-signal-creation)
   - [Robust Backtesting](#robust-backtesting)
 - [Deep Learning Trading](#deep-learning-trading)
   - [Data retrieval and preprocessing](#data-retrieval-and-preprocessing)
