@@ -52,13 +52,13 @@ In general, to make predictions, we proceed as follows:
 1. Acquire historical price data – help construct the target variable(what we want to predict) and technical indicators in general.
 1. Acquire historical alternative data – It could be fundamental data, news data and so on. They serve as *features* or *predictors*
 3. Preprocess data
-4. Use a appropriate model or strategy to learn from the data
+4. Use an appropriate model or strategy to learn from the data
 5. Make predictions with the strategy
 6. Backtest the performance of the strategy
 
 ## Preliminaries
 
-We use Python 3.7, but over time we will integrate algorithms using other programming languages, depending of the requirements. We mainly retrieve data on Yahoo Finance thans tothe libraries `pandas_datareader` and `yfinance`. The common data science libraries are `pandas` and `scikit-learn`and the library used for Neural Networks treatment is `tensorflow`. We advise you to use Python 3.7 as well, to run .py strategies.  A full list of requirements is included in the `python-requirements.txt` file. To install all of the requirements at once, run the following code in terminal:
+We use Python 3.7, but over time we will integrate algorithms using other programming languages, depending on the requirements. We mainly retrieve data on Yahoo Finance thanks to the libraries `pandas_datareader` and `yfinance`. The common data science libraries are `pandas` and `scikit-learn`and the library used for Neural Networks treatment is `tensorflow`. We advise you to use Python 3.7 as well, to run .py strategies.  A full list of requirements is included in the `python-requirements.txt` file. To install all the requirements at once, run the following code in terminal:
 
 ```bash
 pip install -r python-requirements.txt
@@ -68,7 +68,7 @@ To get started, clone this project and unzip it.
 
 ## Technical Indicators
 
-Strategies you will find here are based on technical analysis. **Technical analysis** is a set of means of examining and predicting price movements in the financial markets, by using historical price charts and market statistics. Thus, those who believe in it suppose that historical data contains relevan information to predict the future, or that historical patterns wil repeat. We test several technical indicators to predict the SPY, which is the S&P500 ETF. Our technical indicators strategies are located in the folder https://github.com/armelf/Financial-Algorithms/tree/main/Equity/Technical%20Indicators
+Strategies you will find here are based on technical analysis. **Technical analysis** is a set of means of examining and predicting price movements in the financial markets, by using historical price charts and market statistics. Thus, those who believe in it suppose that historical data contains relevant information to predict the future, or that historical patterns wil repeat. We test several technical indicators to predict the SPY, which is the S&P500 ETF. Our technical indicators strategies are located in the folder https://github.com/armelf/Financial-Algorithms/tree/main/Equity/Technical%20Indicators
 
 ### Technical Indicators Library
 
@@ -94,7 +94,7 @@ data = pdr.get_data_yahoo(ticker, start_date, end_date)
 ```
 ### Preprocessing historical price data
 
-Preprocessing historical price data consists of cleaning the price dataset and transforming it to a dataset usable to train and test our strategies. Prices data are retrieved in the OHLC format, plus 2 other columns: **Adj. Close**, the close price adusted to dividends and stock splits, and **Volume**. Data are **time-indexed**. We drop NaN rows from our dataset thanks to the *dropna()* function and we fill empty elements with the function *interpolate()*.  
+Preprocessing historical price data consists of cleaning the price dataset and transforming it into a dataset usable to train and test our strategies. Prices data are retrieved in the OHLC format, plus 2 other columns: **Adj. Close**, the close price adjusted to dividends and stock splits, and **Volume**. Data are **time-indexed**. We drop NaN rows from our dataset thanks to the *dropna()* function and we fill empty elements with the function *interpolate()*.  
 
 In our strategies, we try to predict how the **Close Price of the SPY will vary the next day**. For this purpose, we create a target variable named *Price Rise* that is labelled to **1** if the close price **grows tomorrow** and **-1** else.
 
@@ -153,7 +153,7 @@ We compute Parabolic SAR (PSAR), %K and %D of the Stochastic Oscillator. You can
 - Parabolic SAR: https://www.investopedia.com/trading/introduction-to-parabolic-sar/
 - Stochastic Oscillator: https://www.investopedia.com/terms/s/stochasticoscillator.asp
 
-We then compute *KminusD* = %K - %D and define a dynamic *stop-loss* (slsar), which is the maximum loss we can bear on one transaction. At every moment **slsar = (SAR-Close)/Close**
+We then compute *KminusD* = %K - %D and define a dynamic *stop-loss* (slsar), which is the maximum loss we can bear during one transaction. At every moment **slsar = (SAR-Close)/Close**
 
 We will name the *current order return*, the percentage of return of an outstanding transaction, **cor**
 
@@ -192,7 +192,7 @@ We define a static stop-loss named sl.
 - Else, signal = 0
 
 #### OBV Bollinger Bands RSI Strategy
-We once more compute RSI and Bollinger High and Low Bands, and then %B. After that we compute OBV(On-Balance Volume). You can find documentation about this indicator here: https://www.investopedia.com/terms/o/onbalancevolume.asp.
+We once more compute RSI and Bollinger High and Low Bands, and then %B. After that, we compute OBV(On-Balance Volume). You can find documentation about this indicator here: https://www.investopedia.com/terms/o/onbalancevolume.asp.
 
 Finally we calculate the 4-days SMA of RSI, that we call *MRSI*.
 We define a static stop-loss named sl.
@@ -247,7 +247,7 @@ df = ta_strategies.vwsma_strategy(df, sl)
 ### Backtesting the VWSMA strategy
 The backtesting part is done if the function *test_factor_acc* of https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Technical%20Indicators/VWMA-SMA-MeanReversion.py. We create a modified signal(*msignal*) by taking the n-days SMA of the strategy signal. Ou backtestng proves that **n=2** works well for our strategy and it works in a robust way between 1993 and 2019. 
 
-The backtesting is simple, we perform transations one after **one after the other**. Each transaction involves the whole **initial** capital, so we trade **without reinvestment**. Our acktesting is performed **without taking account of transaction costs**, but overall transactions costs are low compared to total strategy returns here, due to the **low turnover** of the strategy (Turnover, in the stock market, refers to the total value of stocks traded during a specific period of time). An **improvement here would be to compute strategy returns taing transaction costs into account**. 
+Backtesting is simple, we perform the transations **one after the other**. Each transaction involves the whole **initial** capital, so we trade **without reinvestment**. Our backtesting is performed **without taking account of transaction costs**, but overall transactions costs are low compared to total strategy returns here, due to the **low turnover** of the strategy (Turnover, in the stock market, refers to the total value of stocks traded during a specific period of time). An **improvement here would be to compute strategy returns taking transaction costs into account**. 
 
 We use *log-returns* = ln(Close/previousClose) for our backtesting and are aware of the *look-ahead bias*, then we use today's modified signal to compute tomorrow returns(*trets*).
 
@@ -269,13 +269,13 @@ The strategy we are going to show is mainly inspired from Robert Martin's projec
 
 ### Data acquisition
 
-SimFin is a platform where we can retrieve free fundamental data until one year efore the retrieval date. `simfin` is the corresponding Python API. You will find more information about it here: https://simfin.com/ and the Github page is: https://github.com/SimFin/simfin-tutorials. To install it run the following code in the terminal: 
+SimFin is a platform where we can retrieve free fundamental data until one year before the retrieval date. `simfin` is the corresponding Python API. You will find more information about it here: https://simfin.com/ and the Github page is: https://github.com/SimFin/simfin-tutorials. To install it run the following code in the terminal: 
 
 ```bash
 pip install simfin
 ```
 
-Sinfin proposes fundamental data for **a lot of company**, of a *quarterly*, *annual* and *ttm (Twelve Trailing Months)* basis. The platform also gives access to historical prices data on a **daily basis**. We will use this abondance of data to develop a **long-only multi-stocks strategy** and at each potential trading time, we only pick and trade on a certain number of stocks.
+Simfin proposes fundamental data for **a lot of companies**, on a *quarterly*, *annual* and *ttm (Twelve Trailing Months)* basis. The platform also gives access to historical prices data on a **daily basis**. We will use this abondance of data to develop a **long-only multi-stocks strategy** and at each potential trading time, we only pick and trade on a certain number of stocks.
 
 Below are the interesting fundamental metrics, available on SimFin, that will help us to construct our set of features:
 
@@ -399,9 +399,9 @@ For one stock, at a certain trading date:
  
 ### Machine learning
 Now we have our features and our target variable, we can apply Machine Learning techniques to learn patterns in our data and predict on new samples. We use the classical technique of *train-test split*, knowing our dataframe is time-indexed and sorted by indexed, we don't use data from the future in our training process (train set). We then avoid the *look-ahead bias*. Our test set serves to predict, using our model already trained on and having learned from the train set. It is a classification problem. The set of fundamental + technical features created help to predict y, variable that has 2 classes (labels): 0 and 1. We use a *Random Forest Classifier* and you can see the code here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundTradingAlgo.py.
-The trained ML algorithm is feeded with *X_test* values where *X_test* is the set of features of the test set, and predicts *y_pred* value, which wille correspond with *y_test* that contains the real target values of the test set. This way, we can have an *accuracy_score*that predicts to evaluate our prediction.
+The trained ML algorithm is feeded with *X_test* values where *X_test* is the set of features of the test set, and predicts *y_pred* value, which will match with *y_test* that contains the real target values of the test set. This way, we can have an *accuracy_score* that helps to evaluate our prediction.
 
-It is known that financial markets behaviour vary with time, due to macroeconomic, political, or just economic changes. Our whole dataset goes from 2009 to 2019. But the way fundamentals affected the market in 2009 is not the same they will affect the maret in 2019. To make our training consistent with our testing, we need our training data to behave a bit like our testing data. We split our whole dataset such that *we train on 3 quarters and we predict on the next one, and we roll over the entire backtesting period*.
+It is known that financial markets behaviour vary with time, due to macroeconomic, political, or just economic changes. Our whole dataset goes from 2009 to 2019. But the way fundamentals affected the market in 2009 is not the same they will affect the market in 2019. To make our training consistent with our testing, we need our training data to behave a bit like our testing data. We split our whole dataset such that *we train on 3 quarters and we predict on the next one, and we roll over the entire backtesting period*.
 
 Strategy returns for every stock are computed as signal * FSV and for every test period we compare the mean strategy returns of all the stocks traded with the SPY returns for the same period. Results are printed in this .txt file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Fundamental%20Trading/FundTradingAlgoResults20092019.txt
 
@@ -452,7 +452,7 @@ Compared to the index, our strategy earns  7.3 percentage points more
 
 ## NLP Trading
 
-In this part, we assume that Tweets can help to predict stocks. The rationale is that we can extract sentiment from tweets, that would help to predict future stock movements. Obviously, we retrieve tweets from Twitter. The problem is that we are limited in the amount of tweets we can retrieive from Twitter. To tackle that, we created a Twitter crawler that ran between May & Octoer 2020. You can find the Crawler here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/TwitterCrawler.py.
+In this part, we assume that Tweets can help to predict stocks. The rationale is that we can extract sentiment from tweets, that would help to predict future stock movements. Obviously, we retrieve tweets from Twitter. The problem is that we are limited in the amount of tweets we can retrieve from Twitter. To tackle that, we created a Twitter crawler that ran between May & October 2020. You can find the Crawler here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/TwitterCrawler.py.
 
 ### Twitter data retrieval
 
@@ -471,11 +471,11 @@ To get access to Twitter data through the API, you need to go on the Twitter Dev
  - Your Access Token Secret Code
  
  #### Data crawling
- The principle of how data crawler is simple: every hour, we retrieve several features of the tweets of:
+ The principle of the data crawler is simple: every hour, we retrieve several features of the tweets of:
  - People in a list of users, a list named *users*. Our users are made up of well-known people, investors and analysts in the stock markets. For example Bill Gates, analysts from the NYSE, and so on.
  - A keywords list named *keywords*, composed of the 100 components of the S&P100. We want to retrieve tweets relating events about one or several components of the S&P100.
  
- A tweet is retrieved as a *dictionary* characterized by several keys or features you can find in the Tweet Obect Model here: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet.
+ A tweet is retrieved as a *dictionary* characterized by several keys or features you can find in the Tweet Object Model here: https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet.
  
  Hence, every hour, for every user and for every keyword, we retrieve all the tweets posted over the penultimate hour. We especially retrieved these features or keys of the tweets:
  
@@ -494,7 +494,7 @@ To get access to Twitter data through the API, you need to go on the Twitter Dev
 Every day we retrieved this data and stored it in daily .json files. Once again, the whole crawling process is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/TwitterCrawler.py.
 
 ### Data preprocessing
-After having stored Financial Twitter data in daily .json for 5 months, we decided to use them to implement our strategy. We begin by preprocessing our Twitter data in order to create a pandas Dataframe that will contains a set of features, created thanks to our Twitter data, and suitable to make a daily trading strategy. In the preprocessing part of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/NLPDailyScoreCreation.py, we create a *for loop* that will visit all Twitter data in relationship with *keywords*(the list containing all the tickers of the S&P100). We loop over each daily .json file, and retrieve twitter features cited above to compute, for each company in the S&P100, a daily_score named *daily_score* that will help to create our daily signals(we have one signal for each company / stock). The process is described below:
+After having stored Financial Twitter data in daily .json for 5 months, we decided to use them to implement our strategy. We began by preprocessing our Twitter data in order to create a pandas Dataframe that will contains a set of features, created thanks to our Twitter data, and suitable to make a daily trading strategy. In the preprocessing part of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/NLPTrading/NLPDailyScoreCreation.py, we created a *for loop* that will visit all Twitter data in relationship with *keywords*(the list containing all the tickers of the S&P100). We loop over each daily .json file, and retrieve twitter features cited above to compute, for each company in the S&P100, a daily_score named *daily_score* that will help to create our daily signals(we have one signal for each company / stock). The process is described below:
 
 #### Daily scores creation
 For a specific day and a specific company:
@@ -518,9 +518,9 @@ pip install textblob
 
 ### Backtesting
 
-Now that we have daily NLP scores for every stock in our portfolio (S&P100 stocks in our case), we are able to create a trading signal *s*, that aims to predict stock prices changes for the next day. Note that we are *long-only* in this strategy. Note that **due to the lack of data(only 5 months of daily data), we introduce a look-ahead bias in our strategy** by creating relevant threshold using the whole dataset. 
+Now that we have daily NLP scores for every stock in our portfolio (S&P100 stocks in our case), we are able to create a trading signal *s*, that aims to predict stock prices changes for the next day. Note that we are *long-only* in this strategy. Note that **due to the lack of data(only 5 months of daily data), we introduce a look-ahead bias in our strategy** by creating relevant *thresholds* using the whole dataset. 
 
-For each company, denote *pos_mean_scores*, *neg_mean_scores*, *pos_scores_std*, *neg_scores_std* = average (standard deviation) of the positive(negative) daily scores of the company over the whole dataset. They will serve as thresholds for our strategy. *A lookaround would haveeen to use rolling mean scores and rolling standard deviations as well*, ut we don't have enough data to do it.
+For each company, denote *pos_mean_scores*, *neg_mean_scores*, *pos_scores_std*, *neg_scores_std* = average (standard deviation) of the positive(negative) daily scores of the company over the whole dataset. They will serve as *thresholds* for our strategy. *A lookaround would have been to use rolling mean scores and rolling standard deviations as well*, but we don't have enough data to do it.
 
 Every day:
 
@@ -562,7 +562,7 @@ pip install html-table-parser-python3
 Since we want to make weekly predictions, when data are retrieved, we will **resample our dataset on a weekly basis**.
 
 ### Data preprocessing
-Now that the dataset has been resampled to weekly basis, we create our features is the function *calc()*. We will eventually use could some technical indicators, so we compute them as well. In this strategy we will not use them, but **it could be a point of improvement** to use and optimize our set of features + Machine Learning to create our signal. In fact the commented function *traintest()* uses technical features along with a Machine Learning Classifier, the Support Vector Machines Classifier *SVC*, and with train-test techniques, creates a signal. You have some information about Support Vector Machines (SVM) here: https://scikit-learn.org/stable/modules/svm.html. The technical indicators computed(each applied on the Close Price) are:
+Now that the dataset has been resampled to weekly basis, we create our features is the function *calc()*. We could eventually use some technical indicators, so we compute them as well. In this strategy we will not use them, but **it could be a point of improvement** to use and optimize our set of features + Machine Learning to create our signal. In fact, the commented function *traintest()* uses technical features along with a Machine Learning Classifier, the Support Vector Machines Classifier *SVC*, and with train-test techniques, creates a signal. You have some information about Support Vector Machines (SVM) here: https://scikit-learn.org/stable/modules/svm.html. The technical indicators computed(each applied on the Close Price) are:
 
 - 10-weeks Simple Moving Average
 - 20-weeks Exponential Moving Average
@@ -587,10 +587,10 @@ HCrets, PHCrets and FHHrets are the **most important** features for the signal c
 Once all these features are created, we apply the *dropna()* function to our dataset to remove possible NaN rows.
 
 ### D-thresholds and Signal Creation
-This strategy is called D-Guided because we use a set of rules around a dictionary of threshold, *threshold_dict*. 'D' corresponds to one occurence of a dictionary (key + value). The keys(*threshold_key*) of the dictionary threshold_dict are composed of static thresholds on HCrets. Their correspond values(*threshold_value*) are *smoothed* static thresholds. This strategy is a **long-only breakout-strategy**.
+This strategy is called D-Guided because we use a set of rules around a dictionary of threshold, *threshold_dict*. 'D' corresponds to one occurence of a dictionary (key + value). The keys(*threshold_key*) of the dictionary threshold_dict are composed of static thresholds on HCrets. Their corresponding values(*threshold_value*) are *smoothed* static thresholds. This strategy is a **long-only breakout-strategy**.
 
 For each company, at a certain trading time:
-- If HCrets > threshold_key and PHCrets > threshold_value, Buy at the Close Price and place a stop-loss at High Price. The consequence is that: 
+- If HCrets > threshold_key and PHCrets > threshold_value, Buy at the Close Price and place a stop-loss at High Price. Automatically close the transaction at the end of the week, if still outstanding. The consequence is that: 
   - If FHHrets > 0 (a Higher High next week), the outstanding strategy returns srets = HCrets
   - Else, the outstanding strategy returns srets = FCCrets
 - Else, do nothing.
@@ -665,7 +665,7 @@ Once done, data are preprocessed this way for every stock(that belongs to a bund
 - Finally, we do a 0.8-0.2 train-test split and save *trainset* and *testset*. In our case, trainset goes from 1999 to 2016 and testset from 2016 to 2020.
 
 ### Input Images creation
-The code is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/BuildImageData.ipynb. In this part, we will create our input features and our target variable, both for our train sets and our test sets. For a tradale stock(selected in the preprocessing part), the train set is named *trainset* and the test set, *testset*. The creation process below is applied, for each bundle:
+The code is here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/BuildImageData.ipynb. In this part, we will create our input features and our target variable, both for our train sets and our test sets. For a tradable stock(selected in the preprocessing part), the train set is named *trainset* and the test set, *testset*. The creation process below is applied, for each bundle:
 
 For every stock in the bundle:
 - We load our set, be it trainset or testset. We resample our set on a weekly basis. We create the column *NextRets* = 100 * trets where trets corresponds to the Close price percentage change between next week and today. In set = trainset, neutralize returns, with the operation NextRets = NextRets - mean_over_trainset(NextRets). It is okay,since we are only using training data to do it. This operation helps to have **balanced returns**, and we hope that our Deep Learning system will learn more efficiently thanks to it.
@@ -693,23 +693,23 @@ For every stock in the bundle:
 We can see for example that the close price curve, which is represented by a sequence of (0,1) in the first 7 rows of the matrix, grows, then decreases and final goes upwards again.
 - Finally, the stock's image data is just a vertical concatenation of its monthly image matrices, separated by a E.
 
-The bundle's image matrix is a vertical concatenation of its stocks image data, separated by a F. It correspond to our input image for the bundle. To sum up, each lot between two 'F' or one 'F' an nothing else corresponds to one stock's image data, and each image between two 'E' or one 'E' an nothing else corresponds, that stock, to a monthly image data.  You can have a look here, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
+The bundle's image matrix is a vertical concatenation of its stocks image data, separated by a F. It correspond to our input image for the bundle. To sum up, each lot between two 'F' or one 'F' an nothing else corresponds to one stock's image data, and each image between two 'E' or one 'E' an nothing else corresponds, for that stock, to a monthly image data.  You can have a look here, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
 https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/ExampleOfImageData.txt.
 
-The bundle's target variable is a simple vertical concatenation of the NextRets corresponding to monthly images data, no matter the stock(there is no 'E' or 'F' separation). This suggests that, since we predict the NextRets of all stocks in the same bundle, their image data should have a similar pattern in relationship with their NexRets. This leads us to a **point of improvement**, we should create bundles by choosing stocks that have a certain *similarity* between themselves. In our strategy, the selection method is random, and could be largely optimized. Here is an example of target variable, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
+The bundle's target variable is a simple vertical concatenation of the NextRets corresponding to monthly images data, no matter the stock(there is no 'E' or 'F' separation). This suggests that, since we predict the NextRets of all stocks in the same bundle, their image data should have a similar pattern in relationship with their NextRets. This leads us to a **point of improvement**, we should create bundles by choosing stocks that have a certain *similarity* between themselves. In our strategy, the selection method is random, and could be largely optimized. Here is an example of target variable, for ABC_AME_AMGN_APH_ADI bundle, and set = trainset:
 https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/ExampleOfTargetData.txt.
 
 ### Deep Learning Model
 
 #### CNN
-The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists of length 3: &rho; and &eta;. &rho; represents an action value which is the *expected cumulative reward* of an action [Buy, Sell, Do Nothing]. &eta; is a one hot vector market 1 in the same index where &rho; has the maximum action value.
+The model that will learn from our image data is a Convolution Neural Network. The output is a tuple of two lists of length 3: &rho; and &eta;. &rho; represents an action value which is relied to the *expected cumulative reward* of an action [Buy, Sell, Do Nothing]. &eta; is a one hot vector market 1 in the same index where &rho; has the maximum action value.
 
 Our CNN model has 6 hidden layers. It takes W * W * 1 as input, since our image is binary. The first four hidden layers are Convolution layers, followed by a Rectifier non-Linearity Unit(ReLU) and the last two are fully connected layers. Each of the first four hidden layers consists of 16 filters of size 5 * 5 * 1 (*F_size = 5*), 16 filters of size 5 * 5 * 16, 32 filters of size 5 * 5 * 16, and 32 filters of size 5 * 5 * 32, respectively, all with stride 1, zero padding and followed by ReLU. Right after the second and fourth hidden layers, a max-pooling layer with a 2 * 2 (*P_size = 2*) filter and stride 2 (*P_stride = 2*) is applied. The softmax function is not implemented since the output of our CNN is an action value, and not a probability distribution between 0 and 1.
 
 The model is developed here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/convNN.py. We can juggle with these paramaters (F_size, P_size and P_stride) to improve our model. 
 
 #### Q-learning
-It is one of the most common Reinforcement Learning (RL) algorithms. RL algorithms aim to enable an agent to learn optimal policies that means train an agent able to choose the action that would give maximum cumulative reward in a given state. In Q-learning, an agent is trained to acquire the optimal action value which is the expected cumulative reward of each action given the current state. To obtain the optimal action value denoted *Q* (that depends of the state and list of possible actions), an agent should iteratively update the action value using the *Bellman Equation*. An agent chooses action given the current state following behavior policy, and
+It is one of the most common Reinforcement Learning (RL) algorithms. RL algorithms aim to enable an agent to learn optimal policies. That means training an agent able to choose the action that would give maximum cumulative reward in a given state. In Q-learning, an agent is trained to acquire the optimal action value which is the expected cumulative reward of each action given the current state. To obtain the optimal action value denoted *Q* (that depends of the state and list of possible actions), an agent should iteratively update the action value using the *Bellman Equation*. An agent chooses action given the current state following behavior policy, and
 observes reward and next state. The current state correspond to the current iamge data. The action corresponds to the action value (-1 for Sell, 0 for Do Nothing and 1 for Buy). Reward here is defined as the action value times NextRets minus (transaction_costs*(current_state-previous_state)).
 
 We initialize parameters *theta* parameters characterizing our CNN Model. Our target network parameters are *thetastar*
@@ -717,19 +717,19 @@ We will iterate over *maxiter* = 50000 steps and at each step:
 - With probability &epsilon; we set *preA*(previous action or the action of the previous week) randomly; otherwise preA corresponds to the action that gives the best cumulative reward in the previous state. With probability &epsilon; we set *curA*(the current action) randomly, otherwise curA corresponds to the action that gives the best **expected** cumulative reward in the current state. This is the *&epsilon;-greedy policy*. 
 - We update the current state *curS*(current image data), as well as the current reward *curR* and we go to the next state *nxtS*. We define the set {curS, curA, curR, nxtS} that we save in the memory buffer denoted *memory*, of size *M* = 300 here. 
 - If memory is full, delete the oldest experience in memory, else, if the current step denoted *b*, modulo the update interval parameter of parameters *theta*, denoted *B*(B = 10 here), equals 0, we randomly sample a minibatch of batch size *Beta* = 32 from memory, then we apply the Gradient Descent method to the Loss function of this minibatch, with respect to theta, and we update theta as well as our loss function. Is is the **experience replay part**, implemented here: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/exReplay.py
-- If b mod (B * C), where *C* is the update interval parameter of parameters *thetastar*, and is 300 in our case, thetastar = theta.
+- If b mod (B * C) = 0, where *C* is the update interval parameter of parameters *thetastar*, and is 300 in our case, thetastar = theta.
 
 You can find more information about Q-learning here: https://towardsdatascience.com/simple-reinforcement-learning-q-learning-fcddc4b6fe56, or in the article that you will find in the overview of this part.
 
 Our Q-learning whole process is done in the function member *trainModel()* of the class trainModel of this file: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/train.py.
 
 ### Model deployment and Backtesting
-Our model is deploye and bactesting in the Jupyter Notebook https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/DeepLearningTrader.ipynb. Here you can change the paramaters cited above and optimize the strategy. We have a list of companies bundles denoted *bundles_list*. You will see that several bundles have been excluded. After some checks, we find that stocks that aren't coherent between can't form a suitable bundles. A **similarity study of stocks is needed** to create relevant companies bundle and this study is not done here. There is really room for improvement. 
+Our model is deployed and backtested in the Jupyter Notebook: https://github.com/armelf/Financial-Algorithms/blob/main/Equity/Deep%20Learning%20Trading/DeepLearningTrader.ipynb. Here you can change the paramaters cited above and optimize the strategy. We have a list of companies bundles denoted *bundles_list*. You will see that several bundles have been excluded. After some checks, we find that stocks(in excluded bundles) aren't coherent between themselves. A **similarity study of stocks is needed** to create relevant companies bundle and this study is not done here. There is really room for improvement. 
 
 For each bundle in bundles_list:
 - We read input image data & target variable generated above, for trainset. We create an instance of the class trainModel and we apply the function member *trainModel()* to our training data. Our model learns from training data and save its final parameters.
 
-- We then read input image data & target variable, for testset and we apply our trained model to the testing data. The function member *Test_SeveralAssets_Prediction()* of the class trainModel generate the whole backtesting process. Denote that during the bactesting process, we only take *Buy Signals* into account. It is a **long-only strategy**. Finally, we retrieve the outstanding strategy returns for each stock of the bundle *srets*
+- We then read input image data & target variable, for testset and we apply our trained model to the testing data. The function member *Test_SeveralAssets_Prediction()* of the class trainModel generate the whole backtesting process. Denote that during the backtesting process, we only take *Buy Signals* into account. It is a **long-only strategy**. Finally, we retrieve the outstanding strategy returns for each stock of the bundle *srets*
 
 Average monthly returns *avgsrets* corresponds to the average of portfolio stocks strategy returns every month. 
 We compute cumulative returns *cumrets* = 1 + sum(avgsrets) and plot the *equity_curve*. 
